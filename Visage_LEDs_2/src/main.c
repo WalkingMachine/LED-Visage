@@ -22,10 +22,7 @@
 #include "Timer.h"
 
 
-#define DUTYCYCLE_BIT_1 67
-#define DUTYCYCLE_BIT_0 28
-#define PERIOD_RESET 0
-#define NB_LEDS 20
+
 
 
 /************************************/
@@ -57,8 +54,8 @@ int main( ){ /*Enlevé les arguments  "int arc, char **argv", ne servent pas dans
 	Ini_Interrupt_TIM4();
 
 	/*Code pas exécuté. Pourquoi ?*/
-	HAL_GPIO_WritePin(GPIOD, GPIO_PIN_13, GPIO_PIN_SET);
-	HAL_GPIO_WritePin(GPIOD, GPIO_PIN_12, GPIO_PIN_SET);
+	//HAL_GPIO_WritePin(GPIOD, GPIO_PIN_13, GPIO_PIN_SET);
+	//HAL_GPIO_WritePin(GPIOD, GPIO_PIN_12, GPIO_PIN_SET);
 
 
 	while(1){
@@ -68,8 +65,6 @@ int main( ){ /*Enlevé les arguments  "int arc, char **argv", ne servent pas dans
 
 	return EXIT_SUCCESS;
 }
-
-
 
 
 

@@ -9,8 +9,11 @@
 
 #define PERIOD 105
 
+
+
 static int CycleCount = 0;
 static int ResetFlag = 0;
+static int ResetCount =0;
 
 
 void TM_TIMER_PWM_Init(uint32_t duty_cycle){
@@ -113,7 +116,7 @@ void SystemClock_Config(void)
 }
 
 void Modify_PWM(uint32_t duty_cycle){
-	PWMConfig.Pulse = (duty_cycle -1); /* 68% duty cycle */
+	TIM4->CCR3 = (duty_cycle -1); /* 68% duty cycle */
 }
 
 void TIM4_IRQHandler(void)
@@ -123,33 +126,37 @@ void TIM4_IRQHandler(void)
 	HAL_TIM_IRQHandler(&htim4);
 	/* USER CODE BEGIN TIM4_IRQn 0 */
 
-
-
 	int i = 0;
 	int k = 0;
 
 	//i = NVIC_GetPendingIRQ(TIM4_IRQn);
 	//k = NVIC_GetActive(TIM4_IRQn);
 
+	//HAL_GPIO_WritePin(GPIOD, GPIO_PIN_13, GPIO_PIN_SET); //Orange LED
 
 
-	HAL_GPIO_WritePin(GPIOD, GPIO_PIN_13, GPIO_PIN_SET); //Orange LED
-
-	CycleCount++;
 
 		if(CycleCount == MAX_BITS)
 		{
-			HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_12);//Green LED Pour des tests
+			//HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_12);//Green LED Pour des tests
 			CycleCount = 0;
 			ResetFlag = 1;
 		}
 
+		if(ResetFlag){
+			ResetCount++;
+			if(ResetCount == 50){
+				ResetFlag = 0;
+				ResetCount = 0;
+			}
+			Modify_PWM(PERIOD_RESET);
 
-	if(ResetFlag){
-		Modify_PWM(0);
-		ResetFlag = 0;
-	}
+		} else {
+			Modify_PWM(DUTYCYCLE_BIT_1);
+			CycleCount++;
+		}
 	/* USER CODE END TIM4_IRQn 0 */
-
 }
+
+
 

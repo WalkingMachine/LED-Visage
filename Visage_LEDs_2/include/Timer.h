@@ -7,8 +7,12 @@
 TIM_HandleTypeDef htim4;
 TIM_OC_InitTypeDef PWMConfig;
 
-//100 LEDs avec 24 bits pour chaque LED
-#define MAX_BITS 2400
+//10 LEDs avec 24 bits pour chaque LED
+#define MAX_BITS 6
+#define DUTYCYCLE_BIT_1 67
+#define DUTYCYCLE_BIT_0 28
+#define PERIOD_RESET 0
+#define NB_LEDS 20
 
 
 

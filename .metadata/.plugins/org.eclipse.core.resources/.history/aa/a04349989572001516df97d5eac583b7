@@ -1,0 +1,110 @@
+
+// ----------------------------------------------------------------------------
+
+/* Includes ------------------------------------------------------------------*/
+#include <stdio.h>
+#include <stdlib.h>
+#include "diag/Trace.h"
+
+
+/* HAL Drivers Includes ------------------------------------------------------*/
+#include "stm32f4xx.h"
+#include "stm32f4xx_hal_rcc.h"
+#include "stm32f4xx_hal_gpio.h"
+#include "stm32f4xx_hal_tim.h"
+#include "system_stm32f4xx.h"
+
+
+/*MX Cube*/
+#include "stm32f4xx_it.h"
+
+/* Personal Includes ---------------------------------------------------------*/
+#include "Timer.h"
+
+
+#define DUTYCYCLE_BIT_1 67
+#define DUTYCYCLE_BIT_0 28
+#define PERIOD_RESET 0
+#define NB_LEDS 20
+
+
+/************************************/
+/************ PROTOYPES *************/
+/************************************/
+
+
+/*Handler de la séquence d'interruptiton du timer 4*/
+//void TIM4_IRQHandler(void);
+
+/*Global Variables*/
+static int CycleCount = 0;
+static int ResetFlag = 0;
+
+/*******MAIN********/
+int main( ){ /*Enlevé les arguments  "int arc, char **argv", ne servent pas dans l'application*/
+
+
+	uint32_t j,i,k = 0;
+	/*Initialize the system*/
+	SystemInit() ;
+
+	SystemClock_Config();
+	/* Reset of all peripherals, Initializes the Flash interface and the Systick. */
+	HAL_MspInit();
+
+
+	TM_LEDS_Init();
+	TM_TIMER_PWM_Init(DUTYCYCLE_BIT_1);
+	Ini_Interrupt_TIM4();
+
+	/*Code pas exécuté. Pourquoi ?*/
+	//HAL_GPIO_WritePin(GPIOD, GPIO_PIN_13, GPIO_PIN_SET);
+	//HAL_GPIO_WritePin(GPIOD, GPIO_PIN_12, GPIO_PIN_SET);
+
+
+	while(1){
+	  i = NVIC_GetPendingIRQ(TIM4_IRQn);
+	  k = NVIC_GetActive(TIM4_IRQn);
+	}
+
+	return EXIT_SUCCESS;
+}
+
+
+
+void TIM4_IRQHandler(void)
+{
+
+	NVIC_ClearPendingIRQ(TIM4_IRQn);
+	HAL_TIM_IRQHandler(&htim4);
+	/* USER CODE BEGIN TIM4_IRQn 0 */
+
+	int i = 0;
+	int k = 0;
+
+	//i = NVIC_GetPendingIRQ(TIM4_IRQn);
+	//k = NVIC_GetActive(TIM4_IRQn);
+
+	HAL_GPIO_WritePin(GPIOD, GPIO_PIN_13, GPIO_PIN_SET); //Orange LED
+
+	CycleCount++;
+
+		if(CycleCount == MAX_BITS)
+		{
+			HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_12);//Green LED Pour des tests
+			CycleCount = 0;
+			ResetFlag = 1;
+		}
+
+	if(ResetFlag){
+		Modify_PWM(0);
+		ResetFlag = 0;
+	}
+	/* USER CODE END TIM4_IRQn 0 */
+}
+
+
+
+
+
+
