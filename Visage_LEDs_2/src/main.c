@@ -25,7 +25,7 @@
 #define DUTYCYCLE_BIT_1 67
 #define DUTYCYCLE_BIT_0 28
 #define PERIOD_RESET 0
-
+#define NB_LEDS 20
 
 
 /************************************/
@@ -40,10 +40,10 @@
 
 
 /*******MAIN********/
-int main( int arc, char **argv ){
+int main( ){ /*Enlevé les arguments  "int arc, char **argv", ne servent pas dans l'application*/
 
 
-	uint32_t j = 0;
+	uint32_t j,i,k = 0;
 	/*Initialize the system*/
 	SystemInit() ;
 
@@ -62,8 +62,8 @@ int main( int arc, char **argv ){
 
 
 	while(1){
-	//  i = NVIC_GetPendingIRQ(TIM4_IRQn);
-	//	k = NVIC_GetActive(TIM4_IRQn);
+	  i = NVIC_GetPendingIRQ(TIM4_IRQn);
+	  k = NVIC_GetActive(TIM4_IRQn);
 	}
 
 	return EXIT_SUCCESS;
