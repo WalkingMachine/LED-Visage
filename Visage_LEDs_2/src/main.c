@@ -25,7 +25,7 @@
 /************************************/
 /************ PROTOYPES *************/
 /************************************/
-/*LOOK AT THIS BITCHHHHH*/
+/*LOOK AT THIS BITCHH*/
 
 /*Handler de la séquence d'interruptiton du timer 4*/
 //void TIM4_IRQHandler(void);

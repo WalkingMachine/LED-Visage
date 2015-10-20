@@ -1,5 +1,5 @@
-!\LED-Visage\Visage_LEDs_2\src\*
-!\LED-Visage\Visage_LEDs_2\include\*
-!\LED-Visage\Visage_LEDs_2\.project
-!\LED-Visage\Visage_LEDs_2\.cproject
-!\LED-Visage\Visage_LEDs_2\openocd.cfg
+/Visage_LEDs_2/Debug/*
+/Visage_LEDs_2/.settings/*
+/Visage_LEDs_2/ldscripts/*
+/Visage_LEDs_2/system/*
+/Visage_LEDs_2/Visage_LEDs_presets/*
