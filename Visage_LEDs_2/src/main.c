@@ -22,13 +22,10 @@
 #include "Timer.h"
 
 
-
-
-
 /************************************/
 /************ PROTOYPES *************/
 /************************************/
-
+/*LOOK AT THIS BITCHHHHH*/
 
 /*Handler de la séquence d'interruptiton du timer 4*/
 //void TIM4_IRQHandler(void);
