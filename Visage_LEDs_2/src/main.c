@@ -25,10 +25,6 @@
 /************************************/
 /************ PROTOYPES *************/
 /************************************/
-/*LOOK AT THIS BITCHH*/
-
-/*Handler de la séquence d'interruptiton du timer 4*/
-//void TIM4_IRQHandler(void);
 
 /*Global Variables*/
 
@@ -45,15 +41,7 @@ int main( ){ /*Enlevé les arguments  "int arc, char **argv", ne servent pas dans
 	/* Reset of all peripherals, Initializes the Flash interface and the Systick. */
 	HAL_MspInit();
 
-
-	TM_LEDS_Init();
-	TM_TIMER_PWM_Init(DUTYCYCLE_BIT_1);
-	Ini_Interrupt_TIM4();
-
-	/*Code pas exécuté. Pourquoi ?*/
-	//HAL_GPIO_WritePin(GPIOD, GPIO_PIN_13, GPIO_PIN_SET);
-	//HAL_GPIO_WritePin(GPIOD, GPIO_PIN_12, GPIO_PIN_SET);
-
+	ws2812Init(DUTYCYCLE_BIT_1);
 
 	while(1){
 	  i = NVIC_GetPendingIRQ(TIM4_IRQn);
