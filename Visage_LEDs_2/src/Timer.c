@@ -64,20 +64,16 @@ void ws2812Init(uint32_t duty_cycle){
 	PWMConfig.OCNPolarity = TIM_OCNPOLARITY_HIGH;
 	PWMConfig.OCNIdleState = TIM_OCNIDLESTATE_RESET;
 	PWMConfig.OCFastMode = TIM_OCFAST_DISABLE;
+	HAL_TIM_PWM_Init(&htim4);
 	HAL_TIM_PWM_ConfigChannel(&htim4, &PWMConfig, TIM_CHANNEL_3);
-	HAL_TIM_PWM_Start_IT(&htim4,TIM_CHANNEL_3);
 	TIM4->DIER |= (TIM_DIER_UIE | TIM_DIER_CC3IE) ;
-	HAL_NVIC_SetPriorityGrouping(NVIC_PRIORITYGROUP_0);
-	HAL_NVIC_SetPriority(TIM4_IRQn,0,0);
-	NVIC_EnableIRQ(TIM4_IRQn);
+
 
 	/* configure DMA */
 	/* DMA clock enable */
 	__DMA1_CLK_ENABLE();
-	/* DMA1 Channel2 Config */
-	HAL_DMA_DeInit(&hdma1);
 
-	hdma1.Instance = DMA1;
+	hdma1.Instance = DMA1_Stream2;
 	hdma1.Init.Channel = DMA_CHANNEL_2;
 	hdma1.Init.Direction = DMA_MEMORY_TO_PERIPH;
 	hdma1.Init.PeriphInc = DMA_PINC_DISABLE;
@@ -87,8 +83,15 @@ void ws2812Init(uint32_t duty_cycle){
 	hdma1.Init.Mode = DMA_CIRCULAR;
 	hdma1.Init.Priority = DMA_PRIORITY_HIGH;
 	hdma1.Init.FIFOMode = DMA_FIFOMODE_DISABLE;
+	htim4.hdma[TIM_DMA_ID_CC3]=&hdma1;
 	HAL_DMA_Init(&hdma1);
-	HAL_DMA_Start(&hdma1,(uint32_t)led_dma.buffer,(uint32_t)&TIM4->CCR3,sizeof(led_dma.buffer));
+	HAL_TIM_PWM_Start_DMA(&htim4,TIM_CHANNEL_3,(uint32_t)led_dma.buffer,sizeof(led_dma.buffer));
+	DMA1_Stream2->PAR = &(TIM4->CCR3);
+	DMA1_Stream2->M0AR = (uint32_t)led_dma.buffer;
+
+	HAL_NVIC_SetPriorityGrouping(NVIC_PRIORITYGROUP_0);
+	HAL_NVIC_SetPriority(DMA1_Stream2_IRQn,0,0);
+	NVIC_EnableIRQ(DMA1_Stream2_IRQn);
 }
 /*
 void Ini_Interrupt_TIM4(void){ //Implémentée dans TM_TIMER_PWM_Init()
@@ -140,19 +143,17 @@ void Modify_PWM(uint32_t duty_cycle){
 	TIM4->CCR3 = (duty_cycle -1); /* 68% duty cycle */
 }
 
-void TIM4_IRQHandler(void)
+void DMA1_IRQHandler(void)
 {
 
-	NVIC_ClearPendingIRQ(TIM4_IRQn);
+	NVIC_ClearPendingIRQ(DMA1_Stream2_IRQn);
 	HAL_TIM_IRQHandler(&htim4);
 	/* USER CODE BEGIN TIM4_IRQn 0 */
 
-	int i = 0;
-	int k = 0;
-
+	HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_12);//Green LED Pour des tests
 	if(CycleCount == MAX_BITS)
 	{
-		//HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_12);//Green LED Pour des tests
+
 		CycleCount = 0;
 		ResetFlag = 1;
 	}
