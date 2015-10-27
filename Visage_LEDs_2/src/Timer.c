@@ -14,24 +14,22 @@
 static int CycleCount = 0;
 static int ResetFlag = 0;
 static int ResetCount =0;
+
 /*Déclaration des variables de configuration*/
 static GPIO_InitTypeDef GPIO_InitStruct;
 static TIM_HandleTypeDef htim4;
 static TIM_OC_InitTypeDef PWMConfig;
+static DMA_HandleTypeDef hdma1;
 
 static union {
-    uint8_t buffer[2*LED_PER_HALF*24];
-    struct {
-        uint8_t begin[LED_PER_HALF*24];
-        uint8_t end[LED_PER_HALF*24];
-    } __attribute__((packed));
+	uint8_t buffer[2*LED_PER_HALF*24];
+	struct {
+		uint8_t begin[LED_PER_HALF*24];
+		uint8_t end[LED_PER_HALF*24];
+	} __attribute__((packed));
 } led_dma;
 
 void ws2812Init(uint32_t duty_cycle){
-
-	//TIM_HandleTypeDef htim4;
-	//TIM_OC_InitTypeDef PWMConfig;
-
 
 	__GPIOD_CLK_ENABLE();
 	/* GPIOD Configuration: TIM4 Channel 1-2-3-4 as alternate function push-pull */
@@ -77,8 +75,20 @@ void ws2812Init(uint32_t duty_cycle){
 	/* DMA clock enable */
 	__DMA1_CLK_ENABLE();
 	/* DMA1 Channel2 Config */
+	HAL_DMA_DeInit(&hdma1);
 
-
+	hdma1.Instance = DMA1;
+	hdma1.Init.Channel = DMA_CHANNEL_2;
+	hdma1.Init.Direction = DMA_MEMORY_TO_PERIPH;
+	hdma1.Init.PeriphInc = DMA_PINC_DISABLE;
+	hdma1.Init.MemInc = DMA_MINC_ENABLE;
+	hdma1.Init.PeriphDataAlignment = DMA_PDATAALIGN_HALFWORD;
+	hdma1.Init.MemDataAlignment = DMA_MDATAALIGN_BYTE;
+	hdma1.Init.Mode = DMA_CIRCULAR;
+	hdma1.Init.Priority = DMA_PRIORITY_HIGH;
+	hdma1.Init.FIFOMode = DMA_FIFOMODE_DISABLE;
+	HAL_DMA_Init(&hdma1);
+	HAL_DMA_Start(&hdma1,(uint32_t)led_dma.buffer,(uint32_t)&TIM4->CCR3,sizeof(led_dma.buffer));
 }
 /*
 void Ini_Interrupt_TIM4(void){ //Implémentée dans TM_TIMER_PWM_Init()
@@ -89,40 +99,40 @@ void Ini_Interrupt_TIM4(void){ //Implémentée dans TM_TIMER_PWM_Init()
 	NVIC_EnableIRQ(TIM4_IRQn);
 	//NVIC_ClearPendingIRQ(TIM4_IRQn);
 }
-*/
+ */
 
 
 void SystemClock_Config(void)
 {
 
-  RCC_OscInitTypeDef RCC_OscInitStruct;
-  RCC_ClkInitTypeDef RCC_ClkInitStruct;
+	RCC_OscInitTypeDef RCC_OscInitStruct;
+	RCC_ClkInitTypeDef RCC_ClkInitStruct;
 
-  __PWR_CLK_ENABLE();
+	__PWR_CLK_ENABLE();
 
-  __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
+	__HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
 
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
-  RCC_OscInitStruct.HSIState = RCC_HSI_ON;
-  RCC_OscInitStruct.HSICalibrationValue = 16;
-  RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
-  RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI;
-  RCC_OscInitStruct.PLL.PLLM = 16;
-  RCC_OscInitStruct.PLL.PLLN = 336;
-  RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV4;
-  RCC_OscInitStruct.PLL.PLLQ = 4;
-  HAL_RCC_OscConfig(&RCC_OscInitStruct);
+	RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
+	RCC_OscInitStruct.HSIState = RCC_HSI_ON;
+	RCC_OscInitStruct.HSICalibrationValue = 16;
+	RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
+	RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI;
+	RCC_OscInitStruct.PLL.PLLM = 16;
+	RCC_OscInitStruct.PLL.PLLN = 336;
+	RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV4;
+	RCC_OscInitStruct.PLL.PLLQ = 4;
+	HAL_RCC_OscConfig(&RCC_OscInitStruct);
 
-  RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_SYSCLK|RCC_CLOCKTYPE_PCLK1;
-  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
-  RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
-  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV2;
-  RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
-  HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_2);
+	RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_SYSCLK|RCC_CLOCKTYPE_PCLK1;
+	RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
+	RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
+	RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV2;
+	RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
+	HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_2);
 
-  HAL_SYSTICK_Config(HAL_RCC_GetHCLKFreq()/1000);
+	HAL_SYSTICK_Config(HAL_RCC_GetHCLKFreq()/1000);
 
-  HAL_SYSTICK_CLKSourceConfig(SYSTICK_CLKSOURCE_HCLK);
+	HAL_SYSTICK_CLKSourceConfig(SYSTICK_CLKSOURCE_HCLK);
 
 }
 
@@ -140,25 +150,25 @@ void TIM4_IRQHandler(void)
 	int i = 0;
 	int k = 0;
 
-		if(CycleCount == MAX_BITS)
-		{
-			//HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_12);//Green LED Pour des tests
-			CycleCount = 0;
-			ResetFlag = 1;
-		}
+	if(CycleCount == MAX_BITS)
+	{
+		//HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_12);//Green LED Pour des tests
+		CycleCount = 0;
+		ResetFlag = 1;
+	}
 
-		if(ResetFlag){
-			ResetCount++;
-			if(ResetCount == 50){
-				ResetFlag = 0;
-				ResetCount = 0;
-			}
-			Modify_PWM(PERIOD_RESET);
-
-		} else {
-			Modify_PWM(DUTYCYCLE_BIT_1);
-			CycleCount++;
+	if(ResetFlag){
+		ResetCount++;
+		if(ResetCount == 50){
+			ResetFlag = 0;
+			ResetCount = 0;
 		}
+		Modify_PWM(PERIOD_RESET);
+
+	} else {
+		Modify_PWM(DUTYCYCLE_BIT_1);
+		CycleCount++;
+	}
 	/* USER CODE END TIM4_IRQn 0 */
 }
 

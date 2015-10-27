@@ -11,6 +11,7 @@ C_SRCS += \
 ../system/src/stm32f4-hal/stm32f4xx_hal_crc.c \
 ../system/src/stm32f4-hal/stm32f4xx_hal_cryp.c \
 ../system/src/stm32f4-hal/stm32f4xx_hal_cryp_ex.c \
+../system/src/stm32f4-hal/stm32f4xx_hal_dma.c \
 ../system/src/stm32f4-hal/stm32f4xx_hal_gpio.c \
 ../system/src/stm32f4-hal/stm32f4xx_hal_msp_template.c \
 ../system/src/stm32f4-hal/stm32f4xx_hal_nand.c \
@@ -28,6 +29,7 @@ OBJS += \
 ./system/src/stm32f4-hal/stm32f4xx_hal_crc.o \
 ./system/src/stm32f4-hal/stm32f4xx_hal_cryp.o \
 ./system/src/stm32f4-hal/stm32f4xx_hal_cryp_ex.o \
+./system/src/stm32f4-hal/stm32f4xx_hal_dma.o \
 ./system/src/stm32f4-hal/stm32f4xx_hal_gpio.o \
 ./system/src/stm32f4-hal/stm32f4xx_hal_msp_template.o \
 ./system/src/stm32f4-hal/stm32f4xx_hal_nand.o \
@@ -45,6 +47,7 @@ C_DEPS += \
 ./system/src/stm32f4-hal/stm32f4xx_hal_crc.d \
 ./system/src/stm32f4-hal/stm32f4xx_hal_cryp.d \
 ./system/src/stm32f4-hal/stm32f4xx_hal_cryp_ex.d \
+./system/src/stm32f4-hal/stm32f4xx_hal_dma.d \
 ./system/src/stm32f4-hal/stm32f4xx_hal_gpio.d \
 ./system/src/stm32f4-hal/stm32f4xx_hal_msp_template.d \
 ./system/src/stm32f4-hal/stm32f4xx_hal_nand.d \

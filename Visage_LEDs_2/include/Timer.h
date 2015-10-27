@@ -3,6 +3,7 @@
 #define TIMER_H
 #include "cmsis_device.h"
 #include "stm32f4xx_hal_tim.h"
+#include "stm32f4xx_hal_dma.h"
 
 //10 LEDs avec 24 bits pour chaque LEDDD
 #define MAX_BITS 2
