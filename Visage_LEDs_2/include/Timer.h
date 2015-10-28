@@ -19,10 +19,12 @@ void SystemClock_Config(void);
 void ws2812Init(uint32_t duty_cycle);
 void Modify_PWM(uint32_t duty_cycle);
 void HAL_MspInit(void);
+void ws2812Send(uint8_t (*color)[3], uint16_t len);
 
 //Timer Handler
 void TIM4_IRQHandler(void);
-
-
+//DMA Handler
+void DMA1_Stream7_IRQHandler(void);
+void ws2812DmaIsr(void);
 
 #endif

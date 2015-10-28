@@ -43,6 +43,8 @@ int main( ){ /*Enlevé les arguments  "int arc, char **argv", ne servent pas dans
 
 	ws2812Init(DUTYCYCLE_BIT_1);
 
+
+
 	while(1){
 	  i = NVIC_GetPendingIRQ(TIM4_IRQn);
 	  k = NVIC_GetActive(TIM4_IRQn);

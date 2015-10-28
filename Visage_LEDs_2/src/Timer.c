@@ -8,18 +8,21 @@
 #include "Timer.h"
 
 #define PERIOD 105
-
+#define TIMING_ONE  75
+#define TIMING_ZERO 29
 
 
 static int CycleCount = 0;
 static int ResetFlag = 0;
 static int ResetCount =0;
+static int All_LEDs_Done;
 
 /*Déclaration des variables de configuration*/
 static GPIO_InitTypeDef GPIO_InitStruct;
 static TIM_HandleTypeDef htim4;
 static TIM_OC_InitTypeDef PWMConfig;
 static DMA_HandleTypeDef hdma1;
+static int IN_IRQ = 0;
 
 static union {
 	uint8_t buffer[2*LED_PER_HALF*24];
@@ -66,14 +69,12 @@ void ws2812Init(uint32_t duty_cycle){
 	PWMConfig.OCFastMode = TIM_OCFAST_DISABLE;
 	HAL_TIM_PWM_Init(&htim4);
 	HAL_TIM_PWM_ConfigChannel(&htim4, &PWMConfig, TIM_CHANNEL_3);
-	TIM4->DIER |= (TIM_DIER_UIE | TIM_DIER_CC3IE) ;
-
 
 	/* configure DMA */
 	/* DMA clock enable */
 	__DMA1_CLK_ENABLE();
 
-	hdma1.Instance = DMA1_Stream2;
+	hdma1.Instance = DMA1_Stream7;
 	hdma1.Init.Channel = DMA_CHANNEL_2;
 	hdma1.Init.Direction = DMA_MEMORY_TO_PERIPH;
 	hdma1.Init.PeriphInc = DMA_PINC_DISABLE;
@@ -86,24 +87,35 @@ void ws2812Init(uint32_t duty_cycle){
 	htim4.hdma[TIM_DMA_ID_CC3]=&hdma1;
 	HAL_DMA_Init(&hdma1);
 	HAL_TIM_PWM_Start_DMA(&htim4,TIM_CHANNEL_3,(uint32_t)led_dma.buffer,sizeof(led_dma.buffer));
-	DMA1_Stream2->PAR = &(TIM4->CCR3);
-	DMA1_Stream2->M0AR = (uint32_t)led_dma.buffer;
+	DMA1_Stream7->PAR = (uint32_t)&TIM4->CCR3;
+	DMA1_Stream7->M0AR = (uint32_t)led_dma.buffer;
 
 	HAL_NVIC_SetPriorityGrouping(NVIC_PRIORITYGROUP_0);
-	HAL_NVIC_SetPriority(DMA1_Stream2_IRQn,0,0);
-	NVIC_EnableIRQ(DMA1_Stream2_IRQn);
+	HAL_NVIC_SetPriority(DMA1_Stream7_IRQn,0,0);
+	NVIC_EnableIRQ(DMA1_Stream7_IRQn);
 }
-/*
-void Ini_Interrupt_TIM4(void){ //Implémentée dans TM_TIMER_PWM_Init()
 
+static void fillLed(uint16_t *buffer, uint8_t *color)
+{
+    int i;
 
-	HAL_NVIC_SetPriorityGrouping(NVIC_PRIORITYGROUP_0);
-	HAL_NVIC_SetPriority(TIM4_IRQn,0,0);
-	NVIC_EnableIRQ(TIM4_IRQn);
-	//NVIC_ClearPendingIRQ(TIM4_IRQn);
+    for(i=0; i<8; i++) // GREEN data
+	{
+	    buffer[i] = ((color[1]<<i) & 0x0080) ? TIMING_ONE:TIMING_ZERO;
+	}
+	for(i=0; i<8; i++) // RED
+	{
+	    buffer[8+i] = ((color[0]<<i) & 0x0080) ? TIMING_ONE:TIMING_ZERO;
+	}
+	for(i=0; i<8; i++) // BLUE
+	{
+	    buffer[16+i] = ((color[2]<<i) & 0x0080) ? TIMING_ONE:TIMING_ZERO;
+	}
 }
- */
 
+static int current_led = 0;
+static int total_led = 0;
+static uint8_t (*color_led)[3] = NULL;
 
 void SystemClock_Config(void)
 {
@@ -143,34 +155,19 @@ void Modify_PWM(uint32_t duty_cycle){
 	TIM4->CCR3 = (duty_cycle -1); /* 68% duty cycle */
 }
 
-void DMA1_IRQHandler(void)
+void ws2812DmaIsr(void){
+	NVIC_ClearPendingIRQ(DMA1_Stream7_IRQn);
+	DMA1->HIFCR = 0;
+	DMA1->LIFCR = 0;
+	DMA1->HISR = 0;
+	DMA1->LISR = 0;
+	fillLed(&(led_dma.buffer),&color_led);
+}
+
+void DMA1_Stream7_IRQHandler(void)
 {
-
-	NVIC_ClearPendingIRQ(DMA1_Stream2_IRQn);
-	HAL_TIM_IRQHandler(&htim4);
-	/* USER CODE BEGIN TIM4_IRQn 0 */
-
-	HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_12);//Green LED Pour des tests
-	if(CycleCount == MAX_BITS)
-	{
-
-		CycleCount = 0;
-		ResetFlag = 1;
-	}
-
-	if(ResetFlag){
-		ResetCount++;
-		if(ResetCount == 50){
-			ResetFlag = 0;
-			ResetCount = 0;
-		}
-		Modify_PWM(PERIOD_RESET);
-
-	} else {
-		Modify_PWM(DUTYCYCLE_BIT_1);
-		CycleCount++;
-	}
-	/* USER CODE END TIM4_IRQn 0 */
+	ws2812DmaIsr();
+	IN_IRQ = 1;
 }
 
 
