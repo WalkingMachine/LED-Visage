@@ -5,13 +5,15 @@
 #include "stm32f4xx_hal_tim.h"
 #include "stm32f4xx_hal_dma.h"
 
-//10 LEDs avec 24 bits pour chaque LEDDD
-#define MAX_BITS 2
-#define DUTYCYCLE_BIT_1 67
-#define DUTYCYCLE_BIT_0 28
+
+#define TIMING_ONE  75
+#define TIMING_ZERO 29
 #define PERIOD_RESET 0
-#define NB_LEDS 20
-#define LED_PER_HALF 1
+#define PERIOD 105
+
+#define LED_PER_HALF 4
+#define NB_LEDS LED_PER_HALF*2
+#define WS2812_DEADPERIOD 19
 
 
 
@@ -19,7 +21,7 @@ void SystemClock_Config(void);
 void ws2812Init(uint32_t duty_cycle);
 void Modify_PWM(uint32_t duty_cycle);
 void HAL_MspInit(void);
-void ws2812Send(uint8_t (*color)[3], uint16_t len);
+void ws2812Send(uint8_t (*color)[3], int len);
 
 //Timer Handler
 void TIM4_IRQHandler(void);

@@ -66,7 +66,7 @@ src/Timer.o: ../src/Timer.c ../include/Timer.h \
  ../system/include/stm32f4-hal/stm32f4xx_hal_pcd.h \
  ../system/include/stm32f4-hal/stm32f4xx_ll_usb.h \
  ../system/include/stm32f4-hal/stm32f4xx_hal_pcd_ex.h \
- ../system/include/stm32f4-hal/stm32f4xx_hal_hcd.h
+ ../system/include/stm32f4-hal/stm32f4xx_hal_hcd.h ../include/string.h
 
 ../include/Timer.h:
 
@@ -207,3 +207,5 @@ src/Timer.o: ../src/Timer.c ../include/Timer.h \
 ../system/include/stm32f4-hal/stm32f4xx_hal_pcd_ex.h:
 
 ../system/include/stm32f4-hal/stm32f4xx_hal_hcd.h:
+
+../include/string.h:

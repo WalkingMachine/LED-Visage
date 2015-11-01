@@ -6,16 +6,9 @@
  */
 
 #include "Timer.h"
+#include <string.h>
 
-#define PERIOD 105
-#define TIMING_ONE  75
-#define TIMING_ZERO 29
-
-
-static int CycleCount = 0;
-static int ResetFlag = 0;
-static int ResetCount =0;
-static int All_LEDs_Done;
+static int All_LEDs_Done = 0;
 
 /*Déclaration des variables de configuration*/
 static GPIO_InitTypeDef GPIO_InitStruct;
@@ -86,7 +79,7 @@ void ws2812Init(uint32_t duty_cycle){
 	hdma1.Init.FIFOMode = DMA_FIFOMODE_DISABLE;
 	htim4.hdma[TIM_DMA_ID_CC3]=&hdma1;
 	HAL_DMA_Init(&hdma1);
-	HAL_TIM_PWM_Start_DMA(&htim4,TIM_CHANNEL_3,(uint32_t)led_dma.buffer,sizeof(led_dma.buffer));
+
 	DMA1_Stream7->PAR = (uint32_t)&TIM4->CCR3;
 	DMA1_Stream7->M0AR = (uint32_t)led_dma.buffer;
 
@@ -151,23 +144,83 @@ void SystemClock_Config(void)
 
 }
 
-void Modify_PWM(uint32_t duty_cycle){
-	TIM4->CCR3 = (duty_cycle -1); /* 68% duty cycle */
+void ws2812Send(uint8_t (*color)[3], int len)
+{
+    int i;
+	if(len<1) return;
+
+	// Set interrupt context ...
+	current_led = 0;
+	total_led = len;
+	color_led = color;
+
+    for(i=0; (i<LED_PER_HALF) && (current_led<total_led+2); i++, current_led++) {
+        if (current_led<total_led)
+            fillLed(led_dma.begin+(24*i), color_led[current_led]);
+        else
+            bzero(led_dma.begin+(24*i), 24);
+    }
+
+    for(i=0; (i<LED_PER_HALF) && (current_led<total_led+2); i++, current_led++) {
+        if (current_led<total_led)
+            fillLed(led_dma.end+(24*i), color_led[current_led]);
+        else
+            bzero(led_dma.end+(24*i), 24);
+    }
+
+    HAL_TIM_PWM_Start_DMA(&htim4,TIM_CHANNEL_3,(uint32_t)led_dma.buffer,sizeof(led_dma.buffer));// enable DMA channel 3
+    __TIM4_CLK_ENABLE();                      // Go!!!
+    All_LEDs_Done = 0;
 }
 
 void ws2812DmaIsr(void){
 	NVIC_ClearPendingIRQ(DMA1_Stream7_IRQn);
 	DMA1->HIFCR = 0;
-	DMA1->LIFCR = 0;
 	DMA1->HISR = 0;
-	DMA1->LISR = 0;
-	fillLed(&(led_dma.buffer),&color_led);
+	static  uint8_t DMA_finished = 0;
+	 uint16_t * buffer;
+	    int i;
+
+	    if (total_led == 0)
+	    {
+	    	__TIM4_CLK_DISABLE();
+	    	DMA1_Stream7->CR &=  ~DMA_SxCR_EN; //DMA1 Stream7 Disabled
+	    }
+
+	    if (DMA1->HISR & DMA_FLAG_HTIF3_7)
+	    {
+	    	DMA1->HIFCR = DMA1->HIFCR | DMA_FLAG_HTIF3_7;//(DMA1->HIFCR = DMA_FLAG_HTIF3_7;)
+	    	buffer = led_dma.begin;
+	    }
+
+	    if (DMA1->HISR & DMA_FLAG_TCIF3_7)
+	    {
+	    	DMA1->HIFCR = DMA1->HIFCR | DMA_FLAG_TCIF3_7;//DMA1->HIFCR = DMA_FLAG_TCIF3_7;
+	    	buffer = led_dma.end;
+	    }
+
+	    for(i=0; (i<LED_PER_HALF) && (current_led<total_led+2); i++, current_led++) {
+	      if (current_led<total_led)
+	          fillLed(buffer+(24*i), color_led[current_led]);
+	      else
+	          bzero(buffer+(24*i), sizeof(led_dma.end));
+	    }
+
+	    if(All_LEDs_Done < 100){
+	    	if (current_led >= total_led+2) {
+	    		All_LEDs_Done++;
+				__TIM4_CLK_DISABLE();
+				DMA1_Stream7->CR &=  ~DMA_SxCR_EN; //DMA1 Stream7 Disabled
+				total_led = 0;
+			}
+	    }
+
 }
 
 void DMA1_Stream7_IRQHandler(void)
 {
 	ws2812DmaIsr();
-	IN_IRQ = 1;
+	IN_IRQ++;
 }
 
 
