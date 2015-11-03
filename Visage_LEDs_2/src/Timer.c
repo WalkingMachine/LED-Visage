@@ -1,14 +1,20 @@
 /*
  * Timer.c
+
  *
  *  Created on: 2015-09-12
  *      Author: Samuel Otis
  */
 
-#include "Timer.h"
 #include <string.h>
+#include "Timer.h"
 
-static int All_LEDs_Done = 0;
+#include "FreeRTOS.h"
+#include "semphr.h"
+
+
+
+static xSemaphoreHandle allLedDone = NULL;
 
 /*Déclaration des variables de configuration*/
 static GPIO_InitTypeDef GPIO_InitStruct;
@@ -86,6 +92,8 @@ void ws2812Init(uint32_t duty_cycle){
 	HAL_NVIC_SetPriorityGrouping(NVIC_PRIORITYGROUP_0);
 	HAL_NVIC_SetPriority(DMA1_Stream7_IRQn,0,0);
 	NVIC_EnableIRQ(DMA1_Stream7_IRQn);
+
+	vSemaphoreCreateBinary(allLedDone);
 }
 
 static void fillLed(uint16_t *buffer, uint8_t *color)
@@ -149,6 +157,9 @@ void ws2812Send(uint8_t (*color)[3], int len)
     int i;
 	if(len<1) return;
 
+	//Wait for previous transfer to be finished
+	xSemaphoreTake(allLedDone, portMAX_DELAY);
+
 	// Set interrupt context ...
 	current_led = 0;
 	total_led = len;
@@ -167,19 +178,17 @@ void ws2812Send(uint8_t (*color)[3], int len)
         else
             bzero(led_dma.end+(24*i), 24);
     }
-
-    HAL_TIM_PWM_Start_DMA(&htim4,TIM_CHANNEL_3,(uint32_t)led_dma.buffer,sizeof(led_dma.buffer));// enable DMA channel 3
-    __TIM4_CLK_ENABLE();                      // Go!!!
-    All_LEDs_Done = 0;
+		HAL_TIM_PWM_Start_DMA(&htim4,TIM_CHANNEL_3,(uint32_t)led_dma.buffer,sizeof(led_dma.buffer));// enable DMA channel 3
+		__TIM4_CLK_ENABLE();                      // Go!!!
 }
 
 void ws2812DmaIsr(void){
-	NVIC_ClearPendingIRQ(DMA1_Stream7_IRQn);
-	DMA1->HIFCR = 0;
-	DMA1->HISR = 0;
+	portBASE_TYPE xHigherPriorityTaskWoken;
 	static  uint8_t DMA_finished = 0;
-	 uint16_t * buffer;
-	    int i;
+	uint16_t * buffer;
+	int i;
+
+
 
 	    if (total_led == 0)
 	    {
@@ -206,14 +215,18 @@ void ws2812DmaIsr(void){
 	          bzero(buffer+(24*i), sizeof(led_dma.end));
 	    }
 
-	    if(All_LEDs_Done < 100){
-	    	if (current_led >= total_led+2) {
-	    		All_LEDs_Done++;
-				__TIM4_CLK_DISABLE();
-				DMA1_Stream7->CR &=  ~DMA_SxCR_EN; //DMA1 Stream7 Disabled
-				total_led = 0;
-			}
-	    }
+		if (current_led >= total_led+2) {
+			xSemaphoreGiveFromISR(allLedDone, &xHigherPriorityTaskWoken);
+			__TIM4_CLK_DISABLE();
+			DMA1_Stream7->CR &=  ~DMA_SxCR_EN; //DMA1 Stream7 Disabled
+			total_led = 0;
+		}
+
+
+
+
+
+
 
 }
 

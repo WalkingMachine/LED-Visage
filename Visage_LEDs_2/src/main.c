@@ -4,6 +4,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include <stdio.h>
 #include <stdlib.h>
+#include "task.h"
 
 #include "diag/Trace.h"
 
@@ -15,11 +16,13 @@
 #include "stm32f4xx_hal_tim.h"
 #include "system_stm32f4xx.h"
 
-
 /*MX Cube*/
 #include "stm32f4xx_it.h"
 
 /* Personal Includes ---------------------------------------------------------*/
+#include "FreeRTOS.h"
+#include "semphr.h"
+
 #include "Timer.h"
 
 
@@ -57,8 +60,18 @@ int main( ){
 }
 
 
+void vApplicationTickHook(void){
 
+}
+void vApplicationStackOverflowHook(TaskHandle_t pxTask, char *pcTaskName){
 
+}
+void vApplicationMallocFailedHook(void){
+
+}
+void vApplicationIdleHook(void){
+
+}
 
 
 
