@@ -6,6 +6,7 @@
  *      Author: Samuel Otis
  */
 
+<<<<<<< HEAD
 #include <string.h>
 #include "Timer.h"
 
@@ -15,6 +16,19 @@
 
 
 //static xSemaphoreHandle allLedDone = NULL;
+=======
+#include "Timer.h"
+
+#define PERIOD 105
+#define TIMING_ONE  75
+#define TIMING_ZERO 29
+
+
+static int CycleCount = 0;
+static int ResetFlag = 0;
+static int ResetCount =0;
+static int All_LEDs_Done;
+>>>>>>> parent of 16f6231... DMA mis en place, mauvaise valeur transférée dans TIM4_CCR3
 
 /*D�claration des variables de configuration*/
 static GPIO_InitTypeDef GPIO_InitStruct;
@@ -85,7 +99,7 @@ void ws2812Init(uint32_t duty_cycle){
 	hdma1.Init.FIFOMode = DMA_FIFOMODE_DISABLE;
 	htim4.hdma[TIM_DMA_ID_CC3]=&hdma1;
 	HAL_DMA_Init(&hdma1);
-
+	HAL_TIM_PWM_Start_DMA(&htim4,TIM_CHANNEL_3,(uint32_t)led_dma.buffer,sizeof(led_dma.buffer));
 	DMA1_Stream7->PAR = (uint32_t)&TIM4->CCR3;
 	DMA1_Stream7->M0AR = (uint32_t)led_dma.buffer;
 
@@ -152,6 +166,7 @@ void SystemClock_Config(void)
 
 }
 
+<<<<<<< HEAD
 void ws2812Send(uint8_t (*color)[3], int len)
 {
     int i;
@@ -228,12 +243,25 @@ void ws2812DmaIsr(void){
 
 
 
+=======
+void Modify_PWM(uint32_t duty_cycle){
+	TIM4->CCR3 = (duty_cycle -1); /* 68% duty cycle */
+}
+
+void ws2812DmaIsr(void){
+	NVIC_ClearPendingIRQ(DMA1_Stream7_IRQn);
+	DMA1->HIFCR = 0;
+	DMA1->LIFCR = 0;
+	DMA1->HISR = 0;
+	DMA1->LISR = 0;
+	fillLed(&(led_dma.buffer),&color_led);
+>>>>>>> parent of 16f6231... DMA mis en place, mauvaise valeur transférée dans TIM4_CCR3
 }
 
 void DMA1_Stream7_IRQHandler(void)
 {
 	ws2812DmaIsr();
-	IN_IRQ++;
+	IN_IRQ = 1;
 }
 
 

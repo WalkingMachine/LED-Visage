@@ -4,8 +4,11 @@
 /* Includes ------------------------------------------------------------------*/
 #include <stdio.h>
 #include <stdlib.h>
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> parent of 16f6231... DMA mis en place, mauvaise valeur transférée dans TIM4_CCR3
 #include "diag/Trace.h"
 
 
@@ -33,12 +36,12 @@
 
 /*Global Variables*/
 
-/*******MAIN********/
-int main( ){
-	uint8_t WHITE[] = {0xff, 0xff, 0xff};
 
-	HAL_DMA_StateTypeDef i;
-	uint32_t j,k = 0;
+/*******MAIN********/
+int main( ){ /*Enlev� les arguments  "int arc, char **argv", ne servent pas dans l'application*/
+
+
+	uint32_t j,i,k = 0;
 	/*Initialize the system*/
 	SystemInit() ;
 
@@ -46,15 +49,13 @@ int main( ){
 	/* Reset of all peripherals, Initializes the Flash interface and the Systick. */
 	HAL_MspInit();
 
-	ws2812Init(TIMING_ZERO);
+	ws2812Init(DUTYCYCLE_BIT_1);
 
 
 
 	while(1){
-	  i = DMA1->HISR;
-	  j = DMA1_Stream7->NDTR;
+	  i = NVIC_GetPendingIRQ(TIM4_IRQn);
 	  k = NVIC_GetActive(TIM4_IRQn);
-	  ws2812Send(&WHITE, NB_LEDS);
 	}
 
 	return EXIT_SUCCESS;
