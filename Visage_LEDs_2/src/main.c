@@ -5,8 +5,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> parent of 16f6231... DMA mis en place, mauvaise valeur transférée dans TIM4_CCR3
 =======
 >>>>>>> parent of 16f6231... DMA mis en place, mauvaise valeur transférée dans TIM4_CCR3
 #include "diag/Trace.h"

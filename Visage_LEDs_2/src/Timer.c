@@ -7,6 +7,7 @@
  */
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include <string.h>
 #include "Timer.h"
 
@@ -17,6 +18,8 @@
 
 //static xSemaphoreHandle allLedDone = NULL;
 =======
+=======
+>>>>>>> parent of 16f6231... DMA mis en place, mauvaise valeur transférée dans TIM4_CCR3
 #include "Timer.h"
 
 #define PERIOD 105
@@ -28,6 +31,9 @@ static int CycleCount = 0;
 static int ResetFlag = 0;
 static int ResetCount =0;
 static int All_LEDs_Done;
+<<<<<<< HEAD
+>>>>>>> parent of 16f6231... DMA mis en place, mauvaise valeur transférée dans TIM4_CCR3
+=======
 >>>>>>> parent of 16f6231... DMA mis en place, mauvaise valeur transférée dans TIM4_CCR3
 
 /*D�claration des variables de configuration*/
@@ -167,6 +173,7 @@ void SystemClock_Config(void)
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 void ws2812Send(uint8_t (*color)[3], int len)
 {
     int i;
@@ -249,12 +256,22 @@ void Modify_PWM(uint32_t duty_cycle){
 }
 
 void ws2812DmaIsr(void){
+=======
+void Modify_PWM(uint32_t duty_cycle){
+	TIM4->CCR3 = (duty_cycle -1); /* 68% duty cycle */
+}
+
+void ws2812DmaIsr(void){
+>>>>>>> parent of 16f6231... DMA mis en place, mauvaise valeur transférée dans TIM4_CCR3
 	NVIC_ClearPendingIRQ(DMA1_Stream7_IRQn);
 	DMA1->HIFCR = 0;
 	DMA1->LIFCR = 0;
 	DMA1->HISR = 0;
 	DMA1->LISR = 0;
 	fillLed(&(led_dma.buffer),&color_led);
+<<<<<<< HEAD
+>>>>>>> parent of 16f6231... DMA mis en place, mauvaise valeur transférée dans TIM4_CCR3
+=======
 >>>>>>> parent of 16f6231... DMA mis en place, mauvaise valeur transférée dans TIM4_CCR3
 }
 

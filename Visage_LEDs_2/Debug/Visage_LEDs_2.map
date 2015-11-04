@@ -1,10 +1,13 @@
 Archive member included because of file (symbol)
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 c:/program files (x86)/gnu tools arm embedded/4.9 2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-bzero.o)
                               ./src/Timer.o (bzero)
 c:/program files (x86)/gnu tools arm embedded/4.9 2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-errno.o)
 =======
+=======
+>>>>>>> parent of 16f6231... DMA mis en place, mauvaise valeur transférée dans TIM4_CCR3
 c:/program files (x86)/gnu tools arm embedded/4.9 2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m\libg_nano.a(lib_a-errno.o)
 >>>>>>> parent of 16f6231... DMA mis en place, mauvaise valeur transférée dans TIM4_CCR3
                               ./system/src/newlib/_sbrk.o (__errno)
@@ -2093,6 +2096,7 @@ Discarded input sections
  .rodata.str1.4
                 0x00000000       0x31 ./system/src/stm32f4-hal/stm32f4xx_hal_tim_ex.o
 <<<<<<< HEAD
+<<<<<<< HEAD
  .debug_info    0x00000000     0x18ee ./system/src/stm32f4-hal/stm32f4xx_hal_tim_ex.o
  .debug_abbrev  0x00000000      0x22c ./system/src/stm32f4-hal/stm32f4xx_hal_tim_ex.o
  .debug_loc     0x00000000      0xc76 ./system/src/stm32f4-hal/stm32f4xx_hal_tim_ex.o
@@ -2102,6 +2106,8 @@ Discarded input sections
  .debug_macro   0x00000000      0x444 ./system/src/stm32f4-hal/stm32f4xx_hal_tim_ex.o
  .debug_macro   0x00000000      0x892 ./system/src/stm32f4-hal/stm32f4xx_hal_tim_ex.o
 =======
+=======
+>>>>>>> parent of 16f6231... DMA mis en place, mauvaise valeur transférée dans TIM4_CCR3
  .debug_macro   0x00000000      0x88c ./system/src/stm32f4-hal/stm32f4xx_hal_tim_ex.o
 >>>>>>> parent of 16f6231... DMA mis en place, mauvaise valeur transférée dans TIM4_CCR3
  .debug_macro   0x00000000      0x250 ./system/src/stm32f4-hal/stm32f4xx_hal_tim_ex.o
@@ -2193,12 +2199,15 @@ Discarded input sections
  .debug_macro   0x00000000       0x75 ./system/src/stm32f4-hal/stm32f4xx_hal_tim_ex.o
  .debug_macro   0x00000000      0x126 ./system/src/stm32f4-hal/stm32f4xx_hal_tim_ex.o
 <<<<<<< HEAD
+<<<<<<< HEAD
  .debug_line    0x00000000     0x140f ./system/src/stm32f4-hal/stm32f4xx_hal_tim_ex.o
  .debug_str     0x00000000    0x9b177 ./system/src/stm32f4-hal/stm32f4xx_hal_tim_ex.o
  .comment       0x00000000       0x71 ./system/src/stm32f4-hal/stm32f4xx_hal_tim_ex.o
  .debug_frame   0x00000000      0x3e4 ./system/src/stm32f4-hal/stm32f4xx_hal_tim_ex.o
  .ARM.attributes
                 0x00000000       0x37 ./system/src/stm32f4-hal/stm32f4xx_hal_tim_ex.o
+=======
+>>>>>>> parent of 16f6231... DMA mis en place, mauvaise valeur transférée dans TIM4_CCR3
 =======
 >>>>>>> parent of 16f6231... DMA mis en place, mauvaise valeur transférée dans TIM4_CCR3
  .group         0x00000000        0x8 ./system/src/newlib/_cxx.o
@@ -3398,6 +3407,7 @@ Discarded input sections
  .data          0x00000000        0x0 ./src/Timer.o
  .bss           0x00000000        0x0 ./src/Timer.o
 <<<<<<< HEAD
+<<<<<<< HEAD
  .debug_macro   0x00000000      0x892 ./src/Timer.o
  .debug_macro   0x00000000       0x58 ./src/Timer.o
  .debug_macro   0x00000000       0x22 ./src/Timer.o
@@ -3412,6 +3422,8 @@ Discarded input sections
  .debug_macro   0x00000000      0x27a ./src/Timer.o
  .debug_macro   0x00000000       0x35 ./src/Timer.o
 =======
+=======
+>>>>>>> parent of 16f6231... DMA mis en place, mauvaise valeur transférée dans TIM4_CCR3
  .text.Modify_PWM
                 0x00000000        0xc ./src/Timer.o
  .debug_macro   0x00000000      0x88c ./src/Timer.o
@@ -4259,11 +4271,14 @@ Discarded input sections
  .debug_macro   0x00000000       0x75 ./src/stm32f4xx_it.o
  .debug_macro   0x00000000      0x126 ./src/stm32f4xx_it.o
 <<<<<<< HEAD
+<<<<<<< HEAD
  .debug_macro   0x00000000       0x2e ./src/stm32f4xx_it.o
  .debug_line    0x00000000      0x94c ./src/stm32f4xx_it.o
  .debug_str     0x00000000    0x9a718 ./src/stm32f4xx_it.o
  .comment       0x00000000       0x71 ./src/stm32f4xx_it.o
 =======
+=======
+>>>>>>> parent of 16f6231... DMA mis en place, mauvaise valeur transférée dans TIM4_CCR3
  .debug_macro   0x00000000       0x28 ./src/stm32f4xx_it.o
  .text          0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m\libg_nano.a(lib_a-errno.o)
  .data          0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m\libg_nano.a(lib_a-errno.o)
@@ -4361,7 +4376,11 @@ END GROUP
                 0x2001fc00                PROVIDE (_Main_Stack_Limit, __Main_Stack_Limit)
                 0x00000100                _Minimum_Stack_Size = 0x100
 <<<<<<< HEAD
+<<<<<<< HEAD
                 0x200001c0                PROVIDE (_Heap_Begin, _end_noinit)
+=======
+                0x20000128                PROVIDE (_Heap_Begin, _end_noinit)
+>>>>>>> parent of 16f6231... DMA mis en place, mauvaise valeur transférée dans TIM4_CCR3
 =======
                 0x20000128                PROVIDE (_Heap_Begin, _end_noinit)
 >>>>>>> parent of 16f6231... DMA mis en place, mauvaise valeur transférée dans TIM4_CCR3
@@ -4482,10 +4501,17 @@ END GROUP
 .inits          0x08000330       0x28
                 0x08000330                __data_regions_array_start = .
 <<<<<<< HEAD
+<<<<<<< HEAD
                 0x08000330        0x4 LONG 0x8002484 LOADADDR (.data)
                 0x08000334        0x4 LONG 0x20000000 ADDR (.data)
                 0x08000338        0x4 LONG 0x20000024 (ADDR (.data) + SIZEOF (.data))
                 0x0800033c        0x4 LONG 0x8002484 LOADADDR (.data_CCMRAM)
+=======
+                0x08000330        0x4 LONG 0x8002438 LOADADDR (.data)
+                0x08000334        0x4 LONG 0x20000000 ADDR (.data)
+                0x08000338        0x4 LONG 0x20000024 (ADDR (.data) + SIZEOF (.data))
+                0x0800033c        0x4 LONG 0x8002438 LOADADDR (.data_CCMRAM)
+>>>>>>> parent of 16f6231... DMA mis en place, mauvaise valeur transférée dans TIM4_CCR3
 =======
                 0x08000330        0x4 LONG 0x8002438 LOADADDR (.data)
                 0x08000334        0x4 LONG 0x20000000 ADDR (.data)
@@ -4498,7 +4524,11 @@ END GROUP
                 0x08000348                __bss_regions_array_start = .
                 0x08000348        0x4 LONG 0x20000024 ADDR (.bss)
 <<<<<<< HEAD
+<<<<<<< HEAD
                 0x0800034c        0x4 LONG 0x200001c0 (ADDR (.bss) + SIZEOF (.bss))
+=======
+                0x0800034c        0x4 LONG 0x20000128 (ADDR (.bss) + SIZEOF (.bss))
+>>>>>>> parent of 16f6231... DMA mis en place, mauvaise valeur transférée dans TIM4_CCR3
 =======
                 0x0800034c        0x4 LONG 0x20000128 (ADDR (.bss) + SIZEOF (.bss))
 >>>>>>> parent of 16f6231... DMA mis en place, mauvaise valeur transférée dans TIM4_CCR3
@@ -4528,7 +4558,11 @@ END GROUP
  *(.flashtext .flashtext.*)
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 .text           0x08000358     0x212b
+=======
+.text           0x08000358     0x20e0
+>>>>>>> parent of 16f6231... DMA mis en place, mauvaise valeur transférée dans TIM4_CCR3
 =======
 .text           0x08000358     0x20e0
 >>>>>>> parent of 16f6231... DMA mis en place, mauvaise valeur transférée dans TIM4_CCR3
@@ -4798,6 +4832,9 @@ END GROUP
  .rodata.str1.4
                 0x08002408       0x30 ./system/src/stm32f4-hal/stm32f4xx_hal_tim.o
                                  0x2e (size before relaxing)
+<<<<<<< HEAD
+>>>>>>> parent of 16f6231... DMA mis en place, mauvaise valeur transférée dans TIM4_CCR3
+=======
 >>>>>>> parent of 16f6231... DMA mis en place, mauvaise valeur transférée dans TIM4_CCR3
  *(vtable)
  *(.eh_frame*)
@@ -4806,6 +4843,7 @@ END GROUP
  *(.glue_7t)
  .glue_7t       0x00000000        0x0 linker stubs
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 .vfp11_veneer   0x08002484        0x0
  .vfp11_veneer  0x00000000        0x0 linker stubs
@@ -4829,10 +4867,23 @@ END GROUP
 
 .rel.dyn        0x08002438        0x0
 >>>>>>> parent of 16f6231... DMA mis en place, mauvaise valeur transférée dans TIM4_CCR3
+=======
+.vfp11_veneer   0x08002438        0x0
+ .vfp11_veneer  0x00000000        0x0 linker stubs
+
+.v4_bx          0x08002438        0x0
+ .v4_bx         0x00000000        0x0 linker stubs
+
+.iplt           0x08002438        0x0
+ .iplt          0x00000000        0x0 ./system/src/stm32f4-hal/stm32f4xx_hal.o
+
+.rel.dyn        0x08002438        0x0
+>>>>>>> parent of 16f6231... DMA mis en place, mauvaise valeur transférée dans TIM4_CCR3
  .rel.iplt      0x00000000        0x0 ./system/src/stm32f4-hal/stm32f4xx_hal.o
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
+<<<<<<< HEAD
 <<<<<<< HEAD
                 0x08002484                . = ALIGN (0x4)
                 0x08002484                __exidx_start = .
@@ -4852,6 +4903,8 @@ END GROUP
 
 .data           0x20000000       0x24 load address 0x08002484
 =======
+=======
+>>>>>>> parent of 16f6231... DMA mis en place, mauvaise valeur transférée dans TIM4_CCR3
                 0x08002438                . = ALIGN (0x4)
                 0x08002438                __exidx_start = .
 
@@ -4869,6 +4922,9 @@ END GROUP
                 0x08002438                _sidata = LOADADDR (.data)
 
 .data           0x20000000       0x24 load address 0x08002438
+<<<<<<< HEAD
+>>>>>>> parent of 16f6231... DMA mis en place, mauvaise valeur transférée dans TIM4_CCR3
+=======
 >>>>>>> parent of 16f6231... DMA mis en place, mauvaise valeur transférée dans TIM4_CCR3
  FILL mask 0xff
                 0x20000000                _sdata = .
@@ -4891,7 +4947,11 @@ END GROUP
                 0x20000024                __data_end__ = .
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 .igot.plt       0x20000024        0x0 load address 0x080024a8
+=======
+.igot.plt       0x20000024        0x0 load address 0x0800245c
+>>>>>>> parent of 16f6231... DMA mis en place, mauvaise valeur transférée dans TIM4_CCR3
 =======
 .igot.plt       0x20000024        0x0 load address 0x0800245c
 >>>>>>> parent of 16f6231... DMA mis en place, mauvaise valeur transférée dans TIM4_CCR3
@@ -4901,7 +4961,11 @@ END GROUP
  *(.bss.CCMRAM .bss.CCMRAM.*)
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 .bss            0x20000024      0x19c
+=======
+.bss            0x20000024      0x104
+>>>>>>> parent of 16f6231... DMA mis en place, mauvaise valeur transférée dans TIM4_CCR3
 =======
 .bss            0x20000024      0x104
 >>>>>>> parent of 16f6231... DMA mis en place, mauvaise valeur transférée dans TIM4_CCR3
@@ -4914,6 +4978,7 @@ END GROUP
  .bss.name.4156
                 0x2000002c        0x1 ./system/src/newlib/_syscalls.o
  *fill*         0x2000002d        0x3 
+<<<<<<< HEAD
 <<<<<<< HEAD
  .bss.total_led
                 0x20000030        0x4 ./src/Timer.o
@@ -4948,15 +5013,33 @@ END GROUP
  .bss.led_dma   0x200000f4       0x30 ./src/Timer.o
  *(COMMON)
  *(.bss_end .bss_end.*)
+=======
+ .bss.hdma1     0x20000030       0x50 ./src/Timer.o
+ .bss.IN_IRQ    0x20000080        0x4 ./src/Timer.o
+ .bss.htim4     0x20000084       0x3c ./src/Timer.o
+ .bss.PWMConfig
+                0x200000c0       0x1c ./src/Timer.o
+ .bss.color_led
+                0x200000dc        0x4 ./src/Timer.o
+ .bss.GPIO_InitStruct
+                0x200000e0       0x14 ./src/Timer.o
+ .bss.led_dma   0x200000f4       0x30 ./src/Timer.o
+ *(COMMON)
+ *(.bss_end .bss_end.*)
+>>>>>>> parent of 16f6231... DMA mis en place, mauvaise valeur transférée dans TIM4_CCR3
  .bss_end       0x20000124        0x4 ./system/src/newlib/_startup.o
                 0x20000128                . = ALIGN (0x4)
                 0x20000128                __bss_end__ = .
                 0x20000128                _ebss = .
+<<<<<<< HEAD
+>>>>>>> parent of 16f6231... DMA mis en place, mauvaise valeur transférée dans TIM4_CCR3
+=======
 >>>>>>> parent of 16f6231... DMA mis en place, mauvaise valeur transférée dans TIM4_CCR3
 
 .noinit_CCMRAM
  *(.noinit.CCMRAM .noinit.CCMRAM.*)
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 .noinit         0x200001c0        0x0
                 0x200001c0                _noinit = .
@@ -4971,6 +5054,21 @@ END GROUP
 ._check_stack   0x200001c0      0x100
                 0x200002c0                . = (. + _Minimum_Stack_Size)
  *fill*         0x200001c0      0x100 
+=======
+.noinit         0x20000128        0x0
+                0x20000128                _noinit = .
+ *(.noinit .noinit.*)
+                0x20000128                . = ALIGN (0x4)
+                0x20000128                _end_noinit = .
+                0x20000128                PROVIDE (end, _end_noinit)
+                0x20000128                PROVIDE (_end, _end_noinit)
+                0x20000128                PROVIDE (__end, _end_noinit)
+                0x20000128                PROVIDE (__end__, _end_noinit)
+
+._check_stack   0x20000128      0x100
+                0x20000228                . = (. + _Minimum_Stack_Size)
+ *fill*         0x20000128      0x100 
+>>>>>>> parent of 16f6231... DMA mis en place, mauvaise valeur transférée dans TIM4_CCR3
 =======
 .noinit         0x20000128        0x0
                 0x20000128                _noinit = .
@@ -5071,6 +5169,7 @@ END GROUP
  .ARM.attributes
                 0x0000014a       0x37 ./system/src/newlib/_exit.o
  .ARM.attributes
+<<<<<<< HEAD
                 0x00000181       0x37 ./system/src/newlib/_startup.o
  .ARM.attributes
                 0x000001b8       0x37 ./system/src/newlib/_syscalls.o
@@ -5123,6 +5222,35 @@ END GROUP
  .ARM.attributes
                 0x000003c9       0x33 ./src/stm32f4xx_it.o
 >>>>>>> parent of 16f6231... DMA mis en place, mauvaise valeur transférée dans TIM4_CCR3
+=======
+                0x00000132       0x33 ./system/src/stm32f4-hal/stm32f4xx_hal_tim_ex.o
+ .ARM.attributes
+                0x00000165       0x33 ./system/src/newlib/_exit.o
+ .ARM.attributes
+                0x00000198       0x33 ./system/src/newlib/_startup.o
+ .ARM.attributes
+                0x000001cb       0x33 ./system/src/newlib/_syscalls.o
+ .ARM.attributes
+                0x000001fe       0x33 ./system/src/newlib/assert.o
+ .ARM.attributes
+                0x00000231       0x33 ./system/src/cortexm/_initialize_hardware.o
+ .ARM.attributes
+                0x00000264       0x33 ./system/src/cortexm/exception_handlers.o
+ .ARM.attributes
+                0x00000297       0x33 ./system/src/cmsis/system_stm32f4xx.o
+ .ARM.attributes
+                0x000002ca       0x33 ./system/src/cmsis/vectors_stm32f4xx.o
+ .ARM.attributes
+                0x000002fd       0x33 ./src/Timer.o
+ .ARM.attributes
+                0x00000330       0x33 ./src/_initialize_hardware.o
+ .ARM.attributes
+                0x00000363       0x33 ./src/main.o
+ .ARM.attributes
+                0x00000396       0x33 ./src/stm32f4xx_hal_msp.o
+ .ARM.attributes
+                0x000003c9       0x33 ./src/stm32f4xx_it.o
+>>>>>>> parent of 16f6231... DMA mis en place, mauvaise valeur transférée dans TIM4_CCR3
 
 .debug
  *(.debug)
@@ -5137,7 +5265,11 @@ END GROUP
  *(.debug_sfnames)
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 .debug_aranges  0x00000000      0x870
+=======
+.debug_aranges  0x00000000      0x9d0
+>>>>>>> parent of 16f6231... DMA mis en place, mauvaise valeur transférée dans TIM4_CCR3
 =======
 .debug_aranges  0x00000000      0x9d0
 >>>>>>> parent of 16f6231... DMA mis en place, mauvaise valeur transférée dans TIM4_CCR3
@@ -5180,7 +5312,13 @@ END GROUP
                 0x00000960       0x20 ./src/main.o
  .debug_aranges
 <<<<<<< HEAD
+<<<<<<< HEAD
                 0x00000840       0x30 ./src/stm32f4xx_hal_msp.o
+=======
+                0x00000980       0x30 ./src/stm32f4xx_hal_msp.o
+ .debug_aranges
+                0x000009b0       0x20 ./src/stm32f4xx_it.o
+>>>>>>> parent of 16f6231... DMA mis en place, mauvaise valeur transférée dans TIM4_CCR3
 =======
                 0x00000980       0x30 ./src/stm32f4xx_hal_msp.o
  .debug_aranges
@@ -5191,7 +5329,11 @@ END GROUP
  *(.debug_pubnames)
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 .debug_info     0x00000000     0xbf31
+=======
+.debug_info     0x00000000     0xd526
+>>>>>>> parent of 16f6231... DMA mis en place, mauvaise valeur transférée dans TIM4_CCR3
 =======
 .debug_info     0x00000000     0xd526
 >>>>>>> parent of 16f6231... DMA mis en place, mauvaise valeur transférée dans TIM4_CCR3
@@ -5202,6 +5344,7 @@ END GROUP
  .debug_info    0x00002118      0x86b ./system/src/stm32f4-hal/stm32f4xx_hal_gpio.o
  .debug_info    0x00002983     0x1339 ./system/src/stm32f4-hal/stm32f4xx_hal_rcc.o
  .debug_info    0x00003cbc     0x4318 ./system/src/stm32f4-hal/stm32f4xx_hal_tim.o
+<<<<<<< HEAD
 <<<<<<< HEAD
  .debug_info    0x00007fd4       0xee ./system/src/newlib/_exit.o
  .debug_info    0x000080c2      0x50f ./system/src/newlib/_startup.o
@@ -5218,6 +5361,8 @@ END GROUP
 
 .debug_abbrev   0x00000000     0x1ea4
 =======
+=======
+>>>>>>> parent of 16f6231... DMA mis en place, mauvaise valeur transférée dans TIM4_CCR3
  .debug_info    0x00007fd4     0x18ee ./system/src/stm32f4-hal/stm32f4xx_hal_tim_ex.o
  .debug_info    0x000098c2       0xee ./system/src/newlib/_exit.o
  .debug_info    0x000099b0      0x50f ./system/src/newlib/_startup.o
@@ -5234,6 +5379,9 @@ END GROUP
  .debug_info    0x0000d44f       0xd7 ./src/stm32f4xx_it.o
 
 .debug_abbrev   0x00000000     0x20b5
+<<<<<<< HEAD
+>>>>>>> parent of 16f6231... DMA mis en place, mauvaise valeur transférée dans TIM4_CCR3
+=======
 >>>>>>> parent of 16f6231... DMA mis en place, mauvaise valeur transférée dans TIM4_CCR3
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0x275 ./system/src/stm32f4-hal/stm32f4xx_hal.o
@@ -5242,6 +5390,7 @@ END GROUP
  .debug_abbrev  0x0000076d      0x209 ./system/src/stm32f4-hal/stm32f4xx_hal_gpio.o
  .debug_abbrev  0x00000976      0x2cc ./system/src/stm32f4-hal/stm32f4xx_hal_rcc.o
  .debug_abbrev  0x00000c42      0x252 ./system/src/stm32f4-hal/stm32f4xx_hal_tim.o
+<<<<<<< HEAD
 <<<<<<< HEAD
  .debug_abbrev  0x00000e94       0xb7 ./system/src/newlib/_exit.o
  .debug_abbrev  0x00000f4b      0x211 ./system/src/newlib/_startup.o
@@ -5275,6 +5424,24 @@ END GROUP
 
 .debug_line     0x00000000    0x10489
 >>>>>>> parent of 16f6231... DMA mis en place, mauvaise valeur transférée dans TIM4_CCR3
+=======
+ .debug_abbrev  0x00000e94      0x22c ./system/src/stm32f4-hal/stm32f4xx_hal_tim_ex.o
+ .debug_abbrev  0x000010c0       0xb7 ./system/src/newlib/_exit.o
+ .debug_abbrev  0x00001177      0x211 ./system/src/newlib/_startup.o
+ .debug_abbrev  0x00001388       0xe7 ./system/src/newlib/_syscalls.o
+ .debug_abbrev  0x0000146f       0xb6 ./system/src/newlib/assert.o
+ .debug_abbrev  0x00001525       0x88 ./system/src/cortexm/_initialize_hardware.o
+ .debug_abbrev  0x000015ad      0x127 ./system/src/cortexm/exception_handlers.o
+ .debug_abbrev  0x000016d4      0x104 ./system/src/cmsis/system_stm32f4xx.o
+ .debug_abbrev  0x000017d8       0x9d ./system/src/cmsis/vectors_stm32f4xx.o
+ .debug_abbrev  0x00001875      0x2cb ./src/Timer.o
+ .debug_abbrev  0x00001b40      0x1c4 ./src/_initialize_hardware.o
+ .debug_abbrev  0x00001d04      0x185 ./src/main.o
+ .debug_abbrev  0x00001e89      0x1a4 ./src/stm32f4xx_hal_msp.o
+ .debug_abbrev  0x0000202d       0x88 ./src/stm32f4xx_it.o
+
+.debug_line     0x00000000    0x10489
+>>>>>>> parent of 16f6231... DMA mis en place, mauvaise valeur transférée dans TIM4_CCR3
  *(.debug_line)
  .debug_line    0x00000000      0xacd ./system/src/stm32f4-hal/stm32f4xx_hal.o
  .debug_line    0x00000acd      0xb1e ./system/src/stm32f4-hal/stm32f4xx_hal_cortex.o
@@ -5282,6 +5449,7 @@ END GROUP
  .debug_line    0x0000448e      0xc58 ./system/src/stm32f4-hal/stm32f4xx_hal_gpio.o
  .debug_line    0x000050e6      0xe43 ./system/src/stm32f4-hal/stm32f4xx_hal_rcc.o
  .debug_line    0x00005f29     0x3647 ./system/src/stm32f4-hal/stm32f4xx_hal_tim.o
+<<<<<<< HEAD
 <<<<<<< HEAD
  .debug_line    0x00009570      0x2cd ./system/src/newlib/_exit.o
  .debug_line    0x0000983d      0x341 ./system/src/newlib/_startup.o
@@ -5315,6 +5483,24 @@ END GROUP
 
 .debug_frame    0x00000000     0x191c
 >>>>>>> parent of 16f6231... DMA mis en place, mauvaise valeur transférée dans TIM4_CCR3
+=======
+ .debug_line    0x00009570     0x140f ./system/src/stm32f4-hal/stm32f4xx_hal_tim_ex.o
+ .debug_line    0x0000a97f      0x2cd ./system/src/newlib/_exit.o
+ .debug_line    0x0000ac4c      0x341 ./system/src/newlib/_startup.o
+ .debug_line    0x0000af8d      0x3aa ./system/src/newlib/_syscalls.o
+ .debug_line    0x0000b337      0x2f2 ./system/src/newlib/assert.o
+ .debug_line    0x0000b629      0x967 ./system/src/cortexm/_initialize_hardware.o
+ .debug_line    0x0000bf90      0xa54 ./system/src/cortexm/exception_handlers.o
+ .debug_line    0x0000c9e4      0x968 ./system/src/cmsis/system_stm32f4xx.o
+ .debug_line    0x0000d34c      0x108 ./system/src/cmsis/vectors_stm32f4xx.o
+ .debug_line    0x0000d454      0xa30 ./src/Timer.o
+ .debug_line    0x0000de84      0x961 ./src/_initialize_hardware.o
+ .debug_line    0x0000e7e5      0x9c6 ./src/main.o
+ .debug_line    0x0000f1ab      0x981 ./src/stm32f4xx_hal_msp.o
+ .debug_line    0x0000fb2c      0x95d ./src/stm32f4xx_it.o
+
+.debug_frame    0x00000000     0x191c
+>>>>>>> parent of 16f6231... DMA mis en place, mauvaise valeur transférée dans TIM4_CCR3
  *(.debug_frame)
  .debug_frame   0x00000000      0x188 ./system/src/stm32f4-hal/stm32f4xx_hal.o
  .debug_frame   0x00000188      0x164 ./system/src/stm32f4-hal/stm32f4xx_hal_cortex.o
@@ -5322,6 +5508,7 @@ END GROUP
  .debug_frame   0x00000400       0xfc ./system/src/stm32f4-hal/stm32f4xx_hal_gpio.o
  .debug_frame   0x000004fc      0x144 ./system/src/stm32f4-hal/stm32f4xx_hal_rcc.o
  .debug_frame   0x00000640      0xa88 ./system/src/stm32f4-hal/stm32f4xx_hal_tim.o
+<<<<<<< HEAD
 <<<<<<< HEAD
  .debug_frame   0x000010c8       0x38 ./system/src/newlib/_exit.o
  .debug_frame   0x00001100       0x7c ./system/src/newlib/_startup.o
@@ -5391,6 +5578,23 @@ END GROUP
  .debug_frame   0x00001890       0x64 ./src/stm32f4xx_hal_msp.o
  .debug_frame   0x000018f4       0x28 ./src/stm32f4xx_it.o
 
+=======
+ .debug_frame   0x000010c8      0x3e4 ./system/src/stm32f4-hal/stm32f4xx_hal_tim_ex.o
+ .debug_frame   0x000014ac       0x38 ./system/src/newlib/_exit.o
+ .debug_frame   0x000014e4       0x7c ./system/src/newlib/_startup.o
+ .debug_frame   0x00001560       0x50 ./system/src/newlib/_syscalls.o
+ .debug_frame   0x000015b0       0x40 ./system/src/newlib/assert.o
+ .debug_frame   0x000015f0       0x40 ./system/src/cortexm/_initialize_hardware.o
+ .debug_frame   0x00001630       0xe8 ./system/src/cortexm/exception_handlers.o
+ .debug_frame   0x00001718       0x30 ./system/src/cmsis/system_stm32f4xx.o
+ .debug_frame   0x00001748       0x20 ./system/src/cmsis/vectors_stm32f4xx.o
+ .debug_frame   0x00001768       0xb8 ./src/Timer.o
+ .debug_frame   0x00001820       0x48 ./src/_initialize_hardware.o
+ .debug_frame   0x00001868       0x28 ./src/main.o
+ .debug_frame   0x00001890       0x64 ./src/stm32f4xx_hal_msp.o
+ .debug_frame   0x000018f4       0x28 ./src/stm32f4xx_it.o
+
+>>>>>>> parent of 16f6231... DMA mis en place, mauvaise valeur transférée dans TIM4_CCR3
 .debug_str      0x00000000    0x9fbe0
  *(.debug_str)
  .debug_str     0x00000000    0x9ae40 ./system/src/stm32f4-hal/stm32f4xx_hal.o
@@ -5433,6 +5637,9 @@ END GROUP
                               0x9b26c (size before relaxing)
  .debug_str     0x0009fbca       0x16 ./src/stm32f4xx_it.o
                               0x9a708 (size before relaxing)
+<<<<<<< HEAD
+>>>>>>> parent of 16f6231... DMA mis en place, mauvaise valeur transférée dans TIM4_CCR3
+=======
 >>>>>>> parent of 16f6231... DMA mis en place, mauvaise valeur transférée dans TIM4_CCR3
 
 .debug_loc      0x00000000     0x51fd
@@ -5468,7 +5675,11 @@ END GROUP
 OUTPUT(Visage_LEDs_2.elf elf32-littlearm)
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 .debug_ranges   0x00000000      0x750
+=======
+.debug_ranges   0x00000000      0x890
+>>>>>>> parent of 16f6231... DMA mis en place, mauvaise valeur transférée dans TIM4_CCR3
 =======
 .debug_ranges   0x00000000      0x890
 >>>>>>> parent of 16f6231... DMA mis en place, mauvaise valeur transférée dans TIM4_CCR3
@@ -5478,6 +5689,7 @@ OUTPUT(Visage_LEDs_2.elf elf32-littlearm)
  .debug_ranges  0x00000188       0x48 ./system/src/stm32f4-hal/stm32f4xx_hal_gpio.o
  .debug_ranges  0x000001d0       0x78 ./system/src/stm32f4-hal/stm32f4xx_hal_rcc.o
  .debug_ranges  0x00000248      0x358 ./system/src/stm32f4-hal/stm32f4xx_hal_tim.o
+<<<<<<< HEAD
 <<<<<<< HEAD
  .debug_ranges  0x000005a0       0x18 ./system/src/newlib/_exit.o
  .debug_ranges  0x000005b8       0x30 ./system/src/newlib/_startup.o
@@ -5639,6 +5851,23 @@ OUTPUT(Visage_LEDs_2.elf elf32-littlearm)
  .debug_ranges  0x00000860       0x20 ./src/stm32f4xx_hal_msp.o
  .debug_ranges  0x00000880       0x10 ./src/stm32f4xx_it.o
 
+=======
+ .debug_ranges  0x000005a0      0x130 ./system/src/stm32f4-hal/stm32f4xx_hal_tim_ex.o
+ .debug_ranges  0x000006d0       0x18 ./system/src/newlib/_exit.o
+ .debug_ranges  0x000006e8       0x30 ./system/src/newlib/_startup.o
+ .debug_ranges  0x00000718       0x20 ./system/src/newlib/_syscalls.o
+ .debug_ranges  0x00000738       0x18 ./system/src/newlib/assert.o
+ .debug_ranges  0x00000750       0x18 ./system/src/cortexm/_initialize_hardware.o
+ .debug_ranges  0x00000768       0x70 ./system/src/cortexm/exception_handlers.o
+ .debug_ranges  0x000007d8       0x18 ./system/src/cmsis/system_stm32f4xx.o
+ .debug_ranges  0x000007f0       0x10 ./system/src/cmsis/vectors_stm32f4xx.o
+ .debug_ranges  0x00000800       0x38 ./src/Timer.o
+ .debug_ranges  0x00000838       0x18 ./src/_initialize_hardware.o
+ .debug_ranges  0x00000850       0x10 ./src/main.o
+ .debug_ranges  0x00000860       0x20 ./src/stm32f4xx_hal_msp.o
+ .debug_ranges  0x00000880       0x10 ./src/stm32f4xx_it.o
+
+>>>>>>> parent of 16f6231... DMA mis en place, mauvaise valeur transférée dans TIM4_CCR3
 .debug_macro    0x00000000    0x1a8bd
  .debug_macro   0x00000000      0x492 ./system/src/stm32f4-hal/stm32f4xx_hal.o
  .debug_macro   0x00000492      0x88c ./system/src/stm32f4-hal/stm32f4xx_hal.o
@@ -5770,4 +5999,7 @@ OUTPUT(Visage_LEDs_2.elf elf32-littlearm)
  .debug_macro   0x00019b1f      0x4d2 ./src/main.o
  .debug_macro   0x00019ff1      0x461 ./src/stm32f4xx_hal_msp.o
  .debug_macro   0x0001a452      0x46b ./src/stm32f4xx_it.o
+<<<<<<< HEAD
+>>>>>>> parent of 16f6231... DMA mis en place, mauvaise valeur transférée dans TIM4_CCR3
+=======
 >>>>>>> parent of 16f6231... DMA mis en place, mauvaise valeur transférée dans TIM4_CCR3
