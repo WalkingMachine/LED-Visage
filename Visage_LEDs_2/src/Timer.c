@@ -9,12 +9,12 @@
 #include <string.h>
 #include "Timer.h"
 
-#include "FreeRTOS.h"
-#include "semphr.h"
+/*#include "FreeRTOS.h"
+#include "semphr.h"*/
 
 
 
-static xSemaphoreHandle allLedDone = NULL;
+//static xSemaphoreHandle allLedDone = NULL;
 
 /*Déclaration des variables de configuration*/
 static GPIO_InitTypeDef GPIO_InitStruct;
@@ -93,7 +93,7 @@ void ws2812Init(uint32_t duty_cycle){
 	HAL_NVIC_SetPriority(DMA1_Stream7_IRQn,0,0);
 	NVIC_EnableIRQ(DMA1_Stream7_IRQn);
 
-	vSemaphoreCreateBinary(allLedDone);
+	//vSemaphoreCreateBinary(allLedDone);
 }
 
 static void fillLed(uint16_t *buffer, uint8_t *color)
@@ -158,7 +158,7 @@ void ws2812Send(uint8_t (*color)[3], int len)
 	if(len<1) return;
 
 	//Wait for previous transfer to be finished
-	xSemaphoreTake(allLedDone, portMAX_DELAY);
+	//xSemaphoreTake(allLedDone, portMAX_DELAY);
 
 	// Set interrupt context ...
 	current_led = 0;
@@ -183,7 +183,7 @@ void ws2812Send(uint8_t (*color)[3], int len)
 }
 
 void ws2812DmaIsr(void){
-	portBASE_TYPE xHigherPriorityTaskWoken;
+	//portBASE_TYPE xHigherPriorityTaskWoken;
 	static  uint8_t DMA_finished = 0;
 	uint16_t * buffer;
 	int i;
@@ -216,7 +216,7 @@ void ws2812DmaIsr(void){
 	    }
 
 		if (current_led >= total_led+2) {
-			xSemaphoreGiveFromISR(allLedDone, &xHigherPriorityTaskWoken);
+		//	xSemaphoreGiveFromISR(allLedDone, &xHigherPriorityTaskWoken);
 			__TIM4_CLK_DISABLE();
 			DMA1_Stream7->CR &=  ~DMA_SxCR_EN; //DMA1 Stream7 Disabled
 			total_led = 0;

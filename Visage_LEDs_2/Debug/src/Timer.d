@@ -66,16 +66,7 @@ src/Timer.o: ../src/Timer.c ../include/Timer.h \
  ../system/include/stm32f4-hal/stm32f4xx_hal_pcd.h \
  ../system/include/stm32f4-hal/stm32f4xx_ll_usb.h \
  ../system/include/stm32f4-hal/stm32f4xx_hal_pcd_ex.h \
- ../system/include/stm32f4-hal/stm32f4xx_hal_hcd.h \
- C:\Users\Samuel\ Otis\Documents\Eclipse\ WorkSpace\Workspace_Walking_Machine\LED-Visage\Visage_LEDs_2\include\FreeRTOS/FreeRTOS.h \
- C:\Users\Samuel\ Otis\Documents\Eclipse\ WorkSpace\Workspace_Walking_Machine\LED-Visage\Visage_LEDs_2\include\FreeRTOS/FreeRTOSConfig.h \
- C:\Users\Samuel\ Otis\Documents\Eclipse\ WorkSpace\Workspace_Walking_Machine\LED-Visage\Visage_LEDs_2\include\FreeRTOS/projdefs.h \
- C:\Users\Samuel\ Otis\Documents\Eclipse\ WorkSpace\Workspace_Walking_Machine\LED-Visage\Visage_LEDs_2\include\FreeRTOS/portable.h \
- C:\Users\Samuel\ Otis\Documents\Eclipse\ WorkSpace\Workspace_Walking_Machine\LED-Visage\Visage_LEDs_2\include\FreeRTOS/deprecated_definitions.h \
- C:\Users\Samuel\ Otis\Documents\Eclipse\ WorkSpace\Workspace_Walking_Machine\LED-Visage\Visage_LEDs_2\include\FreeRTOS/portmacro.h \
- C:\Users\Samuel\ Otis\Documents\Eclipse\ WorkSpace\Workspace_Walking_Machine\LED-Visage\Visage_LEDs_2\include\FreeRTOS/mpu_wrappers.h \
- C:\Users\Samuel\ Otis\Documents\Eclipse\ WorkSpace\Workspace_Walking_Machine\LED-Visage\Visage_LEDs_2\include\FreeRTOS/semphr.h \
- C:\Users\Samuel\ Otis\Documents\Eclipse\ WorkSpace\Workspace_Walking_Machine\LED-Visage\Visage_LEDs_2\include\FreeRTOS/queue.h
+ ../system/include/stm32f4-hal/stm32f4xx_hal_hcd.h
 
 ../include/Timer.h:
 
@@ -216,21 +207,3 @@ src/Timer.o: ../src/Timer.c ../include/Timer.h \
 ../system/include/stm32f4-hal/stm32f4xx_hal_pcd_ex.h:
 
 ../system/include/stm32f4-hal/stm32f4xx_hal_hcd.h:
-
-C:\Users\Samuel\ Otis\Documents\Eclipse\ WorkSpace\Workspace_Walking_Machine\LED-Visage\Visage_LEDs_2\include\FreeRTOS/FreeRTOS.h:
-
-C:\Users\Samuel\ Otis\Documents\Eclipse\ WorkSpace\Workspace_Walking_Machine\LED-Visage\Visage_LEDs_2\include\FreeRTOS/FreeRTOSConfig.h:
-
-C:\Users\Samuel\ Otis\Documents\Eclipse\ WorkSpace\Workspace_Walking_Machine\LED-Visage\Visage_LEDs_2\include\FreeRTOS/projdefs.h:
-
-C:\Users\Samuel\ Otis\Documents\Eclipse\ WorkSpace\Workspace_Walking_Machine\LED-Visage\Visage_LEDs_2\include\FreeRTOS/portable.h:
-
-C:\Users\Samuel\ Otis\Documents\Eclipse\ WorkSpace\Workspace_Walking_Machine\LED-Visage\Visage_LEDs_2\include\FreeRTOS/deprecated_definitions.h:
-
-C:\Users\Samuel\ Otis\Documents\Eclipse\ WorkSpace\Workspace_Walking_Machine\LED-Visage\Visage_LEDs_2\include\FreeRTOS/portmacro.h:
-
-C:\Users\Samuel\ Otis\Documents\Eclipse\ WorkSpace\Workspace_Walking_Machine\LED-Visage\Visage_LEDs_2\include\FreeRTOS/mpu_wrappers.h:
-
-C:\Users\Samuel\ Otis\Documents\Eclipse\ WorkSpace\Workspace_Walking_Machine\LED-Visage\Visage_LEDs_2\include\FreeRTOS/semphr.h:
-
-C:\Users\Samuel\ Otis\Documents\Eclipse\ WorkSpace\Workspace_Walking_Machine\LED-Visage\Visage_LEDs_2\include\FreeRTOS/queue.h:

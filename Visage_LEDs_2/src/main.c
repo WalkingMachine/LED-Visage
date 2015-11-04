@@ -4,7 +4,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include <stdio.h>
 #include <stdlib.h>
-#include "task.h"
+
 
 #include "diag/Trace.h"
 
@@ -20,8 +20,9 @@
 #include "stm32f4xx_it.h"
 
 /* Personal Includes ---------------------------------------------------------*/
-#include "FreeRTOS.h"
+/*#include "FreeRTOS.h"
 #include "semphr.h"
+#include "task.h"*/
 
 #include "Timer.h"
 
@@ -59,7 +60,7 @@ int main( ){
 	return EXIT_SUCCESS;
 }
 
-
+/*
 void vApplicationTickHook(void){
 
 }
@@ -73,5 +74,5 @@ void vApplicationIdleHook(void){
 
 }
 
-
+*/
 

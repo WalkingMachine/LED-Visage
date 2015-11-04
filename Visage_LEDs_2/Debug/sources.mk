@@ -33,5 +33,4 @@ system/src/diag \
 system/src/cortexm \
 system/src/cmsis \
 src \
-src/FreeRTOS \
 
