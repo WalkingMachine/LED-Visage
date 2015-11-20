@@ -11,7 +11,7 @@
 #define PERIOD_RESET 0
 #define PERIOD 105
 
-#define LED_PER_HALF 4
+#define LED_PER_HALF 2
 #define NB_LEDS LED_PER_HALF*2
 #define WS2812_DEADPERIOD 19
 

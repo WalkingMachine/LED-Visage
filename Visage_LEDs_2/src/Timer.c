@@ -8,9 +8,10 @@
 #include "Timer.h"
 #include <string.h>
 
-static int All_LEDs_Done = 0;
+volatile static uint8_t WS2812_TC = 1;
+volatile static uint8_t TIM4_overflows = 0;
 
-/*Déclaration des variables de configuration*/
+/*Dï¿½claration des variables de configuration*/
 static GPIO_InitTypeDef GPIO_InitStruct;
 static TIM_HandleTypeDef htim4;
 static TIM_OC_InitTypeDef PWMConfig;
@@ -83,8 +84,8 @@ void ws2812Init(uint32_t duty_cycle){
 	DMA1_Stream7->PAR = (uint32_t)&TIM4->CCR3;
 	DMA1_Stream7->M0AR = (uint32_t)led_dma.buffer;
 
-	HAL_NVIC_SetPriorityGrouping(NVIC_PRIORITYGROUP_0);
-	HAL_NVIC_SetPriority(DMA1_Stream7_IRQn,0,0);
+	HAL_NVIC_SetPriorityGrouping(NVIC_PRIORITYGROUP_4);
+	HAL_NVIC_SetPriority(DMA1_Stream7_IRQn,9,0);
 	NVIC_EnableIRQ(DMA1_Stream7_IRQn);
 }
 
@@ -149,6 +150,9 @@ void ws2812Send(uint8_t (*color)[3], int len)
     int i;
 	if(len<1) return;
 
+
+	while(!WS2812_TC);
+	WS2812_TC = 0;
 	// Set interrupt context ...
 	current_led = 0;
 	total_led = len;
@@ -170,16 +174,15 @@ void ws2812Send(uint8_t (*color)[3], int len)
 
     HAL_TIM_PWM_Start_DMA(&htim4,TIM_CHANNEL_3,(uint32_t)led_dma.buffer,sizeof(led_dma.buffer));// enable DMA channel 3
     __TIM4_CLK_ENABLE();                      // Go!!!
-    All_LEDs_Done = 0;
+
 }
 
 void ws2812DmaIsr(void){
-	NVIC_ClearPendingIRQ(DMA1_Stream7_IRQn);
-	DMA1->HIFCR = 0;
-	DMA1->HISR = 0;
-	static  uint8_t DMA_finished = 0;
 	 uint16_t * buffer;
 	    int i;
+
+		DMA1->HIFCR = 0;
+		DMA1->HISR = 0;
 
 	    if (total_led == 0)
 	    {
@@ -206,20 +209,21 @@ void ws2812DmaIsr(void){
 	          bzero(buffer+(24*i), sizeof(led_dma.end));
 	    }
 
-	    if(All_LEDs_Done < 100){
 	    	if (current_led >= total_led+2) {
-	    		All_LEDs_Done++;
+	    		TIM4->CCR3 = 0;
 				__TIM4_CLK_DISABLE();
-				DMA1_Stream7->CR &=  ~DMA_SxCR_EN; //DMA1 Stream7 Disabled
+				HAL_DMA_DeInit(&hdma1);  //DMA1 Stream7 Disabled
 				total_led = 0;
+				WS2812_TC = 1;
 			}
-	    }
-
 }
 
 void DMA1_Stream7_IRQHandler(void)
 {
+	NVIC_ClearPendingIRQ(DMA1_Stream7_IRQn);
 	ws2812DmaIsr();
+
+
 	IN_IRQ++;
 }
 

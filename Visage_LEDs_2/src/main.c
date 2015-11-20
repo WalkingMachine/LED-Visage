@@ -22,7 +22,6 @@
 /* Personal Includes ---------------------------------------------------------*/
 #include "Timer.h"
 
-
 /************************************/
 /************ PROTOYPES *************/
 /************************************/
@@ -33,8 +32,6 @@
 int main( ){
 	uint8_t WHITE[] = {0xff, 0xff, 0xff};
 
-	HAL_DMA_StateTypeDef i;
-	uint32_t j,k = 0;
 	/*Initialize the system*/
 	SystemInit() ;
 
@@ -47,9 +44,7 @@ int main( ){
 
 
 	while(1){
-	  i = DMA1->HISR;
-	  j = DMA1_Stream7->NDTR;
-	  k = NVIC_GetActive(TIM4_IRQn);
+
 	  ws2812Send(&WHITE, NB_LEDS);
 	}
 
