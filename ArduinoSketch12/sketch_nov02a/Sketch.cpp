@@ -67,6 +67,10 @@ void setup() {
 }
 
 void loop() {
+	smile(50,50,0);
+	while(1);
+	process_mouth(0,0);
+	while(1);
   // put your main code here, to run repeatedly:
 //set_brightness(1);
 emo_content();

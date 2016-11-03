@@ -39,16 +39,13 @@ void set_brightness(const /*std_msgs::UInt8*/uint8_t& value)
 
 void eye(uint8_t eyesNumber, uint8_t R,uint8_t G,uint8_t B){
 	
-	for(int i=(eyesNumber=1?0:EYEPIXELS), j=(eyesNumber=1?EYEPIXELS:EYEPIXELS*2); i<j; i++) {
+	for(int i=(eyesNumber==1?0:EYEPIXELS), j=(eyesNumber==1?EYEPIXELS:EYEPIXELS*2); i<j; i++) {
 		// pixels->Color takes RGB values, from 0,0,0 up to 255,255,255
 		pixels->setPixelColor(i, pixels->Color(R,G,B));
 		pixels->show();
 	}
 }
 
-
-
-#if 0
 void smile(uint8_t R,uint8_t G,uint8_t B){
 	pixels->setPixelColor(BASE_BOUCHE + 11, pixels->Color(R,G,B));
 	pixels->setPixelColor(BASE_BOUCHE + 12, pixels->Color(R,G,B));
@@ -60,7 +57,7 @@ void smile(uint8_t R,uint8_t G,uint8_t B){
 	pixels->setPixelColor(BASE_BOUCHE + 41, pixels->Color(R,G,B));
 	pixels->setPixelColor(BASE_BOUCHE + 24, pixels->Color(R,G,B));
 	pixels->setPixelColor(BASE_BOUCHE + 20, pixels->Color(R,G,B));
-	pixels->setPixelColor(BASE_BOUCHE + 35, pixels->Color(R,G,B)); 
+	pixels->setPixelColor(BASE_BOUCHE + 35, pixels->Color(R,G,B));
 	pixels->setPixelColor(BASE_BOUCHE + 37, pixels->Color(R,G,B));
 	pixels->setPixelColor(BASE_BOUCHE + 48, pixels->Color(R,G,B));
 	pixels->setPixelColor(BASE_BOUCHE + 49, pixels->Color(R,G,B));
@@ -73,6 +70,9 @@ void smile(uint8_t R,uint8_t G,uint8_t B){
 	pixels->setPixelColor(BASE_BOUCHE + 23, pixels->Color(R,G,B));
 	pixels->show();
 }
+
+#if 0
+
 
  void loadingFade()
  {

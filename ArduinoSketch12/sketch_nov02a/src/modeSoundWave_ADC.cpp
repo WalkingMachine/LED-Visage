@@ -474,7 +474,7 @@ void process_mouth(int amplitude, int frequency)
 	clearPixels();
 	
 	currentFrame = (currentFrame + frequency) % MAX_FRAME;
-	for (int i = 0, x = 0; i <= MAX_MOUTH_COL; x<<1)
+	for (int i = 0, x = 0; i <= MAX_MOUTH_COL; x++)
 	{
 		int data = sequence_mouth[currentFrame][i][amplitude];
 		if (data & (1<<x))
