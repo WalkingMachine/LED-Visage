@@ -24,6 +24,7 @@
 #define FRAME_MOUTH_IDLE_COLUMN_8 (1<<1)
 #define FRAME_MOUTH_IDLE_COLUMN_PATCH_2 (1<<1)
 
+//Todo: verifier si cest vraiment utile
 #define DEFAULT_MOUTH_LED_NUMBER BASE_BOUCHE + 1
 
 
