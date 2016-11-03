@@ -25,6 +25,11 @@ void clearPixels(void)
 	}
 }
 
+void pixel_show(void)
+{
+	pixels->show();
+}
+
 void set_brightness(const /*std_msgs::UInt8*/uint8_t& value)
 {
 	pixels->setBrightness(value);
@@ -55,7 +60,7 @@ void smile(uint8_t R,uint8_t G,uint8_t B){
 	pixels->setPixelColor(BASE_BOUCHE + 41, pixels->Color(R,G,B));
 	pixels->setPixelColor(BASE_BOUCHE + 24, pixels->Color(R,G,B));
 	pixels->setPixelColor(BASE_BOUCHE + 20, pixels->Color(R,G,B));
-	pixels->setPixelColor(BASE_BOUCHE + 35, pixels->Color(R,G,B));
+	pixels->setPixelColor(BASE_BOUCHE + 35, pixels->Color(R,G,B)); 
 	pixels->setPixelColor(BASE_BOUCHE + 37, pixels->Color(R,G,B));
 	pixels->setPixelColor(BASE_BOUCHE + 48, pixels->Color(R,G,B));
 	pixels->setPixelColor(BASE_BOUCHE + 49, pixels->Color(R,G,B));
@@ -134,4 +139,57 @@ void smile(uint8_t R,uint8_t G,uint8_t B){
 		 delay(wait);
 	 }
  }
+ 
+ void openFade()
+ {
+	 for(int i = 0; i < 60; i++)
+	 {
+		 for(int oeil = 0; oeil < EYEPIXELS*2; oeil++)
+		 {
+			 pixels.setPixelColor(oeil, pixels.Color(i,i,i));
+		 }
+		 pixels.show();
+		 delay(20);
+		 smile(i,i,i);
+		 pixels.show();
+	 }
+	 delay(1000);
+ }
+ 
+ void loadingFade()
+ {
+	 int OEIL_1 = 0;
+	 int OEIL_2 = 14;
+	 int wait = 5;
+	 for(int j = 0; j <= 150; j++)
+	 {
+		 for(int i=OEIL_1; i<(OEIL_1+14); i++)
+		 {
+			 pixels.setPixelColor(i, pixels.Color(j,j,j));
+		 }
+		 for(int i=OEIL_2; i<(OEIL_2+14); i++)
+		 {
+			 pixels.setPixelColor(i, pixels.Color(j,j,j));
+		 }
+		 pixels.show();
+		 delay(wait);
+	 }
+	 for(int j = 150; j >= 0; j--)
+	 {
+		 for(int i=OEIL_1; i<(OEIL_1+14); i++)
+		 {
+			 pixels.setPixelColor(i, pixels.Color(j,j,j));
+		 }
+		 for(int i=OEIL_2; i<(OEIL_2+14); i++)
+		 {
+			 pixels.setPixelColor(i, pixels.Color(j,j,j));
+		 }
+		 pixels.show();
+		 delay(wait);
+	 }
+ }
 #endif
+void set_pixel_color(uint8_t neoPixel_nbr, uint8_t R, uint8_t G,uint8_t B)
+{
+	pixels->setPixelColor(neoPixel_nbr, pixels->Color(R,G,B));
+}

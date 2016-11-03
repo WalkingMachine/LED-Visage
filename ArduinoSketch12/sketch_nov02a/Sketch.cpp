@@ -4,8 +4,18 @@
 #include <stdint.h>
 /*End of auto generated code by Atmel studio */
 
+//
+#include <avr/io.h>
+#include "avr\interrupt.h"       // pour les interuptions
+#include <util/delay.h>          // pour les delay
+//	
+
+#if defined(SOUND_WITH_AUDIO_IN)
+#include "modeSoundWave_ADC.h"
+#endif
 
 #include "sara_face_led_driver.h"
+
 //#include "sara_face_led_driver_define.h"
 
 //Beginning of Auto generated function prototypes by Atmel Studio
@@ -18,7 +28,10 @@
 
 
 
-
+int delayval = 5; // delay for half a second
+int luminosite = 1;
+int mode = 1; // 0 = wait, 1 = start, 2 = loading, 3 = green, 4 = yellow, 5 = red, 6 = wait for answer
+bool talking = false;
 
 
 

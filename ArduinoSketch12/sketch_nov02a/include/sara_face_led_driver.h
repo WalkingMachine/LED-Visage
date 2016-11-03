@@ -22,6 +22,9 @@ void clearPixels(void);
 
 void eye(uint8_t eyesNumber, uint8_t R,uint8_t G,uint8_t B);
 
+void set_pixel_color(uint8_t neoPixel_nbr, uint8_t R, uint8_t G,uint8_t B);
+
+void pixel_show(void);
 #if 0
 void loadingFade();
 void loadingRoll2();

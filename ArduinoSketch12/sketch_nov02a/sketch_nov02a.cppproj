@@ -197,6 +197,7 @@
       <Value>%24(ProjectDir)\include</Value>
       <Value>../include</Value>
       <Value>../define</Value>
+      <Value>../../ArduinoCore/include/core</Value>
     </ListValues>
   </avrgcccpp.compiler.directories.IncludePaths>
   <avrgcccpp.compiler.optimization.level>Optimize for size (-Os)</avrgcccpp.compiler.optimization.level>
@@ -226,10 +227,16 @@
     <Compile Include="define\sara_face_led_driver_define.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="include\modeSoundWave_ADC.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="include\sara_face_led_driver.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Sketch.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\modeSoundWave_ADC.cpp">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\sara_face_led_driver.cpp">

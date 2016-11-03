@@ -22,6 +22,16 @@
 
 
 #if defined(SOUND_WITH_AUDIO_IN)
-
+  #define VOLT_MAX_MASK_BUFFER 2
+  #define VOLT_CUR_MASK_BUFFER 2
+  #define VOLT_MIN_MASK_BUFFER 2
+  
+  #define MAX_FRAME 6
+  #define MAX_MOUTH_COL 11
+  #define MOUTH_MAX_COL_SIZE { (1<<2),(1<<2),(1<<4),(1<<4),(1<<7),(1<<4),(1<<7),(1<<4),(1<<4),(1<<2),(1<<2) }
+  const unsigned char mouthMaxColSize[] = MOUTH_MAX_COL_SIZE;
+  #define DEFAULT_RED_LED_MOUTH 0
+  #define DEFAULT_GREEN_LED_MOUTH 0
+  #define DEFAULT_BLUE_LED_MOUTH 50
 #endif
 #endif /* SARA_FACE_LED_DRIVER_DEFINE_H_ */
