@@ -11,6 +11,7 @@
 #include "modeSoundWave_ADC.h"
 #include "sara_face_led_driver.h"
 
+#define TEST_ONLY_ALGO
 
 /// new code by salco below
 //clipping indicator variables
@@ -60,6 +61,7 @@ int watchdog_tension_ilde=0;
 
 void init_modeSoundWave_Adc(void)
 {
+#if defined(TEST_ONLY_ALGO)
 	cli();//diable interrupts
 	//set up continuous sampling of analog pin 0 at 38.5kHz
 
@@ -77,8 +79,10 @@ void init_modeSoundWave_Adc(void)
 	ADCSRA |= (1 << ADSC); //start ADC measurements
 
 	sei();//enable interrupts
+#endif
 }
 
+#if defined(TEST_ONLY_ALGO)
 ISR(ADC_vect) {//when new ADC value ready
 	
 	//PORTB &= B11101111;//set pin 12 low
@@ -160,6 +164,7 @@ ISR(ADC_vect) {//when new ADC value ready
 		maxAmp = 0;
 	}
 }
+#endif
 
 void reset(void)
 {
@@ -184,15 +189,15 @@ int get_led_number_col_1(int row)
 	int result = DEFAULT_MOUTH_LED_NUMBER;
 	switch (row)
 	{
-		case (1<<0):
-		result = 23;
-		break;
-		case (1<<1):
-		result = 22;
-		break;
-		case (1<<2):
-		result = 1;
-		break;
+		case 0:
+			result = LED_MOUTH_COL_1_ROW_1;
+			break;
+		case 1:
+			result = LED_MOUTH_COL_1_ROW_2;
+			break;
+		case 2:
+			result = LED_MOUTH_COL_1_ROW_3;
+			break;
 	}
 	return result;
 }
@@ -201,15 +206,15 @@ int get_led_number_col_2(int row)
 	int result = DEFAULT_MOUTH_LED_NUMBER;
 	switch (row)
 	{
-		case (1<<0):
-		result = 24;
-		break;
-		case (1<<1):
-		result = 21;
-		break;
-		case (1<<2):
-		result = 2;
-		break;
+		case 0:
+			result = LED_MOUTH_COL_2_ROW_1;
+			break;
+		case 1:
+			result = LED_MOUTH_COL_2_ROW_2;
+			break;
+		case 2:
+			result = LED_MOUTH_COL_2_ROW_3;
+			break;
 	}
 	return result;
 }
@@ -218,21 +223,21 @@ int get_led_number_col_3(int row)
 	int result = DEFAULT_MOUTH_LED_NUMBER;
 	switch (row)
 	{
-		case (1<<0):
-		result = 43;
-		break;
-		case (1<<1):
-		result = 25;
-		break;
-		case (1<<2):
-		result = 26;
-		break;
-		case (1<<3):
-		result = 20;
-		break;
-		case (1<<4):
-		result = 3;
-		break;
+		case 0:
+			result = LED_MOUTH_COL_3_ROW_1;
+			break;
+		case 1:
+			result = LED_MOUTH_COL_3_ROW_2;
+			break;
+		case 2:
+			result = LED_MOUTH_COL_3_ROW_3;
+			break;
+		case 3:
+			result = LED_MOUTH_COL_3_ROW_4;
+			break;
+		case 4:
+			result = LED_MOUTH_COL_3_ROW_5;
+			break;
 	}
 	return result;
 }
@@ -241,21 +246,21 @@ int get_led_number_col_4(int row)
 	int result = DEFAULT_MOUTH_LED_NUMBER;
 	switch (row)
 	{
-		case (1<<0):
-		result = 44;
-		break;
-		case (1<<1):
-		result = 42;
-		break;
-		case (1<<2):
-		result = 27;
-		break;
-		case (1<<3):
-		result = 19;
-		break;
-		case (1<<4):
-		result = 4;
-		break;
+		case 0:
+			result = LED_MOUTH_COL_4_ROW_1;
+			break;
+		case 1:
+			result = LED_MOUTH_COL_4_ROW_2;
+			break;
+		case 2:
+			result = LED_MOUTH_COL_4_ROW_3;
+			break;
+		case 3:
+			result = LED_MOUTH_COL_4_ROW_4;
+			break;
+		case 4:
+			result = LED_MOUTH_COL_4_ROW_5;
+			break;
 	}
 	return result;
 }
@@ -264,30 +269,30 @@ int get_led_number_col_5(int row)
 	int result = DEFAULT_MOUTH_LED_NUMBER;
 	switch (row)
 	{
-		case (1<<0):
-		result = 52;
-		break;
-		case (1<<1):
-		result = 45;
-		break;
-		case (1<<2):
-		result = 46;
-		break;
-		case (1<<3):
-		result = 41;
-		break;
-		case (1<<4):
-		result = 28;
-		break;
-		case (1<<5):
-		result = 29;
-		break;
-		case (1<<6):
-		result = 18;
-		break;
-		case (1<<7):
-		result = 5;
-		break;
+		case 0:
+			result = LED_MOUTH_COL_5_ROW_1;
+			break;
+		case 1:
+			result = LED_MOUTH_COL_5_ROW_2;
+			break;
+		case 2:
+			result = LED_MOUTH_COL_5_ROW_3;
+			break;
+		case 3:
+			result = LED_MOUTH_COL_5_ROW_4;
+			break;
+		case 4:
+			result = LED_MOUTH_COL_5_ROW_5;
+			break;
+		case 5:
+			result = LED_MOUTH_COL_5_ROW_6;
+			break;
+		case 6:
+			result = LED_MOUTH_COL_5_ROW_7;
+			break;
+		case 7:
+			result = LED_MOUTH_COL_5_ROW_8;
+			break;
 	}
 	return result;
 }
@@ -296,21 +301,21 @@ int get_led_number_col_6(int row)
 	int result = DEFAULT_MOUTH_LED_NUMBER;
 	switch (row)
 	{
-		case (1<<0):
-		result = 51;
-		break;
-		case (1<<1):
-		result = 47;
-		break;
-		case (1<<2):
-		result = 30;
-		break;
-		case (1<<3):
-		result = 17;
-		break;
-		case (1<<4):
-		result = 6;
-		break;
+		case 0:
+			result = LED_MOUTH_COL_6_ROW_1;
+			break;
+		case 1:
+			result = LED_MOUTH_COL_6_ROW_2;
+			break;
+		case 2:
+			result = LED_MOUTH_COL_6_ROW_3;
+			break;
+		case 3:
+			result = LED_MOUTH_COL_6_ROW_4;
+			break;
+		case 4:
+			result = LED_MOUTH_COL_6_ROW_5;
+			break;
 	}
 	return result;
 }
@@ -319,30 +324,30 @@ int get_led_number_col_7(int row)
 	int result = DEFAULT_MOUTH_LED_NUMBER;
 	switch (row)
 	{
-		case (1<<0):
-		result = 53;
-		break;
-		case (1<<1):
-		result = 50;
-		break;
-		case (1<<2):
-		result = 48;
-		break;
-		case (1<<3):
-		result = 40;
-		break;
-		case (1<<4):
-		result = 31;
-		break;
-		case (1<<5):
-		result = 32;
-		break;
-		case (1<<6):
-		result = 16;
-		break;
-		case (1<<7):
-		result = 7;
-		break;
+		case 0:
+			result = LED_MOUTH_COL_7_ROW_1;
+			break;
+		case 1:
+			result = LED_MOUTH_COL_7_ROW_2;
+			break;
+		case 2:
+			result = LED_MOUTH_COL_7_ROW_3;
+			break;
+		case 3:
+			result = LED_MOUTH_COL_7_ROW_4;
+			break;
+		case 4:
+			result = LED_MOUTH_COL_7_ROW_5;
+			break;
+		case 5:
+			result = LED_MOUTH_COL_7_ROW_6;
+			break;
+		case 6:
+			result = LED_MOUTH_COL_7_ROW_7;
+			break;
+		case 7:
+			result = LED_MOUTH_COL_7_ROW_8;
+			break;
 	}
 	return result;
 }
@@ -351,21 +356,21 @@ int get_led_number_col_8(int row)
 	int result = DEFAULT_MOUTH_LED_NUMBER;
 	switch (row)
 	{
-		case (1<<0):
-		result = 49;
-		break;
-		case (1<<1):
-		result = 39;
-		break;
-		case (1<<2):
-		result = 33;
-		break;
-		case (1<<3):
-		result = 15;
-		break;
-		case (1<<4):
-		result = 8;
-		break;
+		case 0:
+			result = LED_MOUTH_COL_8_ROW_1;
+			break;
+		case 1:
+			result = LED_MOUTH_COL_8_ROW_2;
+			break;
+		case 2:
+			result = LED_MOUTH_COL_8_ROW_3;
+			break;
+		case 3:
+			result = LED_MOUTH_COL_8_ROW_4;
+			break;
+		case 4:
+			result = LED_MOUTH_COL_8_ROW_5;
+			break;
 	}
 	return result;
 }
@@ -374,21 +379,21 @@ int get_led_number_col_9(int row)
 	int result = DEFAULT_MOUTH_LED_NUMBER;
 	switch (row)
 	{
-		case (1<<0):
-		result = 38;
-		break;
-		case (1<<1):
-		result = 35;
-		break;
-		case (1<<2):
-		result = 34;
-		break;
-		case (1<<3):
-		result = 14;
-		break;
-		case (1<<4):
-		result = 9;
-		break;
+		case 0:
+			result = LED_MOUTH_COL_9_ROW_1;
+			break;
+		case 1:
+			result = LED_MOUTH_COL_9_ROW_2;
+			break;
+		case 2:
+			result = LED_MOUTH_COL_9_ROW_3;
+			break;
+		case 3:
+			result = LED_MOUTH_COL_9_ROW_4;
+			break;
+		case 4:
+			result = LED_MOUTH_COL_9_ROW_5;
+			break;
 	}
 	return result;
 }
@@ -397,15 +402,15 @@ int get_led_number_col_10(int row)
 	int result = DEFAULT_MOUTH_LED_NUMBER;
 	switch (row)
 	{
-		case (1<<0):
-		result = 36;
-		break;
-		case (1<<1):
-		result = 13;
-		break;
-		case (1<<2):
-		result = 10;
-		break;
+		case 0:
+			result = LED_MOUTH_COL_10_ROW_1;
+			break;
+		case 1:
+			result = LED_MOUTH_COL_10_ROW_2;
+			break;
+		case 2:
+			result = LED_MOUTH_COL_10_ROW_3;
+			break;
 	}
 	return result;
 }
@@ -414,15 +419,15 @@ int get_led_number_col_11(int row)
 	int result = DEFAULT_MOUTH_LED_NUMBER;
 	switch (row)
 	{
-		case (1<<0):
-		result = 37;
-		break;
-		case (1<<1):
-		result = 12;
-		break;
-		case (1<<2):
-		result = 11;
-		break;
+		case 0:
+			result = LED_MOUTH_COL_11_ROW_1;
+			break;
+		case 1:
+			result = LED_MOUTH_COL_11_ROW_2;
+			break;
+		case 2:
+			result = LED_MOUTH_COL_11_ROW_3;
+			break;
 	}
 	return result;
 }
