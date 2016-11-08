@@ -20,8 +20,8 @@
 
 //Beginning of Auto generated function prototypes by Atmel Studio
 
-
-
+#define TEST_COLONNE 5
+#define TEST_ROW 5
 
 //End of Auto generated function prototypes by Atmel Studio
 
@@ -67,10 +67,23 @@ void setup() {
 }
 
 void loop() {
-	smile(50,50,0);
-	while(1);
+	//smile(50,50,0);
+	//while(1);
+	
+	//set_pixel_color(BASE_BOUCHE,50,0,0);
+	//pixel_show();
+	//while(1);
+	//set_mouth(TEST_COLONNE-1,TEST_ROW-1,50,50,50);
+	/*for(int i=0; i< 10; i++)
+	{
+		set_mouth(i,0,50,50,50);
+	}*/
 	process_mouth(0,0);
+	pixel_show();
+	
+	
 	while(1);
+	
   // put your main code here, to run repeatedly:
 //set_brightness(1);
 emo_content();

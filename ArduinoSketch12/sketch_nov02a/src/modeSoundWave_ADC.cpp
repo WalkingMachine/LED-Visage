@@ -479,18 +479,15 @@ void process_mouth(int amplitude, int frequency)
 	clearPixels();
 	
 	currentFrame = (currentFrame + frequency) % MAX_FRAME;
-<<<<<<< HEAD
-	for (int i = 0, x = 0; i <= MAX_MOUTH_COL; x++)
-=======
+
 	for (int i = 0, x = 0; i < MAX_MOUTH_COL; x++)
->>>>>>> 2633d51dd39e743a80844b4c1922721d8c92477b
 	{
 		int data = sequence_mouth[currentFrame][i][amplitude];
 		if (data & (1<<x))
 		{
 			set_mouth(i, x, DEFAULT_RED_LED_MOUTH, DEFAULT_GREEN_LED_MOUTH, DEFAULT_BLUE_LED_MOUTH);
 		}
-		if (((1<<x) == mouthMaxColSize[i])&& (x>8))
+		if (((1<<x) == mouthMaxColSize[i])|| (x>=8))
 		{
 			i++;
 			x = 0;
