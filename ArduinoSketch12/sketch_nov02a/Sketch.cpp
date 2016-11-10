@@ -6,6 +6,7 @@
 
 //
 #include <avr/io.h>
+
 #include "avr\interrupt.h"       // pour les interuptions
 #include <util/delay.h>          // pour les delay
 //	
@@ -64,30 +65,43 @@ void setup() {
   // put your setup code here, to run once:
 
 	init_NeoPixels();
+	#if defined(SOUND_WITH_AUDIO_IN)
+		init_modeSoundWave_Adc();
+	#endif
 }
-
+//#define TEST_MAIN_02
 void loop() {
-	//smile(50,50,0);
-	//while(1);
+	#if defined( TEST_MAIN_01 )
+		smile(50,50,0);
+		while(1);
+	#endif
+
+	#if defined( TEST_MAIN_02 )
+		for(int col=0; col <= (MAX_MOUTH_COL-1); col++)
+		{
+			for(int row=0; row< mouthMaxRow[col]; row++)
+			{
+				set_mouth(col,row,50,50,50);
+				pixel_show();
+				//delay(400);
+				clearPixels();
+			}
+			
+		}
+		clearPixels();
+		pixel_show();
 	
-	//set_pixel_color(BASE_BOUCHE,50,0,0);
-	//pixel_show();
-	//while(1);
-	//set_mouth(TEST_COLONNE-1,TEST_ROW-1,50,50,50);
-	/*for(int i=0; i< 10; i++)
-	{
-		set_mouth(i,0,50,50,50);
-	}*/
-	process_mouth(0,0);
-	pixel_show();
-	
-	
-	while(1);
+		while(1);
+	#endif	
 	
   // put your main code here, to run repeatedly:
+  
 //set_brightness(1);
-emo_content();
-delay(1000);
+// emo_content();
+// delay(1000);
 //loadingFade();
-while(1);
+//while(1);
+
+ process_mouth();
+// delay(100);
 }

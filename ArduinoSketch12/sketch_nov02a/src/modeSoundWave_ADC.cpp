@@ -5,14 +5,25 @@
  *  Author: Salco
  */ 
 #include <Arduino.h>
+
 #include <avr/io.h>
 #include "avr\interrupt.h"       // pour les interuptions
 #include "sara_face_led_driver_define.h"
 #include "modeSoundWave_ADC.h"
 #include "sara_face_led_driver.h"
 
+#ifdef __AVR__
+  #include <avr/power.h>
+#endif
 #define TEST_ONLY_ALGO
 
+#define TEST_SALCO_02 //Patch just to see how manage the equalizer
+
+#if defined( TEST_SALCO_02 )
+	#define TEST_SALCO_02_WATCHDOG 4000
+	uint16_t TEST_SALCO_02_WATCHDOG_Var = TEST_SALCO_02_WATCHDOG;
+	uint16_t test_salco_02_watchdog_counter=0;
+#endif
 /// new code by salco below
 //clipping indicator variables
 bool clipping = 0;
@@ -28,7 +39,7 @@ int slope[10];//storage for slope of events
 unsigned int totalTimer;//used to calculate period
 unsigned int period;
 uint8_t index = 0;//current storage index
-int frequency;
+int mfrequency=0;
 int maxSlope = 0;//used to calculate max slope as trigger point
 int newSlope;//storage for incoming slope data
 
@@ -45,9 +56,9 @@ uint8_t checkMaxAmp;
 uint8_t ampThreshold = 30;//raise if you have a very noisy signal
 
 int incomingAudio;
-volatile unsigned char sequence_mouth[6][11][4]={FRAME_MOUTH_01, FRAME_MOUTH_02, FRAME_MOUTH_03, FRAME_MOUTH_04, FRAME_MOUTH_05, FRAME_MOUTH_06 };
+static unsigned char sequence_mouth[6][11][4]={FRAME_MOUTH_01, FRAME_MOUTH_02, FRAME_MOUTH_03, FRAME_MOUTH_04, FRAME_MOUTH_05, FRAME_MOUTH_06 };
 int currentFrame = 0;
-
+bool is_adc2_received;
 float voltMax=0;
 float past_voltCur=0;
 float voltCur=0;
@@ -61,6 +72,11 @@ int watchdog_tension_ilde=0;
 
 void init_modeSoundWave_Adc(void)
 {
+	//init value
+	is_adc2_received=false;
+	
+	wave_mouth(0,0);
+	
 #if defined(TEST_ONLY_ALGO)
 	cli();//diable interrupts
 	//set up continuous sampling of analog pin 0 at 38.5kHz
@@ -68,9 +84,11 @@ void init_modeSoundWave_Adc(void)
 	//clear ADCSRA and ADCSRB registers
 	ADCSRA = 0;
 	ADCSRB = 0;
-
+	
+	//ADMUX = MUX2
 	ADMUX |= (1 << REFS0); //set reference voltage
 	ADMUX |= (1 << ADLAR); //left align the ADC value- so we can read highest 8 bits from ADCH register only
+	ADMUX |= /*(1 <<*/ MUX2/*)*/; //
 
 	ADCSRA |= (1 << ADPS2) | (1 << ADPS0); //set ADC clock with 32 prescaler- 16mHz/32=500kHz
 	ADCSRA |= (1 << ADATE); //enabble auto trigger
@@ -81,13 +99,8 @@ void init_modeSoundWave_Adc(void)
 	sei();//enable interrupts
 #endif
 }
-
-#if defined(TEST_ONLY_ALGO)
-ISR(ADC_vect) {//when new ADC value ready
-	
-	//PORTB &= B11101111;//set pin 12 low
-	prevDataAdc01 = newDataAdc01;//store previous value
-	newDataAdc01 = ADCH;//get value from A0
+void process_ADC2(uint8_t adcRead)
+{
 	//calcule amplitude
 	CALCULATE_VOLT_CUR((newDataAdc01*5.0)/1024)
 	if(voltCur >= voltMax)
@@ -95,9 +108,28 @@ ISR(ADC_vect) {//when new ADC value ready
 	if(voltCur <= voltMin )
 	CALCULATE_VOLT_MIN(voltCur)
 	
+	
+}
+#if defined(TEST_ONLY_ALGO)
+ISR(ADC_vect) {//when new ADC value ready
+	//Get ADCH and toggle a bool to know it's change
+	
+	//PORTB &= B11101111;//set pin 12 low
+	prevDataAdc01 = newDataAdc01;//store previous value
+	newDataAdc01 = ADCH;//get value from A0
+	
 	//
+	
 	if (prevDataAdc01 < 127 && newDataAdc01 >=127){//if increasing and crossing midpoint
 		newSlope = newDataAdc01 - prevDataAdc01;//calculate slope
+		
+		//calcule amplitude
+		CALCULATE_VOLT_CUR((newDataAdc01*5.0)/1024)
+		if(voltCur >= voltMax)
+		CALCULATE_VOLT_MAX(voltCur)
+		if(voltCur <= voltMin )
+		CALCULATE_VOLT_MIN(voltCur)
+		
 		if (abs(newSlope-maxSlope)<slopeTol){//if slopes are ==
 			//record new data and reset time
 			slope[index] = newSlope;
@@ -155,7 +187,8 @@ ISR(ADC_vect) {//when new ADC value ready
 	time++;//increment timer at rate of 38.5kHz
 	
 	ampTimer++;//increment amplitude timer
-	if (abs(127-ADCH)>maxAmp){
+	if (abs(127-ADCH)>maxAmp)
+	{
 		maxAmp = abs(127-ADCH);
 	}
 	if (ampTimer==1000){
@@ -163,6 +196,8 @@ ISR(ADC_vect) {//when new ADC value ready
 		checkMaxAmp = maxAmp;
 		maxAmp = 0;
 	}
+	
+	is_adc2_received = true;
 }
 #endif
 
@@ -184,297 +219,30 @@ void checkClipping(void)
 }
 
 //Algo part
-int get_led_number_col_1(int row)
+
+//for(int row=0; row< mouthMaxRow[col]; row++)
+int get_led_number_col(int col, int row)
 {
-	int result = DEFAULT_MOUTH_LED_NUMBER;
-	switch (row)
+	int result = -1;
+	if((col < MAX_MOUTH_COL)&&(row < mouthMaxRow[col]))
 	{
-		case 0:
-			result = LED_MOUTH_COL_1_ROW_1;
-			break;
-		case 1:
-			result = LED_MOUTH_COL_1_ROW_2;
-			break;
-		case 2:
-			result = LED_MOUTH_COL_1_ROW_3;
-			break;
+		result = mouthLedNbr[col][row];
 	}
-	return result;
-}
-int get_led_number_col_2(int row)
-{
-	int result = DEFAULT_MOUTH_LED_NUMBER;
-	switch (row)
-	{
-		case 0:
-			result = LED_MOUTH_COL_2_ROW_1;
-			break;
-		case 1:
-			result = LED_MOUTH_COL_2_ROW_2;
-			break;
-		case 2:
-			result = LED_MOUTH_COL_2_ROW_3;
-			break;
-	}
-	return result;
-}
-int get_led_number_col_3(int row)
-{
-	int result = DEFAULT_MOUTH_LED_NUMBER;
-	switch (row)
-	{
-		case 0:
-			result = LED_MOUTH_COL_3_ROW_1;
-			break;
-		case 1:
-			result = LED_MOUTH_COL_3_ROW_2;
-			break;
-		case 2:
-			result = LED_MOUTH_COL_3_ROW_3;
-			break;
-		case 3:
-			result = LED_MOUTH_COL_3_ROW_4;
-			break;
-		case 4:
-			result = LED_MOUTH_COL_3_ROW_5;
-			break;
-	}
-	return result;
-}
-int get_led_number_col_4(int row)
-{
-	int result = DEFAULT_MOUTH_LED_NUMBER;
-	switch (row)
-	{
-		case 0:
-			result = LED_MOUTH_COL_4_ROW_1;
-			break;
-		case 1:
-			result = LED_MOUTH_COL_4_ROW_2;
-			break;
-		case 2:
-			result = LED_MOUTH_COL_4_ROW_3;
-			break;
-		case 3:
-			result = LED_MOUTH_COL_4_ROW_4;
-			break;
-		case 4:
-			result = LED_MOUTH_COL_4_ROW_5;
-			break;
-	}
-	return result;
-}
-int get_led_number_col_5(int row)
-{
-	int result = DEFAULT_MOUTH_LED_NUMBER;
-	switch (row)
-	{
-		case 0:
-			result = LED_MOUTH_COL_5_ROW_1;
-			break;
-		case 1:
-			result = LED_MOUTH_COL_5_ROW_2;
-			break;
-		case 2:
-			result = LED_MOUTH_COL_5_ROW_3;
-			break;
-		case 3:
-			result = LED_MOUTH_COL_5_ROW_4;
-			break;
-		case 4:
-			result = LED_MOUTH_COL_5_ROW_5;
-			break;
-		case 5:
-			result = LED_MOUTH_COL_5_ROW_6;
-			break;
-		case 6:
-			result = LED_MOUTH_COL_5_ROW_7;
-			break;
-		case 7:
-			result = LED_MOUTH_COL_5_ROW_8;
-			break;
-	}
-	return result;
-}
-int get_led_number_col_6(int row)
-{
-	int result = DEFAULT_MOUTH_LED_NUMBER;
-	switch (row)
-	{
-		case 0:
-			result = LED_MOUTH_COL_6_ROW_1;
-			break;
-		case 1:
-			result = LED_MOUTH_COL_6_ROW_2;
-			break;
-		case 2:
-			result = LED_MOUTH_COL_6_ROW_3;
-			break;
-		case 3:
-			result = LED_MOUTH_COL_6_ROW_4;
-			break;
-		case 4:
-			result = LED_MOUTH_COL_6_ROW_5;
-			break;
-	}
-	return result;
-}
-int get_led_number_col_7(int row)
-{
-	int result = DEFAULT_MOUTH_LED_NUMBER;
-	switch (row)
-	{
-		case 0:
-			result = LED_MOUTH_COL_7_ROW_1;
-			break;
-		case 1:
-			result = LED_MOUTH_COL_7_ROW_2;
-			break;
-		case 2:
-			result = LED_MOUTH_COL_7_ROW_3;
-			break;
-		case 3:
-			result = LED_MOUTH_COL_7_ROW_4;
-			break;
-		case 4:
-			result = LED_MOUTH_COL_7_ROW_5;
-			break;
-		case 5:
-			result = LED_MOUTH_COL_7_ROW_6;
-			break;
-		case 6:
-			result = LED_MOUTH_COL_7_ROW_7;
-			break;
-		case 7:
-			result = LED_MOUTH_COL_7_ROW_8;
-			break;
-	}
-	return result;
-}
-int get_led_number_col_8(int row)
-{
-	int result = DEFAULT_MOUTH_LED_NUMBER;
-	switch (row)
-	{
-		case 0:
-			result = LED_MOUTH_COL_8_ROW_1;
-			break;
-		case 1:
-			result = LED_MOUTH_COL_8_ROW_2;
-			break;
-		case 2:
-			result = LED_MOUTH_COL_8_ROW_3;
-			break;
-		case 3:
-			result = LED_MOUTH_COL_8_ROW_4;
-			break;
-		case 4:
-			result = LED_MOUTH_COL_8_ROW_5;
-			break;
-	}
-	return result;
-}
-int get_led_number_col_9(int row)
-{
-	int result = DEFAULT_MOUTH_LED_NUMBER;
-	switch (row)
-	{
-		case 0:
-			result = LED_MOUTH_COL_9_ROW_1;
-			break;
-		case 1:
-			result = LED_MOUTH_COL_9_ROW_2;
-			break;
-		case 2:
-			result = LED_MOUTH_COL_9_ROW_3;
-			break;
-		case 3:
-			result = LED_MOUTH_COL_9_ROW_4;
-			break;
-		case 4:
-			result = LED_MOUTH_COL_9_ROW_5;
-			break;
-	}
-	return result;
-}
-int get_led_number_col_10(int row)
-{
-	int result = DEFAULT_MOUTH_LED_NUMBER;
-	switch (row)
-	{
-		case 0:
-			result = LED_MOUTH_COL_10_ROW_1;
-			break;
-		case 1:
-			result = LED_MOUTH_COL_10_ROW_2;
-			break;
-		case 2:
-			result = LED_MOUTH_COL_10_ROW_3;
-			break;
-	}
-	return result;
-}
-int get_led_number_col_11(int row)
-{
-	int result = DEFAULT_MOUTH_LED_NUMBER;
-	switch (row)
-	{
-		case 0:
-			result = LED_MOUTH_COL_11_ROW_1;
-			break;
-		case 1:
-			result = LED_MOUTH_COL_11_ROW_2;
-			break;
-		case 2:
-			result = LED_MOUTH_COL_11_ROW_3;
-			break;
-	}
+	
+	
 	return result;
 }
 
 void set_mouth(int col, int row, uint8_t R,uint8_t G,uint8_t B)
 {
-	int ledNumber = DEFAULT_MOUTH_LED_NUMBER;
-	switch(col)
+	int ledNumber= get_led_number_col(col,row);
+	if( ledNumber != -1)
 	{
-		case 0:
-		ledNumber = get_led_number_col_1(row);
-		break;
-		case 1:
-		ledNumber = get_led_number_col_2(row);
-		break;
-		case 2:
-		ledNumber = get_led_number_col_3(row);
-		break;
-		case 3:
-		ledNumber = get_led_number_col_4(row);
-		break;
-		case 4:
-		ledNumber = get_led_number_col_5(row);
-		break;
-		case 5:
-		ledNumber = get_led_number_col_6(row);
-		break;
-		case 6:
-		ledNumber = get_led_number_col_7(row);
-		break;
-		case 7:
-		ledNumber = get_led_number_col_8(row);
-		break;
-		case 8:
-		ledNumber = get_led_number_col_9(row);
-		break;
-		case 9:
-		ledNumber = get_led_number_col_10(row);
-		break;
-		case 10:
-		ledNumber = get_led_number_col_11(row);
-		break;
+		set_pixel_color(ledNumber,R,G,B);
 	}
-	set_pixel_color(ledNumber,R,G,B);
 }
 
-void process_mouth(int amplitude, int frequency)
+void wave_mouth(int amplitude, int frequency)
 {
 	clearPixels();
 	
@@ -496,3 +264,142 @@ void process_mouth(int amplitude, int frequency)
 	
 	pixel_show();
 }
+
+#define TEST_SALCO_01
+void process_mouth(void)
+	{
+		#if 0
+		//process ADC
+		if(is_adc2_received)
+		{
+			process_ADC2(newDataAdc01);
+		}
+		#endif
+		#if defined(TEST_SALCO_02)
+			test_salco_02_watchdog_counter++;
+			if(test_salco_02_watchdog_counter > TEST_SALCO_02_WATCHDOG_Var)
+			{
+				test_salco_02_watchdog_counter=0;
+			
+		#endif
+		
+		static int deltaAmplitude;
+		static int deltaFrequency;
+	
+	//aquireAudio();
+	checkClipping();//pas vraiment utile
+	if (checkMaxAmp>ampThreshold)
+	{//amplitude threshold
+    mfrequency = 38462/float(period);//calculate frequency timer rate/period
+  
+    //print results
+    //Serial.print(frequency);
+    //Serial.print(" hz, ");
+ 
+  
+  //print results
+  //
+  
+  if((mfrequency >= -1) && (mfrequency<100))
+  {
+    deltaFrequency=0;
+  }
+  if((mfrequency >= 100) && (mfrequency<180))
+  {
+    deltaFrequency=1;
+  }
+  if((mfrequency >= 180) && (mfrequency<220))
+  {
+    deltaFrequency=2;
+  }
+  if((mfrequency >= 220) )
+  {
+    deltaFrequency=3;
+  }
+  const int past_frequency= mfrequency;
+   if(mfrequency == past_frequency) 
+  {
+    //Serial.println("same as before");
+    watchdog_tension_ilde++;
+  }
+ if(int(watchdog_tension_ilde*100) >= int(WATCHDOG_TENTION_MAX*100))
+ {
+  watchdog_tension_ilde=0;
+  period=38462;
+  voltMax=0;
+  voltCur=0;
+  voltMin=5;
+  deltaFrequency=0;
+  deltaAmplitude=0;
+ }
+ /*Serial.print(watchdog_tension_ilde);
+ Serial.print(" watchdog_tension_ilde, ");
+  //
+  Serial.print(frequency);
+
+
+  Serial.print(" hz, ");
+  Serial.println(result);*/
+
+ 
+ /*if(watchdog_tension_ilde >= WATCHDOG_TENTION_MAX)
+ {
+  watchdog_tension_ilde=0;
+  //period=38462;
+  voltMax=0;
+  voltCur=0;
+  voltMin=5;
+ }*/
+ 
+  /*Serial.print(" voltMax: ");
+  Serial.print(voltMax);
+
+  Serial.print(" voltCur: ");
+  Serial.print(voltCur);
+  Serial.print(" past_voltCur: ");
+  Serial.print(past_voltCur);
+
+  Serial.print(" voltMin: ");
+  Serial.println(voltMin);*/
+
+  float amplitudeV= voltMax-voltMin;
+  amplitudeV*=100;
+
+  //Serial.print(" amplitudeV: ");
+  //Serial.println(amplitudeV);  
+  
+  if((amplitudeV >= 0) && (amplitudeV<10))
+  {
+    deltaAmplitude=0;
+  }
+  if((amplitudeV >= 10) && (amplitudeV<30))
+  {
+    deltaAmplitude=1;
+  }
+  if((amplitudeV >= 30) && (amplitudeV<60))
+  {
+    deltaAmplitude=2;
+  }
+  if((amplitudeV >= 60) && (amplitudeV<70))
+  {
+    deltaAmplitude=3;
+  }
+  if((amplitudeV >= 70) )
+  {
+    deltaAmplitude=4;
+  }
+  //Serial.print(" stugff: ");
+  //Serial.println(result);  
+  //delay(100);
+  #if defined(TEST_SALCO_01)
+	wave_mouth(deltaAmplitude,deltaFrequency);
+  #else
+	wave_mouth(deltaAmplitude,deltaFrequency);
+	#endif
+   }
+   
+  #if defined(TEST_SALCO_02)
+	} //if(test_salco_02_watchdog_counter > TEST_SALCO_02_WATCHDOG)
+  #endif
+   
+	}
