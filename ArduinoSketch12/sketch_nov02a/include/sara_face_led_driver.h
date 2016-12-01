@@ -20,15 +20,8 @@ void set_brightness(uint8_t value);
 
 void clearPixels(void);
 
-void eye(uint8_t eyesNumber, uint8_t R,uint8_t G,uint8_t B);
-
 void set_pixel_color(uint8_t neoPixel_nbr, uint8_t R, uint8_t G,uint8_t B);
 
 void pixel_show(void);
 
-void smile(uint8_t R,uint8_t G,uint8_t B);
-#if 0
-void loadingFade();
-void loadingRoll2();
-#endif
 #endif /* SARA_FACE_LED_DRIVER_H_ */

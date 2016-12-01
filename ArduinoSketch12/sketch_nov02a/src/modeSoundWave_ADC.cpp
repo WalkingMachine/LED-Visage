@@ -11,6 +11,7 @@
 #include "sara_face_led_driver_define.h"
 #include "modeSoundWave_ADC.h"
 #include "sara_face_led_driver.h"
+#include "anim_basic.h"
 
 #ifdef __AVR__
   #include <avr/power.h>

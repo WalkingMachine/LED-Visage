@@ -2,7 +2,7 @@
  * modeSoundWave_ADC.h
  *
  * Created: 2016-11-03 11:30:52
- *  Author: wn
+ *  Author: Salco
  */ 
 
 

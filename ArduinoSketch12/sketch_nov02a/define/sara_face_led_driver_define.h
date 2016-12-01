@@ -16,10 +16,53 @@
 // How many NeoPixels are attached to the Arduino?
 #define NUMPIXELS   81
 #define EYEPIXELS   14
+
+#define BASE_RIGHT_EYE 0
+#define BASE_LEFT_EYE EYEPIXELS
 #define BASE_BOUCHE EYEPIXELS*2
 
 #define DEFAULT_BRIGHTNESS 75
 
+/* Disposition des LED
+
+          [04] [05]
+       [03]        [06]
+    [02]              [07]
+ [01]                    [08]
+    [14]              [09]
+       [13]        [10]
+          [12] [11]
+*/
+
+#define BOARD_LED_RIGHT_EYE_001
+#define BOARD_LED_RIGHT_EYE_002
+#define BOARD_LED_RIGHT_EYE_003
+#define BOARD_LED_RIGHT_EYE_004
+#define BOARD_LED_RIGHT_EYE_005
+#define BOARD_LED_RIGHT_EYE_006
+#define BOARD_LED_RIGHT_EYE_007
+#define BOARD_LED_RIGHT_EYE_008
+#define BOARD_LED_RIGHT_EYE_009
+#define BOARD_LED_RIGHT_EYE_010
+#define BOARD_LED_RIGHT_EYE_011
+#define BOARD_LED_RIGHT_EYE_012
+#define BOARD_LED_RIGHT_EYE_013
+#define BOARD_LED_RIGHT_EYE_014
+
+#define BOARD_LED_LEFT_EYE_001
+#define BOARD_LED_LEFT_EYE_002
+#define BOARD_LED_LEFT_EYE_003
+#define BOARD_LED_LEFT_EYE_004
+#define BOARD_LED_LEFT_EYE_005
+#define BOARD_LED_LEFT_EYE_006
+#define BOARD_LED_LEFT_EYE_007
+#define BOARD_LED_LEFT_EYE_008
+#define BOARD_LED_LEFT_EYE_009
+#define BOARD_LED_LEFT_EYE_010
+#define BOARD_LED_LEFT_EYE_011
+#define BOARD_LED_LEFT_EYE_012
+#define BOARD_LED_LEFT_EYE_013
+#define BOARD_LED_LEFT_EYE_014
 
 #if defined(SOUND_WITH_AUDIO_IN)
   #define VOLT_MAX_MASK_BUFFER 2
