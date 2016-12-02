@@ -322,17 +322,10 @@ void init_modeSoundWave_Adc(void);
 void reset(void);
 void checkClipping(void);
 
-/**
- * Fonction utiliser afin d'avoir la valeur numerique reel selon la position dans la matrice virtuel.
- * @param col colomn atitre
- * @param row row atitre
- * @return Renvois la valeur numerique de la led en question, si impossible renvois -1.
- */
-int get_led_number_col(int col, int row);
 
 
 
-void set_mouth(int col, int row, uint8_t R,uint8_t G,uint8_t B);
+
 void wave_mouth(int amplitude, int frequency);
 
 void process_mouth(void);

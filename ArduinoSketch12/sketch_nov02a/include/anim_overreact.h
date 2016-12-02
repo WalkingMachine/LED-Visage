@@ -11,4 +11,5 @@
 
 #include "anim.h"
 
+void mouth_surprise(uint8_t R,uint8_t G,uint8_t B);
 #endif /* ANIM_OVERREACT_H_ */

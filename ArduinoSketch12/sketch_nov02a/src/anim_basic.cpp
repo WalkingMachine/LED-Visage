@@ -168,4 +168,33 @@ void eye_roll_bar(eye_t eye_chose, uint8_t sequence _nbr, uint8_t R,uint8_t G,ui
 {
  sequence_nbr %= MAX_FRAME_eye_roll_bar;
 
+uint_t led_position = (eye_chose==eye_t::left ? BASE_LEFT_EYE : BASE_RIGHT_EYE);
+led_position = (led_position + sequence_nbr)% EYEPIXELS;
+
+set_pixel_color(led_position,R, G,B);
+
+}
+
+void eye_look_at(eye_t eye_chose, uint8_t eye_direction, uint8_t width, uint8_t R,uint8_t G,uint8_t B)
+{
+
+width %= EYEPIXELS;
+
+uint_t led_position = (eye_chose==eye_t::left ? BASE_LEFT_EYE : BASE_RIGHT_EYE);
+
+led_position = (led_position + eye_direction)% EYEPIXELS;
+
+uint8_t led_position_start_at = (led_position + (width/2))% EYEPIXELS;
+
+uint8_t led_position_stop_at = (led_position - (width/2))% EYEPIXELS;
+
+
+for( uint8_t position = led_position_start_at;
+ position == led_position_stop_at; position=(position-1)% EYEPIXELS)
+{
+
+set_pixel_color(position,R, G,B);
+
+}
+set_pixel_color(led_position_stop_at,R, G,B);
 }
