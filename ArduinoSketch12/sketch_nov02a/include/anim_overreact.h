@@ -12,4 +12,8 @@
 #include "anim.h"
 
 void mouth_surprise(uint8_t R,uint8_t G,uint8_t B);
+
+void init_emotion(void);
+void emo_party();
+void emo_ciconspect();
 #endif /* ANIM_OVERREACT_H_ */

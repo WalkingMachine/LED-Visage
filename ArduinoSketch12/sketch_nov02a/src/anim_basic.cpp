@@ -7,9 +7,11 @@
 #include "sara_face_led_driver.h"
 #include "anim_basic.h"
 
+#define MAX_EYE_LED_NBR(eye_chose) ((eye_chose==eye_t::left ? BASE_LEFT_EYE : BASE_RIGHT_EYE) + EYEPIXELS)
+
 	void smile(uint8_t R,uint8_t G,uint8_t B)
 {
-set_pixel_color(BASE_BOUCHE + 11,R,G,B);
+	set_pixel_color(BASE_BOUCHE + 11,R,G,B);
 	set_pixel_color(BASE_BOUCHE + 12,R,G,B);
 	set_pixel_color(BASE_BOUCHE + 34,R,G,B);
 	set_pixel_color(BASE_BOUCHE + 38,R,G,B);
@@ -30,7 +32,43 @@ set_pixel_color(BASE_BOUCHE + 11,R,G,B);
 	set_pixel_color(BASE_BOUCHE + 23, R,G,B);
 	set_pixel_color(BASE_BOUCHE + 21, R,G,B);
 	set_pixel_color(BASE_BOUCHE + 23, R,G,B);
-	pixels->show();
+	//pixel_show();
+}
+
+void sad(uint8_t R,uint8_t G,uint8_t B){
+	set_pixel_color(BASE_BOUCHE + 12, R,G,B);
+	set_pixel_color(BASE_BOUCHE + 13, R,G,B);
+	set_pixel_color(BASE_BOUCHE + 14, R,G,B);
+	set_pixel_color(BASE_BOUCHE + 15, R,G,B);
+	set_pixel_color(BASE_BOUCHE + 16, R,G,B);
+	set_pixel_color(BASE_BOUCHE + 17, R,G,B);
+	set_pixel_color(BASE_BOUCHE + 18, R,G,B);
+	set_pixel_color(BASE_BOUCHE + 19, R,G,B);
+	set_pixel_color(BASE_BOUCHE + 20, R,G,B);
+	//pixels.show();
+}
+
+
+void emo_content()
+{
+  /*Émotion : Content**********************************************/
+  clearPixels();
+  eye(eye_t::left,50,50,50);
+  eye(eye_t::right,50,50,50);
+  //bouche_vide(); //Changer LED3 et LED45
+  smile(50,50,50);
+  //delay(1000);
+  pixel_show();
+}
+void emo_triste()
+{
+	/*Émotion : Triste*********************************************/
+	clearPixels();
+	//bouche_vide();
+	eye(eye_t::left,50,50,50);
+	eye(eye_t::right,50,50,50);
+	sad(0,0,50);
+	pixel_show();
 }
 
 #if 0
@@ -155,46 +193,56 @@ set_pixel_color(BASE_BOUCHE + 11,R,G,B);
  }
 #endif
 
-void eye(uint8_t eyesNumber, uint8_t R,uint8_t G,uint8_t B){
+void eye(eye_t eye_chose, uint8_t R,uint8_t G,uint8_t B){
 	
-	for(int i=(eyesNumber==1?0:EYEPIXELS), j=(eyesNumber==1?EYEPIXELS:EYEPIXELS*2); i<j; i++) {
+	for(int i=(eye_chose==eye_t::left ? BASE_LEFT_EYE : BASE_RIGHT_EYE), j= i+EYEPIXELS; i<j; i++) {
 		// pixels->Color takes RGB values, from 0,0,0 up to 255,255,255
 		set_pixel_color(i, R,G,B);
-		pixel_show();
+		//pixel_show();
 	}
 }
 
-void eye_roll_bar(eye_t eye_chose, uint8_t sequence _nbr, uint8_t R,uint8_t G,uint8_t B)
+void eye_roll_bar(eye_t eye_chose, uint8_t sequence_nbr, uint8_t R,uint8_t G,uint8_t B)
 {
  sequence_nbr %= MAX_FRAME_eye_roll_bar;
 
-uint_t led_position = (eye_chose==eye_t::left ? BASE_LEFT_EYE : BASE_RIGHT_EYE);
-led_position = (led_position + sequence_nbr)% EYEPIXELS;
+uint8_t led_position = (eye_chose==eye_t::left ? BASE_LEFT_EYE : BASE_RIGHT_EYE);
+	eye(eye_chose,0,0,0);
+
+led_position = (led_position + sequence_nbr)% MAX_EYE_LED_NBR(eye_chose);
 
 set_pixel_color(led_position,R, G,B);
 
+led_position = (led_position + (EYEPIXELS/2))% MAX_EYE_LED_NBR(eye_chose);
+set_pixel_color(led_position,R, G,B);
 }
 
 void eye_look_at(eye_t eye_chose, uint8_t eye_direction, uint8_t width, uint8_t R,uint8_t G,uint8_t B)
 {
+	width %= EYEPIXELS;
 
-width %= EYEPIXELS;
+	uint8_t led_position = (eye_chose==eye_t::left ? BASE_LEFT_EYE : BASE_RIGHT_EYE);
+	eye(eye_chose,R,G,B);
 
-uint_t led_position = (eye_chose==eye_t::left ? BASE_LEFT_EYE : BASE_RIGHT_EYE);
+	led_position = (led_position + (eye_direction % EYEPIXELS))%  MAX_EYE_LED_NBR(eye_chose);
 
-led_position = (led_position + eye_direction)% EYEPIXELS;
+	uint8_t led_position_start_at = (led_position + (width/2))%  MAX_EYE_LED_NBR(eye_chose);
 
-uint8_t led_position_start_at = (led_position + (width/2))% EYEPIXELS;
+	uint8_t led_position_stop_at = MAX_EYE_LED_NBR(eye_chose) - (led_position - (width/2));
+	led_position_stop_at =   MAX_EYE_LED_NBR(eye_chose) % led_position_stop_at;
 
-uint8_t led_position_stop_at = (led_position - (width/2))% EYEPIXELS;
 
+	for( uint8_t position = led_position_start_at;
+	position != led_position_stop_at; /*position %=  MAX_EYE_LED_NBR(eye_chose)*/)
+	{
 
-for( uint8_t position = led_position_start_at;
- position == led_position_stop_at; position=(position-1)% EYEPIXELS)
-{
-
-set_pixel_color(position,R, G,B);
-
-}
-set_pixel_color(led_position_stop_at,R, G,B);
+		set_pixel_color(position,0, 0, 0);
+		position-=1;
+		if(position < MAX_EYE_LED_NBR(eye_chose))
+			position %=  MAX_EYE_LED_NBR(eye_chose);
+		else
+			position = MAX_EYE_LED_NBR(eye_chose) % position;
+	}
+	//patch last led (we need to find a better way )
+	set_pixel_color(led_position_stop_at, 0, 0, 0);
 }

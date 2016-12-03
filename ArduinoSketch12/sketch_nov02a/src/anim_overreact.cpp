@@ -2,29 +2,46 @@
 #include "anim_overreact.h"
 #include "anim_basic.h"
 
+#include <stdio.h>      /* printf, scanf, puts, NULL */
+#include <stdlib.h>     /* srand, rand */
+#include <time.h>       /* time */
+
+void init_emotion(void)
+{
+ /* initialize random seed: */
+  srand (4);
+}
+ 
 void mouth_surprise(uint8_t R,uint8_t G,uint8_t B)
 {
- for(uint8_t i=2; i<=4;I++){
- set_mouth( 3, i, R, G, B)
+ for(uint8_t i=1; i<=3;i++){
+ set_mouth( 2, i, R, G, B);
  }
+set_mouth( 3, 1, R, G, B);
+set_mouth( 3, 3, R, G, B);
 set_mouth( 4, 2, R, G, B);
-set_mouth( 4, 4, R, G, B);
-set_mouth( 5, 2, R, G, B);
-set_mouth( 5, 6, R, G, B);
+set_mouth( 4, 6, R, G, B);
+set_mouth( 5, 1, R, G, B);
+set_mouth( 5, 3, R, G, B);
 set_mouth( 6, 2, R, G, B);
-set_mouth( 6, 4, R, G, B);
-set_mouth( 7, 2, R, G, B);
-set_mouth( 7, 6, R, G, B);
-set_mouth( 8, 2, R, G, B);
-set_mouth( 8, 4, R, G, B);
-for(uint8_t i=2; i<=4;I++){
- set_mouth( 9, i, R, G, B)
+set_mouth( 6, 6, R, G, B);
+set_mouth( 7, 1, R, G, B);
+set_mouth( 7, 3, R, G, B);
+for(uint8_t i=1; i<=3;i++){
+ set_mouth( 8, i, R, G, B);
  }
 }
 
-#if 0
+void emo_ciconspect()
+{
+	clearPixels();
+	mouth_surprise(50,50,50);
+	pixel_show();
+}
+
 void emo_party()
 {
+  #if 0
   /*Émotion : Party*********************************************/
   eye( eye_t::left, 255,20,147);
   eye( eye_t::right, 255,20,147);
@@ -44,8 +61,80 @@ void emo_party()
   theaterChase(pixels.Color(127, 127, 127), 100); // White
   theaterChase(pixels.Color(127, 0, 0), 100); // Red
   theaterChase(pixels.Color(0, 0, 127), 100); // Blue
+  #else
+  //uint8_t LEhasard = rand() % 10 +1;
+  uint8_t randomRed, randomGreen, randomBlue;
+  randomRed=rand() % 150 ;
+  randomGreen=rand() % 150 ;
+  randomBlue=rand() % 20 ;
+  #define ARRAY_LINEON 20
+  #define TIMEDELAY 50
+  #define CHANCE_CHOSE 3
+  for(uint8_t i=0; i < ARRAY_LINEON; i++)
+  {
+	  set_pixel_color(rand() % NUMPIXELS,0,randomGreen ,randomBlue );
+  }
+  //set_pixel_color(rand() % NUMPIXELS,randomRed,randomGreen ,randomBlue );
+  //delay(200);
+  if(4 == rand()%8)
+ {
+  for(uint8_t i=0; i < ARRAY_LINEON*2; i++)
+  {
+	  set_pixel_color(rand() % NUMPIXELS,0 ,0 ,0 );
+  }
+ }
+  
+  if(6 == rand()%10)
+  {
+	  switch(rand()%4)
+	  {
+		  case 0:
+			  /*Émotion : Triste*********************************************/
+			  clearPixels();
+			  //bouche_vide();
+			  if(rand()%CHANCE_CHOSE==0)
+			  eye(eye_t::left,50,0,0);
+			  if(rand()%CHANCE_CHOSE==0)
+			  eye(eye_t::right,50,0,0);
+			  if(rand()%CHANCE_CHOSE==0)
+			  smile(50,0,0);
+			  pixel_show();
+			break;
+	      case 1:
+			//break;
+		  case 2:
+		   clearPixels();
+		   //bouche_vide();
+		   if(rand()%CHANCE_CHOSE==0)
+			eye(eye_t::left,50,0,0);
+			if(rand()%CHANCE_CHOSE==0)
+			eye(eye_t::right,50,0,0);
+			if(rand()%CHANCE_CHOSE==0)
+		sad(50,0,0);
+		   pixel_show();
+			break;
+		  case 3:
+		    clearPixels();
+		    //bouche_vide();
+		    if(rand()%CHANCE_CHOSE==0)
+			eye(eye_t::left,50,0,0);
+			if(rand()%CHANCE_CHOSE==0)
+			eye(eye_t::right,50,0,0);
+			if(rand()%CHANCE_CHOSE==0)
+		    mouth_surprise(50,0,0);
+		    pixel_show();
+			break;
+		  default:
+		    break;
+	  }
+  }
+  
+  
+  pixel_show();
+  delay(rand() % TIMEDELAY);
+  #endif
 }
-
+#if 0
 void petite_bouche(uint8_t R,uint8_t G,uint8_t B){
    pixels.setPixelColor(BASE_BOUCHE + 12, pixels.Color(R,G,B));
    pixels.setPixelColor(BASE_BOUCHE + 34, pixels.Color(R,G,B));

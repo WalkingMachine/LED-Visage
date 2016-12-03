@@ -6,12 +6,12 @@
  */ 
 #include "sara_face_led_driver.h"
 
-Adafruit_NeoPixel *pixels; //= Adafruit_NeoPixel(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);
+Adafruit_NeoPixel *pixels= 0; //= Adafruit_NeoPixel(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);
 
 void init_NeoPixels(void)
 {
-  if(pixels = voidptr)
-    {
+  if(pixels == 0)
+   {
 	     pixels = new Adafruit_NeoPixel(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);
     }
 	pixels->begin(); // This initializes the NeoPixel library.

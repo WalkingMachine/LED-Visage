@@ -1,17 +1,31 @@
 #include "ros_interface.h"
 
 #include <ros.h>
-#include <std_msgs/UInt8.h>
-#include <std_msgs/String.h>
+
+
+
+ros::NodeHandle nh;
+#if defined( TEST_ROS )
+ros::Subscriber<std_msgs::UInt8> subEmo("control_emo", control_emo );
+#endif
+//ros::Subscriber<std_msgs::UInt8> setBright("face_bright", set_brightness );
+//ros::Subscriber<std_msgs::UInt8> setMode("face_mode", set_mode);
+//ros::Subscriber<std_msgs::String> subTalk("SaraVoice", talk);
+
+void init_ros_interface(void)
+{
+	nh.initNode();
+	//nh.subscribe(subMouth);
+	//nh.subscribe(subEye);
+	#if defined( TEST_ROS )
+		nh.subscribe(subEmo);
+	#endif
+	/*nh.subscribe(setBright);
+	nh.subscribe(setMode);
+	nh.subscribe(subTalk);*/
+}
 
 #if 0
-ros::NodeHandle nh;
-
-ros::Subscriber<std_msgs::UInt8> subEmo("control_emo", control_emo );
-ros::Subscriber<std_msgs::UInt8> setBright("face_bright", set_brightness );
-ros::Subscriber<std_msgs::UInt8> setMode("face_mode", set_mode);
-ros::Subscriber<std_msgs::String> subTalk("SaraVoice", talk);
-
 void control_emo(const std_msgs::UInt8& emo)
 {
 	switch (emo.data) 
@@ -42,16 +56,7 @@ void control_emo(const std_msgs::UInt8& emo)
 	}
 }
 
-void init_ros_interface(void)
-{
-  nh.initNode();
-  //nh.subscribe(subMouth);
-  //nh.subscribe(subEye);
-  nh.subscribe(subEmo);
-  nh.subscribe(setBright);
-  nh.subscribe(setMode);
-  nh.subscribe(subTalk);
-}
+
 
 //Just as an example
 void loop() 
@@ -94,3 +99,7 @@ void loop()
 }
 
 #endif
+void ros_spinOnce(void)
+{
+	nh.spinOnce();
+}
