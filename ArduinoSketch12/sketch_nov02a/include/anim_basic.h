@@ -11,7 +11,10 @@
 
 #include "anim.h"
 
-void eye(eye_t eye_chose, uint8_t R,uint8_t G,uint8_t B);
+void set_eye(eye_t eye_chose, uint8_t R,uint8_t G,uint8_t B);
+
+void set_eye(eye_t eye_chose,uint8_t eye_direction, uint8_t R,uint8_t G,uint8_t B);
+
 
 #define MAX_FRAME_eye_roll_bar 7
 

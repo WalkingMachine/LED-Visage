@@ -144,13 +144,13 @@ void loop() {
 	#define EYE_WIDTH 4
 	do
 	{
-
+		
 		for(uint8_t i=0; i != MAX_FRAME_eye_look_at; i++)
 		{
 			eye_look_at(eye_t::left,i,EYE_WIDTH, DEFAULT_RED_EYE, DEFAULT_GREEN_LED_EYE, DEFAULT_BLUE_LED_EYE);
 			pixel_show();
-			//eye_look_at(eye_t::right,i,EYE_WIDTH,DEFAULT_RED_EYE, DEFAULT_GREEN_LED_EYE, DEFAULT_BLUE_LED_EYE);
-			//pixel_show();
+			eye_look_at(eye_t::right,i,EYE_WIDTH,DEFAULT_RED_EYE, DEFAULT_GREEN_LED_EYE, DEFAULT_BLUE_LED_EYE);
+			pixel_show();
 			delay(500);
 		}
 
