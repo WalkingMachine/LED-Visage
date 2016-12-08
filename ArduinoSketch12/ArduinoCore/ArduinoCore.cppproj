@@ -5,7 +5,7 @@
     <ProjectVersion>7.0</ProjectVersion>
     <ToolchainName>com.Atmel.AVRGCC8.CPP</ToolchainName>
     <ProjectGuid>5043d087-defa-486f-b500-45cc826ea65a</ProjectGuid>
-    <avrdevice>atmega328p</avrdevice>
+    <avrdevice>ATmega328P</avrdevice>
     <avrdeviceseries>none</avrdeviceseries>
     <OutputType>StaticLibrary</OutputType>
     <Language>CPP</Language>
@@ -56,160 +56,165 @@
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <ToolchainSettings>
       <AvrGccCpp>
-        <avrgcc.common.Device>-mmcu=atmega328p -B "%24(PackRepoDir)\atmel\ATmega_DFP\1.1.130\gcc\dev\atmega328p"</avrgcc.common.Device>
-        <avrgcc.common.outputfiles.hex>True</avrgcc.common.outputfiles.hex>
-        <avrgcc.common.outputfiles.lss>True</avrgcc.common.outputfiles.lss>
-        <avrgcc.common.outputfiles.eep>True</avrgcc.common.outputfiles.eep>
-        <avrgcc.common.outputfiles.srec>True</avrgcc.common.outputfiles.srec>
-        <avrgcc.common.outputfiles.usersignatures>False</avrgcc.common.outputfiles.usersignatures>
-        <avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>True</avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>
-        <avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>True</avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>
-        <avrgcc.compiler.symbols.DefSymbols>
-          <ListValues>
-            <Value>NDEBUG</Value>
-            <Value>F_CPU=16000000L</Value>
-            <Value>ARDUINO=106012</Value>
-            <Value>ARDUINO_AVR_NANO</Value>
-            <Value>ARDUINO_ARCH_AVR</Value>
-          </ListValues>
-        </avrgcc.compiler.symbols.DefSymbols>
-        <avrgcc.compiler.directories.IncludePaths>
-          <ListValues>
-            <Value>%24(PackRepoDir)\atmel\ATmega_DFP\1.1.130\include</Value>
-            <Value>..\include\libraries\Adafruit_NeoPixel-master</Value>
-            <Value>..\include\core</Value>
-            <Value>..\include\variants\eightanaloginputs</Value>
-            <Value>..\include\variants\standard</Value>
-          </ListValues>
-        </avrgcc.compiler.directories.IncludePaths>
-        <avrgcc.compiler.optimization.level>Optimize for size (-Os)</avrgcc.compiler.optimization.level>
-        <avrgcc.compiler.optimization.OtherFlags>-fno-threadsafe-statics</avrgcc.compiler.optimization.OtherFlags>
-        <avrgcc.compiler.optimization.PackStructureMembers>True</avrgcc.compiler.optimization.PackStructureMembers>
-        <avrgcc.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcc.compiler.optimization.AllocateBytesNeededForEnum>
-        <avrgcc.compiler.optimization.DebugLevel>Default (-g2)</avrgcc.compiler.optimization.DebugLevel>
-        <avrgcc.compiler.warnings.AllWarnings>True</avrgcc.compiler.warnings.AllWarnings>
-        <avrgcc.compiler.warnings.InhibitAllWarnings>True</avrgcc.compiler.warnings.InhibitAllWarnings>
-        <avrgcc.compiler.miscellaneous.OtherFlags>-std=gnu99 -std=gnu11</avrgcc.compiler.miscellaneous.OtherFlags>
-        <avrgcccpp.compiler.general.ChangeDefaultCharTypeUnsigned>True</avrgcccpp.compiler.general.ChangeDefaultCharTypeUnsigned>
-        <avrgcccpp.compiler.general.ChangeDefaultBitFieldUnsigned>True</avrgcccpp.compiler.general.ChangeDefaultBitFieldUnsigned>
-        <avrgcccpp.compiler.symbols.DefSymbols>
-          <ListValues>
-            <Value>NDEBUG</Value>
-            <Value>F_CPU=16000000L</Value>
-            <Value>ARDUINO=106012</Value>
-            <Value>ARDUINO_AVR_NANO</Value>
-            <Value>ARDUINO_ARCH_AVR</Value>
-          </ListValues>
-        </avrgcccpp.compiler.symbols.DefSymbols>
-        <avrgcccpp.compiler.directories.IncludePaths>
-          <ListValues>
-            <Value>%24(PackRepoDir)\atmel\ATmega_DFP\1.1.130\include</Value>
-            <Value>..\include\libraries\Adafruit_NeoPixel-master</Value>
-            <Value>..\include\core</Value>
-            <Value>..\include\variants\eightanaloginputs</Value>
-            <Value>..\include\variants\standard</Value>
-          </ListValues>
-        </avrgcccpp.compiler.directories.IncludePaths>
-        <avrgcccpp.compiler.optimization.level>Optimize for size (-Os)</avrgcccpp.compiler.optimization.level>
-        <avrgcccpp.compiler.optimization.OtherFlags>-fno-threadsafe-statics</avrgcccpp.compiler.optimization.OtherFlags>
-        <avrgcccpp.compiler.optimization.PackStructureMembers>True</avrgcccpp.compiler.optimization.PackStructureMembers>
-        <avrgcccpp.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcccpp.compiler.optimization.AllocateBytesNeededForEnum>
-        <avrgcccpp.compiler.optimization.DebugLevel>Default (-g2)</avrgcccpp.compiler.optimization.DebugLevel>
-        <avrgcccpp.compiler.warnings.AllWarnings>True</avrgcccpp.compiler.warnings.AllWarnings>
-        <avrgcccpp.compiler.warnings.InhibitAllWarnings>True</avrgcccpp.compiler.warnings.InhibitAllWarnings>
-        <avrgcccpp.compiler.miscellaneous.OtherFlags>-std=gnu++11</avrgcccpp.compiler.miscellaneous.OtherFlags>
-        <avrgcccpp.linker.libraries.Libraries>
-          <ListValues>
-            <Value>libm</Value>
-          </ListValues>
-        </avrgcccpp.linker.libraries.Libraries>
-        <avrgcccpp.linker.miscellaneous.LinkerFlags>-Os</avrgcccpp.linker.miscellaneous.LinkerFlags>
-        <avrgcccpp.assembler.general.IncludePaths>
-          <ListValues>
-            <Value>%24(PackRepoDir)\atmel\ATmega_DFP\1.1.130\include</Value>
-          </ListValues>
-        </avrgcccpp.assembler.general.IncludePaths>
-        <avrgcccpp.assembler.debugging.DebugLevel>Default (-Wa,-g)</avrgcccpp.assembler.debugging.DebugLevel>
-      </AvrGccCpp>
+  <avrgcc.common.Device>-mmcu=atmega328p -B "%24(PackRepoDir)\atmel\ATmega_DFP\1.1.130\gcc\dev\atmega328p"</avrgcc.common.Device>
+  <avrgcc.common.optimization.RelaxBranches>True</avrgcc.common.optimization.RelaxBranches>
+  <avrgcc.common.outputfiles.hex>True</avrgcc.common.outputfiles.hex>
+  <avrgcc.common.outputfiles.lss>True</avrgcc.common.outputfiles.lss>
+  <avrgcc.common.outputfiles.eep>True</avrgcc.common.outputfiles.eep>
+  <avrgcc.common.outputfiles.srec>True</avrgcc.common.outputfiles.srec>
+  <avrgcc.common.outputfiles.usersignatures>False</avrgcc.common.outputfiles.usersignatures>
+  <avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>True</avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>
+  <avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>True</avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>
+  <avrgcc.compiler.symbols.DefSymbols>
+    <ListValues>
+      <Value>NDEBUG</Value>
+      <Value>F_CPU=16000000L</Value>
+      <Value>ARDUINO=106012</Value>
+      <Value>ARDUINO_AVR_NANO</Value>
+      <Value>ARDUINO_ARCH_AVR</Value>
+    </ListValues>
+  </avrgcc.compiler.symbols.DefSymbols>
+  <avrgcc.compiler.directories.IncludePaths>
+    <ListValues>
+      <Value>..\include\libraries\Adafruit_NeoPixel-master</Value>
+      <Value>..\include\core</Value>
+      <Value>..\include\variants\eightanaloginputs</Value>
+      <Value>..\include\variants\standard</Value>
+      <Value>%24(PackRepoDir)\atmel\ATmega_DFP\1.1.130\include</Value>
+    </ListValues>
+  </avrgcc.compiler.directories.IncludePaths>
+  <avrgcc.compiler.optimization.level>Optimize for size (-Os)</avrgcc.compiler.optimization.level>
+  <avrgcc.compiler.optimization.OtherFlags>-fno-threadsafe-statics</avrgcc.compiler.optimization.OtherFlags>
+  <avrgcc.compiler.optimization.PackStructureMembers>True</avrgcc.compiler.optimization.PackStructureMembers>
+  <avrgcc.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcc.compiler.optimization.AllocateBytesNeededForEnum>
+  <avrgcc.compiler.optimization.DebugLevel>Default (-g2)</avrgcc.compiler.optimization.DebugLevel>
+  <avrgcc.compiler.warnings.AllWarnings>True</avrgcc.compiler.warnings.AllWarnings>
+  <avrgcc.compiler.warnings.InhibitAllWarnings>True</avrgcc.compiler.warnings.InhibitAllWarnings>
+  <avrgcc.compiler.miscellaneous.OtherFlags>-std=gnu99 -std=gnu11</avrgcc.compiler.miscellaneous.OtherFlags>
+  <avrgcccpp.compiler.general.ChangeDefaultCharTypeUnsigned>True</avrgcccpp.compiler.general.ChangeDefaultCharTypeUnsigned>
+  <avrgcccpp.compiler.general.ChangeDefaultBitFieldUnsigned>True</avrgcccpp.compiler.general.ChangeDefaultBitFieldUnsigned>
+  <avrgcccpp.compiler.symbols.DefSymbols>
+    <ListValues>
+      <Value>NDEBUG</Value>
+      <Value>F_CPU=16000000L</Value>
+      <Value>ARDUINO=106012</Value>
+      <Value>ARDUINO_AVR_NANO</Value>
+      <Value>ARDUINO_ARCH_AVR</Value>
+    </ListValues>
+  </avrgcccpp.compiler.symbols.DefSymbols>
+  <avrgcccpp.compiler.directories.IncludePaths>
+    <ListValues>
+      <Value>..\include\libraries\Adafruit_NeoPixel-master</Value>
+      <Value>..\include\core</Value>
+      <Value>..\include\variants\eightanaloginputs</Value>
+      <Value>..\include\variants\standard</Value>
+      <Value>%24(PackRepoDir)\atmel\ATmega_DFP\1.1.130\include</Value>
+    </ListValues>
+  </avrgcccpp.compiler.directories.IncludePaths>
+  <avrgcccpp.compiler.optimization.level>Optimize for size (-Os)</avrgcccpp.compiler.optimization.level>
+  <avrgcccpp.compiler.optimization.OtherFlags>-fno-threadsafe-statics</avrgcccpp.compiler.optimization.OtherFlags>
+  <avrgcccpp.compiler.optimization.PackStructureMembers>True</avrgcccpp.compiler.optimization.PackStructureMembers>
+  <avrgcccpp.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcccpp.compiler.optimization.AllocateBytesNeededForEnum>
+  <avrgcccpp.compiler.optimization.DebugLevel>Default (-g2)</avrgcccpp.compiler.optimization.DebugLevel>
+  <avrgcccpp.compiler.warnings.AllWarnings>True</avrgcccpp.compiler.warnings.AllWarnings>
+  <avrgcccpp.compiler.warnings.InhibitAllWarnings>True</avrgcccpp.compiler.warnings.InhibitAllWarnings>
+  <avrgcccpp.compiler.miscellaneous.OtherFlags>-std=gnu++11</avrgcccpp.compiler.miscellaneous.OtherFlags>
+  <avrgcccpp.linker.libraries.Libraries>
+    <ListValues>
+      <Value>libm</Value>
+    </ListValues>
+  </avrgcccpp.linker.libraries.Libraries>
+  <avrgcccpp.linker.miscellaneous.LinkerFlags>-Os</avrgcccpp.linker.miscellaneous.LinkerFlags>
+  <avrgcccpp.assembler.general.IncludePaths>
+    <ListValues>
+      <Value>%24(PackRepoDir)\atmel\ATmega_DFP\1.1.130\include</Value>
+    </ListValues>
+  </avrgcccpp.assembler.general.IncludePaths>
+  <avrgcccpp.assembler.debugging.DebugLevel>Default (-Wa,-g)</avrgcccpp.assembler.debugging.DebugLevel>
+</AvrGccCpp>
     </ToolchainSettings>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <ToolchainSettings>
       <AvrGccCpp>
-        <avrgcc.common.Device>-mmcu=atmega328p -B "%24(PackRepoDir)\atmel\ATmega_DFP\1.1.130\gcc\dev\atmega328p"</avrgcc.common.Device>
-        <avrgcc.common.outputfiles.hex>True</avrgcc.common.outputfiles.hex>
-        <avrgcc.common.outputfiles.lss>True</avrgcc.common.outputfiles.lss>
-        <avrgcc.common.outputfiles.eep>True</avrgcc.common.outputfiles.eep>
-        <avrgcc.common.outputfiles.srec>True</avrgcc.common.outputfiles.srec>
-        <avrgcc.common.outputfiles.usersignatures>False</avrgcc.common.outputfiles.usersignatures>
-        <avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>True</avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>
-        <avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>True</avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>
-        <avrgcc.compiler.symbols.DefSymbols>
-          <ListValues>
-            <Value>DEBUG</Value>
-            <Value>F_CPU=16000000L</Value>
-            <Value>ARDUINO=106012</Value>
-            <Value>ARDUINO_AVR_NANO</Value>
-            <Value>ARDUINO_ARCH_AVR</Value>
-          </ListValues>
-        </avrgcc.compiler.symbols.DefSymbols>
-        <avrgcc.compiler.directories.IncludePaths>
-          <ListValues>
-            <Value>%24(PackRepoDir)\atmel\ATmega_DFP\1.1.130\include</Value>
-            <Value>..\include\libraries\Adafruit_NeoPixel-master</Value>
-            <Value>..\include\core</Value>
-            <Value>..\include\variants\eightanaloginputs</Value>
-            <Value>..\include\variants\standard</Value>
-          </ListValues>
-        </avrgcc.compiler.directories.IncludePaths>
-        <avrgcc.compiler.optimization.level>Optimize for size (-Os)</avrgcc.compiler.optimization.level>
-        <avrgcc.compiler.optimization.OtherFlags>-fno-threadsafe-statics</avrgcc.compiler.optimization.OtherFlags>
-        <avrgcc.compiler.optimization.PackStructureMembers>True</avrgcc.compiler.optimization.PackStructureMembers>
-        <avrgcc.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcc.compiler.optimization.AllocateBytesNeededForEnum>
-        <avrgcc.compiler.optimization.DebugLevel>Default (-g2)</avrgcc.compiler.optimization.DebugLevel>
-        <avrgcc.compiler.warnings.AllWarnings>True</avrgcc.compiler.warnings.AllWarnings>
-        <avrgcc.compiler.warnings.InhibitAllWarnings>True</avrgcc.compiler.warnings.InhibitAllWarnings>
-        <avrgcc.compiler.miscellaneous.OtherFlags>-std=gnu99 -std=gnu11</avrgcc.compiler.miscellaneous.OtherFlags>
-        <avrgcccpp.compiler.general.ChangeDefaultCharTypeUnsigned>True</avrgcccpp.compiler.general.ChangeDefaultCharTypeUnsigned>
-        <avrgcccpp.compiler.general.ChangeDefaultBitFieldUnsigned>True</avrgcccpp.compiler.general.ChangeDefaultBitFieldUnsigned>
-        <avrgcccpp.compiler.symbols.DefSymbols>
-          <ListValues>
-            <Value>DEBUG</Value>
-            <Value>F_CPU=16000000L</Value>
-            <Value>ARDUINO=106012</Value>
-            <Value>ARDUINO_AVR_NANO</Value>
-            <Value>ARDUINO_ARCH_AVR</Value>
-          </ListValues>
-        </avrgcccpp.compiler.symbols.DefSymbols>
-        <avrgcccpp.compiler.directories.IncludePaths>
-          <ListValues>
-            <Value>%24(PackRepoDir)\atmel\ATmega_DFP\1.1.130\include</Value>
-            <Value>..\include\libraries\Adafruit_NeoPixel-master</Value>
-            <Value>..\include\core</Value>
-            <Value>..\include\variants\eightanaloginputs</Value>
-            <Value>..\include\variants\standard</Value>
-          </ListValues>
-        </avrgcccpp.compiler.directories.IncludePaths>
-        <avrgcccpp.compiler.optimization.OtherFlags>-fno-threadsafe-statics</avrgcccpp.compiler.optimization.OtherFlags>
-        <avrgcccpp.compiler.optimization.PackStructureMembers>True</avrgcccpp.compiler.optimization.PackStructureMembers>
-        <avrgcccpp.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcccpp.compiler.optimization.AllocateBytesNeededForEnum>
-        <avrgcccpp.compiler.optimization.DebugLevel>Default (-g2)</avrgcccpp.compiler.optimization.DebugLevel>
-        <avrgcccpp.compiler.warnings.AllWarnings>True</avrgcccpp.compiler.warnings.AllWarnings>
-        <avrgcccpp.compiler.warnings.InhibitAllWarnings>True</avrgcccpp.compiler.warnings.InhibitAllWarnings>
-        <avrgcccpp.compiler.miscellaneous.OtherFlags>-std=gnu++11</avrgcccpp.compiler.miscellaneous.OtherFlags>
-        <avrgcccpp.linker.libraries.Libraries>
-          <ListValues>
-            <Value>libm</Value>
-          </ListValues>
-        </avrgcccpp.linker.libraries.Libraries>
-        <avrgcccpp.linker.miscellaneous.LinkerFlags>-Os</avrgcccpp.linker.miscellaneous.LinkerFlags>
-        <avrgcccpp.assembler.general.IncludePaths>
-          <ListValues>
-            <Value>%24(PackRepoDir)\atmel\ATmega_DFP\1.1.130\include</Value>
-          </ListValues>
-        </avrgcccpp.assembler.general.IncludePaths>
-        <avrgcccpp.assembler.debugging.DebugLevel>Default (-Wa,-g)</avrgcccpp.assembler.debugging.DebugLevel>
-      </AvrGccCpp>
+  <avrgcc.common.Device>-mmcu=atmega328p -B "%24(PackRepoDir)\atmel\ATmega_DFP\1.1.130\gcc\dev\atmega328p"</avrgcc.common.Device>
+  <avrgcc.common.optimization.RelaxBranches>True</avrgcc.common.optimization.RelaxBranches>
+  <avrgcc.common.outputfiles.hex>True</avrgcc.common.outputfiles.hex>
+  <avrgcc.common.outputfiles.lss>True</avrgcc.common.outputfiles.lss>
+  <avrgcc.common.outputfiles.eep>True</avrgcc.common.outputfiles.eep>
+  <avrgcc.common.outputfiles.srec>True</avrgcc.common.outputfiles.srec>
+  <avrgcc.common.outputfiles.usersignatures>False</avrgcc.common.outputfiles.usersignatures>
+  <avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>True</avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>
+  <avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>True</avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>
+  <avrgcc.compiler.symbols.DefSymbols>
+    <ListValues>
+      <Value>DEBUG</Value>
+      <Value>F_CPU=16000000L</Value>
+      <Value>ARDUINO=106012</Value>
+      <Value>ARDUINO_AVR_NANO</Value>
+      <Value>ARDUINO_ARCH_AVR</Value>
+    </ListValues>
+  </avrgcc.compiler.symbols.DefSymbols>
+  <avrgcc.compiler.directories.IncludePaths>
+    <ListValues>
+      <Value>..\include\libraries\Adafruit_NeoPixel-master</Value>
+      <Value>../include/libraries/ros_lib</Value>
+      <Value>..\include\core</Value>
+      <Value>..\include\variants\eightanaloginputs</Value>
+      <Value>..\include\variants\standard</Value>
+      <Value>%24(PackRepoDir)\atmel\ATmega_DFP\1.1.130\include</Value>
+    </ListValues>
+  </avrgcc.compiler.directories.IncludePaths>
+  <avrgcc.compiler.optimization.level>Optimize for size (-Os)</avrgcc.compiler.optimization.level>
+  <avrgcc.compiler.optimization.OtherFlags>-fno-threadsafe-statics</avrgcc.compiler.optimization.OtherFlags>
+  <avrgcc.compiler.optimization.PackStructureMembers>True</avrgcc.compiler.optimization.PackStructureMembers>
+  <avrgcc.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcc.compiler.optimization.AllocateBytesNeededForEnum>
+  <avrgcc.compiler.optimization.DebugLevel>Default (-g2)</avrgcc.compiler.optimization.DebugLevel>
+  <avrgcc.compiler.warnings.AllWarnings>True</avrgcc.compiler.warnings.AllWarnings>
+  <avrgcc.compiler.warnings.InhibitAllWarnings>True</avrgcc.compiler.warnings.InhibitAllWarnings>
+  <avrgcc.compiler.miscellaneous.OtherFlags>-std=gnu99 -std=gnu11</avrgcc.compiler.miscellaneous.OtherFlags>
+  <avrgcccpp.compiler.general.ChangeDefaultCharTypeUnsigned>True</avrgcccpp.compiler.general.ChangeDefaultCharTypeUnsigned>
+  <avrgcccpp.compiler.general.ChangeDefaultBitFieldUnsigned>True</avrgcccpp.compiler.general.ChangeDefaultBitFieldUnsigned>
+  <avrgcccpp.compiler.symbols.DefSymbols>
+    <ListValues>
+      <Value>DEBUG</Value>
+      <Value>F_CPU=16000000L</Value>
+      <Value>ARDUINO=106012</Value>
+      <Value>ARDUINO_AVR_NANO</Value>
+      <Value>ARDUINO_ARCH_AVR</Value>
+    </ListValues>
+  </avrgcccpp.compiler.symbols.DefSymbols>
+  <avrgcccpp.compiler.directories.IncludePaths>
+    <ListValues>
+      <Value>..\include\libraries\Adafruit_NeoPixel-master</Value>
+      <Value>../include/libraries/ros_lib</Value>
+      <Value>..\include\core</Value>
+      <Value>..\include\variants\eightanaloginputs</Value>
+      <Value>..\include\variants\standard</Value>
+      <Value>%24(PackRepoDir)\atmel\ATmega_DFP\1.1.130\include</Value>
+    </ListValues>
+  </avrgcccpp.compiler.directories.IncludePaths>
+  <avrgcccpp.compiler.optimization.level>Optimize for size (-Os)</avrgcccpp.compiler.optimization.level>
+  <avrgcccpp.compiler.optimization.OtherFlags>-fno-threadsafe-statics</avrgcccpp.compiler.optimization.OtherFlags>
+  <avrgcccpp.compiler.optimization.PackStructureMembers>True</avrgcccpp.compiler.optimization.PackStructureMembers>
+  <avrgcccpp.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcccpp.compiler.optimization.AllocateBytesNeededForEnum>
+  <avrgcccpp.compiler.optimization.DebugLevel>Default (-g2)</avrgcccpp.compiler.optimization.DebugLevel>
+  <avrgcccpp.compiler.warnings.AllWarnings>True</avrgcccpp.compiler.warnings.AllWarnings>
+  <avrgcccpp.compiler.warnings.InhibitAllWarnings>True</avrgcccpp.compiler.warnings.InhibitAllWarnings>
+  <avrgcccpp.compiler.miscellaneous.OtherFlags>-std=gnu++11</avrgcccpp.compiler.miscellaneous.OtherFlags>
+  <avrgcccpp.linker.libraries.Libraries>
+    <ListValues>
+      <Value>libm</Value>
+    </ListValues>
+  </avrgcccpp.linker.libraries.Libraries>
+  <avrgcccpp.linker.miscellaneous.LinkerFlags>-Os</avrgcccpp.linker.miscellaneous.LinkerFlags>
+  <avrgcccpp.assembler.general.IncludePaths>
+    <ListValues>
+      <Value>%24(PackRepoDir)\atmel\ATmega_DFP\1.1.130\include</Value>
+    </ListValues>
+  </avrgcccpp.assembler.general.IncludePaths>
+  <avrgcccpp.assembler.debugging.DebugLevel>Default (-Wa,-g)</avrgcccpp.assembler.debugging.DebugLevel>
+</AvrGccCpp>
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
@@ -271,6 +276,1827 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="include\libraries\Adafruit_NeoPixel-master\Adafruit_NeoPixel.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\actionlib\TestAction.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\actionlib\TestActionFeedback.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\actionlib\TestActionGoal.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\actionlib\TestActionResult.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\actionlib\TestFeedback.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\actionlib\TestGoal.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\actionlib\TestRequestAction.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\actionlib\TestRequestActionFeedback.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\actionlib\TestRequestActionGoal.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\actionlib\TestRequestActionResult.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\actionlib\TestRequestFeedback.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\actionlib\TestRequestGoal.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\actionlib\TestRequestResult.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\actionlib\TestResult.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\actionlib\TwoIntsAction.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\actionlib\TwoIntsActionFeedback.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\actionlib\TwoIntsActionGoal.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\actionlib\TwoIntsActionResult.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\actionlib\TwoIntsFeedback.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\actionlib\TwoIntsGoal.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\actionlib\TwoIntsResult.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\actionlib_msgs\GoalID.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\actionlib_msgs\GoalStatus.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\actionlib_msgs\GoalStatusArray.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\actionlib_tutorials\AveragingAction.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\actionlib_tutorials\AveragingActionFeedback.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\actionlib_tutorials\AveragingActionGoal.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\actionlib_tutorials\AveragingActionResult.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\actionlib_tutorials\AveragingFeedback.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\actionlib_tutorials\AveragingGoal.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\actionlib_tutorials\AveragingResult.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\actionlib_tutorials\FibonacciAction.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\actionlib_tutorials\FibonacciActionFeedback.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\actionlib_tutorials\FibonacciActionGoal.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\actionlib_tutorials\FibonacciActionResult.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\actionlib_tutorials\FibonacciFeedback.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\actionlib_tutorials\FibonacciGoal.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\actionlib_tutorials\FibonacciResult.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\ArduinoHardware.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\base_local_planner\Position2DInt.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\bond\Constants.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\bond\Status.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\cob_3d_mapping_msgs\CurvedPolygon.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\cob_3d_mapping_msgs\CurvedPolygonArray.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\cob_3d_mapping_msgs\Feature.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\cob_3d_mapping_msgs\FilterObject.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\cob_3d_mapping_msgs\GetApproachPoseForPolygon.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\cob_3d_mapping_msgs\GetBoundingBoxes.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\cob_3d_mapping_msgs\GetGeometryMap.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\cob_3d_mapping_msgs\GetObjectsOfClass.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\cob_3d_mapping_msgs\GetPlane.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\cob_3d_mapping_msgs\GetPointMap.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\cob_3d_mapping_msgs\GetTables.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\cob_3d_mapping_msgs\ModifyMap.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\cob_3d_mapping_msgs\MoveToTable.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\cob_3d_mapping_msgs\Plane.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\cob_3d_mapping_msgs\PlaneScene.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\cob_3d_mapping_msgs\Point2D.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\cob_3d_mapping_msgs\Polygon.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\cob_3d_mapping_msgs\PolylinePoint.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\cob_3d_mapping_msgs\SetBoundingBoxes.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\cob_3d_mapping_msgs\SetGeometryMap.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\cob_3d_mapping_msgs\SetPointMap.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\cob_3d_mapping_msgs\Shape.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\cob_3d_mapping_msgs\ShapeArray.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\cob_3d_mapping_msgs\SimilarityScore.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\cob_3d_mapping_msgs\UpdateMap.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\cob_object_detection_msgs\AcquireObjectImage.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\cob_object_detection_msgs\BagTrainObject.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\cob_object_detection_msgs\BaTestEnvironment.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\cob_object_detection_msgs\Detection.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\cob_object_detection_msgs\DetectionArray.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\cob_object_detection_msgs\DetectObjects.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\cob_object_detection_msgs\Mask.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\cob_object_detection_msgs\MaskArray.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\cob_object_detection_msgs\PoseRT.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\cob_object_detection_msgs\Rect.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\cob_object_detection_msgs\RectArray.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\cob_object_detection_msgs\SaveRecordedObject.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\cob_object_detection_msgs\StartObjectRecording.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\cob_object_detection_msgs\StopObjectRecording.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\cob_object_detection_msgs\TrainObject.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\cob_perception_msgs\ColorDepthImage.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\cob_perception_msgs\ColorDepthImageArray.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\cob_perception_msgs\Detection.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\cob_perception_msgs\DetectionArray.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\cob_perception_msgs\Float64ArrayStamped.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\cob_perception_msgs\Mask.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\cob_perception_msgs\People.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\cob_perception_msgs\Person.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\cob_perception_msgs\PersonStamped.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\cob_perception_msgs\PointCloud2Array.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\cob_perception_msgs\PositionMeasurement.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\cob_perception_msgs\PositionMeasurementArray.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\cob_perception_msgs\Rect.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\cob_perception_msgs\Skeleton.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\controller_manager_msgs\ControllersStatistics.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\controller_manager_msgs\ControllerState.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\controller_manager_msgs\ControllerStatistics.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\controller_manager_msgs\ListControllers.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\controller_manager_msgs\ListControllerTypes.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\controller_manager_msgs\LoadController.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\controller_manager_msgs\ReloadControllerLibraries.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\controller_manager_msgs\SwitchController.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\controller_manager_msgs\UnloadController.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\control_msgs\FollowJointTrajectoryAction.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\control_msgs\FollowJointTrajectoryActionFeedback.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\control_msgs\FollowJointTrajectoryActionGoal.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\control_msgs\FollowJointTrajectoryActionResult.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\control_msgs\FollowJointTrajectoryFeedback.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\control_msgs\FollowJointTrajectoryGoal.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\control_msgs\FollowJointTrajectoryResult.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\control_msgs\GripperCommand.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\control_msgs\GripperCommandAction.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\control_msgs\GripperCommandActionFeedback.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\control_msgs\GripperCommandActionGoal.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\control_msgs\GripperCommandActionResult.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\control_msgs\GripperCommandFeedback.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\control_msgs\GripperCommandGoal.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\control_msgs\GripperCommandResult.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\control_msgs\JointControllerState.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\control_msgs\JointTolerance.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\control_msgs\JointTrajectoryAction.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\control_msgs\JointTrajectoryActionFeedback.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\control_msgs\JointTrajectoryActionGoal.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\control_msgs\JointTrajectoryActionResult.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\control_msgs\JointTrajectoryControllerState.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\control_msgs\JointTrajectoryFeedback.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\control_msgs\JointTrajectoryGoal.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\control_msgs\JointTrajectoryResult.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\control_msgs\PointHeadAction.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\control_msgs\PointHeadActionFeedback.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\control_msgs\PointHeadActionGoal.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\control_msgs\PointHeadActionResult.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\control_msgs\PointHeadFeedback.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\control_msgs\PointHeadGoal.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\control_msgs\PointHeadResult.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\control_msgs\QueryCalibrationState.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\control_msgs\QueryTrajectoryState.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\control_msgs\SingleJointPositionAction.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\control_msgs\SingleJointPositionActionFeedback.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\control_msgs\SingleJointPositionActionGoal.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\control_msgs\SingleJointPositionActionResult.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\control_msgs\SingleJointPositionFeedback.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\control_msgs\SingleJointPositionGoal.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\control_msgs\SingleJointPositionResult.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\costmap_2d\VoxelGrid.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\diagnostic_msgs\AddDiagnostics.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\diagnostic_msgs\DiagnosticArray.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\diagnostic_msgs\DiagnosticStatus.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\diagnostic_msgs\KeyValue.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\diagnostic_msgs\SelfTest.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\driver_base\ConfigString.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\driver_base\ConfigValue.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\driver_base\SensorLevels.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\dynamic_reconfigure\BoolParameter.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\dynamic_reconfigure\Config.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\dynamic_reconfigure\ConfigDescription.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\dynamic_reconfigure\DoubleParameter.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\dynamic_reconfigure\Group.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\dynamic_reconfigure\GroupState.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\dynamic_reconfigure\IntParameter.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\dynamic_reconfigure\ParamDescription.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\dynamic_reconfigure\Reconfigure.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\dynamic_reconfigure\SensorLevels.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\dynamic_reconfigure\StrParameter.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\dynamixel_controllers\RestartController.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\dynamixel_controllers\SetComplianceMargin.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\dynamixel_controllers\SetCompliancePunch.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\dynamixel_controllers\SetComplianceSlope.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\dynamixel_controllers\SetSpeed.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\dynamixel_controllers\SetTorqueLimit.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\dynamixel_controllers\StartController.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\dynamixel_controllers\StopController.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\dynamixel_controllers\TorqueEnable.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\dynamixel_msgs\JointState.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\dynamixel_msgs\MotorState.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\dynamixel_msgs\MotorStateList.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\gazebo_msgs\ApplyBodyWrench.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\gazebo_msgs\ApplyJointEffort.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\gazebo_msgs\BodyRequest.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\gazebo_msgs\ContactsState.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\gazebo_msgs\ContactState.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\gazebo_msgs\DeleteModel.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\gazebo_msgs\GetJointProperties.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\gazebo_msgs\GetLinkProperties.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\gazebo_msgs\GetLinkState.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\gazebo_msgs\GetModelProperties.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\gazebo_msgs\GetModelState.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\gazebo_msgs\GetPhysicsProperties.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\gazebo_msgs\GetWorldProperties.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\gazebo_msgs\JointRequest.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\gazebo_msgs\LinkState.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\gazebo_msgs\LinkStates.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\gazebo_msgs\ModelState.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\gazebo_msgs\ModelStates.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\gazebo_msgs\ODEJointProperties.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\gazebo_msgs\ODEPhysics.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\gazebo_msgs\SetJointProperties.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\gazebo_msgs\SetJointTrajectory.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\gazebo_msgs\SetLinkProperties.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\gazebo_msgs\SetLinkState.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\gazebo_msgs\SetModelConfiguration.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\gazebo_msgs\SetModelState.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\gazebo_msgs\SetPhysicsProperties.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\gazebo_msgs\SpawnModel.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\gazebo_msgs\WorldState.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\geographic_msgs\BoundingBox.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\geographic_msgs\GeographicMap.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\geographic_msgs\GeographicMapChanges.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\geographic_msgs\GeoPoint.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\geographic_msgs\GeoPose.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\geographic_msgs\GetGeographicMap.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\geographic_msgs\GetRoutePlan.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\geographic_msgs\KeyValue.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\geographic_msgs\MapFeature.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\geographic_msgs\RouteNetwork.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\geographic_msgs\RoutePath.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\geographic_msgs\RouteSegment.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\geographic_msgs\UpdateGeographicMap.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\geographic_msgs\WayPoint.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\geometry_msgs\Accel.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\geometry_msgs\AccelStamped.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\geometry_msgs\AccelWithCovariance.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\geometry_msgs\AccelWithCovarianceStamped.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\geometry_msgs\Inertia.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\geometry_msgs\InertiaStamped.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\geometry_msgs\Point.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\geometry_msgs\Point32.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\geometry_msgs\PointStamped.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\geometry_msgs\Polygon.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\geometry_msgs\PolygonStamped.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\geometry_msgs\Pose.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\geometry_msgs\Pose2D.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\geometry_msgs\PoseArray.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\geometry_msgs\PoseStamped.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\geometry_msgs\PoseWithCovariance.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\geometry_msgs\PoseWithCovarianceStamped.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\geometry_msgs\Quaternion.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\geometry_msgs\QuaternionStamped.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\geometry_msgs\Transform.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\geometry_msgs\TransformStamped.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\geometry_msgs\Twist.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\geometry_msgs\TwistStamped.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\geometry_msgs\TwistWithCovariance.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\geometry_msgs\TwistWithCovarianceStamped.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\geometry_msgs\Vector3.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\geometry_msgs\Vector3Stamped.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\geometry_msgs\Wrench.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\geometry_msgs\WrenchStamped.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\household_objects_database_msgs\DatabaseModelPose.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\household_objects_database_msgs\DatabaseModelPoseList.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\household_objects_database_msgs\DatabaseReturnCode.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\household_objects_database_msgs\DatabaseScan.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\household_objects_database_msgs\GetModelDescription.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\household_objects_database_msgs\GetModelList.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\household_objects_database_msgs\GetModelMesh.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\household_objects_database_msgs\GetModelScans.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\household_objects_database_msgs\SaveScan.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\household_objects_database_msgs\TranslateRecognitionId.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\kinova_msgs\FingerPosition.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\kinova_msgs\HomeArm.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\kinova_msgs\JointAngles.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\kinova_msgs\JointVelocity.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\kinova_msgs\KinovaPose.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\kinova_msgs\PoseVelocity.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\kinova_msgs\SetEndEffectorOffset.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\kinova_msgs\SetForceControlParams.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\kinova_msgs\Start.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\kinova_msgs\Stop.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\laser_assembler\AssembleScans.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\laser_assembler\AssembleScans2.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\manipulation_msgs\CartesianGains.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\manipulation_msgs\ClusterBoundingBox.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\manipulation_msgs\Grasp.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\manipulation_msgs\GraspableObject.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\manipulation_msgs\GraspableObjectList.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\manipulation_msgs\GraspPlanning.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\manipulation_msgs\GraspPlanningAction.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\manipulation_msgs\GraspPlanningActionFeedback.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\manipulation_msgs\GraspPlanningActionGoal.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\manipulation_msgs\GraspPlanningActionResult.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\manipulation_msgs\GraspPlanningErrorCode.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\manipulation_msgs\GraspPlanningFeedback.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\manipulation_msgs\GraspPlanningGoal.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\manipulation_msgs\GraspPlanningResult.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\manipulation_msgs\GraspResult.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\manipulation_msgs\GripperTranslation.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\manipulation_msgs\ManipulationPhase.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\manipulation_msgs\ManipulationResult.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\manipulation_msgs\PlaceLocation.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\manipulation_msgs\PlaceLocationResult.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\manipulation_msgs\SceneRegion.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\map_msgs\GetMapROI.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\map_msgs\GetPointMap.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\map_msgs\GetPointMapROI.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\map_msgs\OccupancyGridUpdate.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\map_msgs\PointCloud2Update.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\map_msgs\ProjectedMap.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\map_msgs\ProjectedMapInfo.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\map_msgs\ProjectedMapsInfo.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\map_msgs\SaveMap.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\map_msgs\SetMapProjections.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\AllowedCollisionEntry.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\AllowedCollisionMatrix.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\ApplyPlanningScene.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\AttachedCollisionObject.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\BoundingVolume.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\CheckIfRobotStateExistsInWarehouse.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\CollisionObject.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\ConstraintEvalResult.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\Constraints.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\ContactInformation.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\CostSource.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\DeleteRobotStateFromWarehouse.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\DisplayRobotState.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\DisplayTrajectory.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\ExecuteKnownTrajectory.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\ExecuteTrajectoryAction.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\ExecuteTrajectoryActionFeedback.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\ExecuteTrajectoryActionGoal.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\ExecuteTrajectoryActionResult.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\ExecuteTrajectoryFeedback.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\ExecuteTrajectoryGoal.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\ExecuteTrajectoryResult.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\GetCartesianPath.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\GetConstraintAwarePositionIK.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\GetKinematicSolverInfo.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\GetMotionPlan.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\GetPlanningScene.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\GetPositionFK.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\GetPositionIK.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\GetRobotStateFromWarehouse.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\GetStateValidity.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\Grasp.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\GraspPlanning.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\GripperTranslation.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\JointConstraint.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\JointLimits.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\KinematicSolverInfo.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\LinkPadding.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\LinkScale.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\ListRobotStatesInWarehouse.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\LoadMap.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\MotionPlanDetailedResponse.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\MotionPlanRequest.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\MotionPlanResponse.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\MoveGroupAction.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\MoveGroupActionFeedback.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\MoveGroupActionGoal.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\MoveGroupActionResult.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\MoveGroupFeedback.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\MoveGroupGoal.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\MoveGroupResult.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\MoveItErrorCodes.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\ObjectColor.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\OrientationConstraint.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\OrientedBoundingBox.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\PickupAction.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\PickupActionFeedback.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\PickupActionGoal.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\PickupActionResult.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\PickupFeedback.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\PickupGoal.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\PickupResult.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\PlaceAction.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\PlaceActionFeedback.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\PlaceActionGoal.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\PlaceActionResult.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\PlaceFeedback.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\PlaceGoal.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\PlaceLocation.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\PlaceResult.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\PlannerInterfaceDescription.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\PlanningOptions.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\PlanningScene.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\PlanningSceneComponents.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\PlanningSceneWorld.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\PositionConstraint.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\PositionIKRequest.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\QueryPlannerInterfaces.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\RenameRobotStateInWarehouse.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\RobotState.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\RobotTrajectory.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\SaveMap.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\SaveRobotStateToWarehouse.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\TrajectoryConstraints.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\VisibilityConstraint.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\moveit_msgs\WorkspaceParameters.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\move_base_msgs\MoveBaseAction.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\move_base_msgs\MoveBaseActionFeedback.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\move_base_msgs\MoveBaseActionGoal.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\move_base_msgs\MoveBaseActionResult.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\move_base_msgs\MoveBaseFeedback.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\move_base_msgs\MoveBaseGoal.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\move_base_msgs\MoveBaseResult.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\navfn\MakeNavPlan.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\navfn\SetCostmap.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\nav_msgs\GetMap.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\nav_msgs\GetMapAction.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\nav_msgs\GetMapActionFeedback.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\nav_msgs\GetMapActionGoal.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\nav_msgs\GetMapActionResult.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\nav_msgs\GetMapFeedback.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\nav_msgs\GetMapGoal.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\nav_msgs\GetMapResult.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\nav_msgs\GetPlan.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\nav_msgs\GridCells.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\nav_msgs\MapMetaData.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\nav_msgs\OccupancyGrid.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\nav_msgs\Odometry.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\nav_msgs\Path.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\nav_msgs\SetMap.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\nodelet\NodeletList.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\nodelet\NodeletLoad.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\nodelet\NodeletUnload.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\object_recognition_msgs\GetObjectInformation.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\object_recognition_msgs\ObjectInformation.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\object_recognition_msgs\ObjectType.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\object_recognition_msgs\RecognizedObject.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\object_recognition_msgs\RecognizedObjectArray.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\object_recognition_msgs\Table.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\object_recognition_msgs\TableArray.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\octomap_msgs\BoundingBoxQuery.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\octomap_msgs\GetOctomap.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\octomap_msgs\Octomap.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\octomap_msgs\OctomapWithPose.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\openni2_camera\GetSerial.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\pcl_msgs\ModelCoefficients.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\pcl_msgs\PointIndices.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\pcl_msgs\PolygonMesh.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\pcl_msgs\Vertices.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\people_msgs\People.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\people_msgs\Person.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\people_msgs\PersonStamped.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\people_msgs\PositionMeasurement.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\people_msgs\PositionMeasurementArray.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\polled_camera\GetPolledImage.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\roboteq_msgs\Command.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\roboteq_msgs\Feedback.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\roboteq_msgs\Status.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\robot_pose_ekf\GetStatus.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\ros.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\roscpp\Empty.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\roscpp\GetLoggers.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\roscpp\Logger.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\roscpp\SetLoggerLevel.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\roscpp_tutorials\TwoInts.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\rosgraph_msgs\Clock.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\rosgraph_msgs\Log.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\rosgraph_msgs\TopicStatistics.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\rospy_tutorials\AddTwoInts.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\rospy_tutorials\BadTwoInts.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\rospy_tutorials\Floats.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\rospy_tutorials\HeaderString.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\rosserial_arduino\Adc.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\rosserial_arduino\Test.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\rosserial_msgs\Log.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\rosserial_msgs\RequestMessageInfo.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\rosserial_msgs\RequestParam.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\rosserial_msgs\RequestServiceInfo.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\rosserial_msgs\TopicInfo.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\ros\duration.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\ros\msg.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\ros\node_handle.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\ros\publisher.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\ros\service_client.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\ros\service_server.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\ros\subscriber.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\ros\time.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\sensor_msgs\BatteryState.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\sensor_msgs\CameraInfo.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\sensor_msgs\ChannelFloat32.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\sensor_msgs\CompressedImage.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\sensor_msgs\FluidPressure.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\sensor_msgs\Illuminance.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\sensor_msgs\Image.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\sensor_msgs\Imu.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\sensor_msgs\JointState.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\sensor_msgs\Joy.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\sensor_msgs\JoyFeedback.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\sensor_msgs\JoyFeedbackArray.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\sensor_msgs\LaserEcho.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\sensor_msgs\LaserScan.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\sensor_msgs\MagneticField.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\sensor_msgs\MultiDOFJointState.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\sensor_msgs\MultiEchoLaserScan.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\sensor_msgs\NavSatFix.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\sensor_msgs\NavSatStatus.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\sensor_msgs\PointCloud.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\sensor_msgs\PointCloud2.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\sensor_msgs\PointField.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\sensor_msgs\Range.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\sensor_msgs\RegionOfInterest.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\sensor_msgs\RelativeHumidity.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\sensor_msgs\SetCameraInfo.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\sensor_msgs\Temperature.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\sensor_msgs\TimeReference.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\shape_msgs\Mesh.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\shape_msgs\MeshTriangle.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\shape_msgs\Plane.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\shape_msgs\SolidPrimitive.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\smach_msgs\SmachContainerInitialStatusCmd.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\smach_msgs\SmachContainerStatus.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\smach_msgs\SmachContainerStructure.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\std_msgs\Bool.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\std_msgs\Byte.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\std_msgs\ByteMultiArray.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\std_msgs\Char.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\std_msgs\ColorRGBA.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\std_msgs\Duration.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\std_msgs\Empty.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\std_msgs\Float32.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\std_msgs\Float32MultiArray.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\std_msgs\Float64.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\std_msgs\Float64MultiArray.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\std_msgs\Header.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\std_msgs\Int16.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\std_msgs\Int16MultiArray.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\std_msgs\Int32.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\std_msgs\Int32MultiArray.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\std_msgs\Int64.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\std_msgs\Int64MultiArray.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\std_msgs\Int8.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\std_msgs\Int8MultiArray.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\std_msgs\MultiArrayDimension.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\std_msgs\MultiArrayLayout.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\std_msgs\String.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\std_msgs\Time.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\std_msgs\UInt16.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\std_msgs\UInt16MultiArray.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\std_msgs\UInt32.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\std_msgs\UInt32MultiArray.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\std_msgs\UInt64.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\std_msgs\UInt64MultiArray.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\std_msgs\UInt8.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\std_msgs\UInt8MultiArray.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\std_srvs\Empty.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\std_srvs\SetBool.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\std_srvs\Trigger.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\stereo_msgs\DisparityImage.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\tf2_msgs\FrameGraph.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\tf2_msgs\LookupTransformAction.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\tf2_msgs\LookupTransformActionFeedback.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\tf2_msgs\LookupTransformActionGoal.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\tf2_msgs\LookupTransformActionResult.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\tf2_msgs\LookupTransformFeedback.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\tf2_msgs\LookupTransformGoal.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\tf2_msgs\LookupTransformResult.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\tf2_msgs\TF2Error.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\tf2_msgs\TFMessage.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\tf\FrameGraph.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\tf\tf.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\tf\tfMessage.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\tf\transform_broadcaster.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\theora_image_transport\Packet.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\topic_tools\DemuxAdd.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\topic_tools\DemuxDelete.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\topic_tools\DemuxList.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\topic_tools\DemuxSelect.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\topic_tools\MuxAdd.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\topic_tools\MuxDelete.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\topic_tools\MuxList.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\topic_tools\MuxSelect.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\trajectory_msgs\JointTrajectory.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\trajectory_msgs\JointTrajectoryPoint.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\trajectory_msgs\MultiDOFJointTrajectory.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\trajectory_msgs\MultiDOFJointTrajectoryPoint.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\turtlesim\Color.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\turtlesim\Kill.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\turtlesim\Pose.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\turtlesim\SetPen.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\turtlesim\Spawn.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\turtlesim\TeleportAbsolute.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\turtlesim\TeleportRelative.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\turtle_actionlib\ShapeAction.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\turtle_actionlib\ShapeActionFeedback.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\turtle_actionlib\ShapeActionGoal.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\turtle_actionlib\ShapeActionResult.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\turtle_actionlib\ShapeFeedback.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\turtle_actionlib\ShapeGoal.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\turtle_actionlib\ShapeResult.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\turtle_actionlib\Velocity.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\uuid_msgs\UniqueID.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\visualization_msgs\ImageMarker.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\visualization_msgs\InteractiveMarker.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\visualization_msgs\InteractiveMarkerControl.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\visualization_msgs\InteractiveMarkerFeedback.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\visualization_msgs\InteractiveMarkerInit.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\visualization_msgs\InteractiveMarkerPose.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\visualization_msgs\InteractiveMarkerUpdate.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\visualization_msgs\Marker.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\visualization_msgs\MarkerArray.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\visualization_msgs\MenuEntry.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\wiimote\IrSourceInfo.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\wiimote\State.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\wiimote\TimedSwitch.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\wm_arm_msgs\armStatus.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\wm_arm_msgs\computePlan.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\wm_arm_msgs\homeArm.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\wm_arm_msgs\recoverTorqFault.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\wm_arm_msgs\solveIK.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\wm_arm_msgs\startArmControl.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\wm_arm_msgs\stopArmControl.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\wm_follow\setState.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\wm_people_follower\peopleFollower.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\ros_lib\wm_supervisor\robotStatus.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="include\variants\eightanaloginputs\pins_arduino.h">
@@ -360,12 +2186,85 @@
     <Compile Include="src\libraries\Adafruit_NeoPixel-master\esp8266.c">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="src\libraries\ros_lib\duration.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\libraries\ros_lib\time.cpp">
+      <SubType>compile</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="include\" />
     <Folder Include="include\core\" />
     <Folder Include="include\libraries\" />
     <Folder Include="include\libraries\Adafruit_NeoPixel-master\" />
+    <Folder Include="include\libraries\ros_lib" />
+    <Folder Include="include\libraries\ros_lib\actionlib" />
+    <Folder Include="include\libraries\ros_lib\actionlib_msgs" />
+    <Folder Include="include\libraries\ros_lib\actionlib_tutorials" />
+    <Folder Include="include\libraries\ros_lib\base_local_planner" />
+    <Folder Include="include\libraries\ros_lib\bond" />
+    <Folder Include="include\libraries\ros_lib\cob_3d_mapping_msgs" />
+    <Folder Include="include\libraries\ros_lib\cob_object_detection_msgs" />
+    <Folder Include="include\libraries\ros_lib\cob_perception_msgs" />
+    <Folder Include="include\libraries\ros_lib\control_msgs" />
+    <Folder Include="include\libraries\ros_lib\controller_manager_msgs" />
+    <Folder Include="include\libraries\ros_lib\costmap_2d" />
+    <Folder Include="include\libraries\ros_lib\diagnostic_msgs" />
+    <Folder Include="include\libraries\ros_lib\driver_base" />
+    <Folder Include="include\libraries\ros_lib\dynamic_reconfigure" />
+    <Folder Include="include\libraries\ros_lib\dynamixel_controllers" />
+    <Folder Include="include\libraries\ros_lib\dynamixel_msgs" />
+    <Folder Include="include\libraries\ros_lib\examples" />
+    <Folder Include="include\libraries\ros_lib\gazebo_msgs" />
+    <Folder Include="include\libraries\ros_lib\geographic_msgs" />
+    <Folder Include="include\libraries\ros_lib\geometry_msgs" />
+    <Folder Include="include\libraries\ros_lib\household_objects_database_msgs" />
+    <Folder Include="include\libraries\ros_lib\kinova_msgs" />
+    <Folder Include="include\libraries\ros_lib\laser_assembler" />
+    <Folder Include="include\libraries\ros_lib\manipulation_msgs" />
+    <Folder Include="include\libraries\ros_lib\map_msgs" />
+    <Folder Include="include\libraries\ros_lib\move_base_msgs" />
+    <Folder Include="include\libraries\ros_lib\moveit_msgs" />
+    <Folder Include="include\libraries\ros_lib\nav_msgs" />
+    <Folder Include="include\libraries\ros_lib\navfn" />
+    <Folder Include="include\libraries\ros_lib\nodelet" />
+    <Folder Include="include\libraries\ros_lib\object_recognition_msgs" />
+    <Folder Include="include\libraries\ros_lib\octomap_msgs" />
+    <Folder Include="include\libraries\ros_lib\openni2_camera" />
+    <Folder Include="include\libraries\ros_lib\pcl_msgs" />
+    <Folder Include="include\libraries\ros_lib\people_msgs" />
+    <Folder Include="include\libraries\ros_lib\polled_camera" />
+    <Folder Include="include\libraries\ros_lib\robot_pose_ekf" />
+    <Folder Include="include\libraries\ros_lib\roboteq_msgs" />
+    <Folder Include="include\libraries\ros_lib\ros" />
+    <Folder Include="include\libraries\ros_lib\roscpp" />
+    <Folder Include="include\libraries\ros_lib\roscpp_tutorials" />
+    <Folder Include="include\libraries\ros_lib\rosgraph_msgs" />
+    <Folder Include="include\libraries\ros_lib\rospy_tutorials" />
+    <Folder Include="include\libraries\ros_lib\rosserial_arduino" />
+    <Folder Include="include\libraries\ros_lib\rosserial_msgs" />
+    <Folder Include="include\libraries\ros_lib\sensor_msgs" />
+    <Folder Include="include\libraries\ros_lib\shape_msgs" />
+    <Folder Include="include\libraries\ros_lib\smach_msgs" />
+    <Folder Include="include\libraries\ros_lib\std_msgs" />
+    <Folder Include="include\libraries\ros_lib\std_srvs" />
+    <Folder Include="include\libraries\ros_lib\stereo_msgs" />
+    <Folder Include="include\libraries\ros_lib\tests" />
+    <Folder Include="include\libraries\ros_lib\tf" />
+    <Folder Include="include\libraries\ros_lib\tf2_msgs" />
+    <Folder Include="include\libraries\ros_lib\theora_image_transport" />
+    <Folder Include="include\libraries\ros_lib\topic_tools" />
+    <Folder Include="include\libraries\ros_lib\trajectory_msgs" />
+    <Folder Include="include\libraries\ros_lib\turtle_actionlib" />
+    <Folder Include="include\libraries\ros_lib\turtlesim" />
+    <Folder Include="include\libraries\ros_lib\uuid_msgs" />
+    <Folder Include="include\libraries\ros_lib\visualization_msgs" />
+    <Folder Include="include\libraries\ros_lib\wiimote" />
+    <Folder Include="include\libraries\ros_lib\wm_arm_msgs" />
+    <Folder Include="include\libraries\ros_lib\wm_follow" />
+    <Folder Include="include\libraries\ros_lib\wm_people_follower" />
+    <Folder Include="include\libraries\ros_lib\wm_supervisor" />
     <Folder Include="include\variants\" />
     <Folder Include="include\variants\eightanaloginputs\" />
     <Folder Include="include\variants\standard\" />
@@ -374,6 +2273,7 @@
     <Folder Include="src\core\PreprocessingAssembly\" />
     <Folder Include="src\libraries" />
     <Folder Include="src\libraries\Adafruit_NeoPixel-master" />
+    <Folder Include="src\libraries\ros_lib" />
   </ItemGroup>
   <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />
 </Project>

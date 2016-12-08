@@ -20,15 +20,18 @@ void set_brightness(uint8_t value);
 
 void clearPixels(void);
 
-void eye(uint8_t eyesNumber, uint8_t R,uint8_t G,uint8_t B);
-
 void set_pixel_color(uint8_t neoPixel_nbr, uint8_t R, uint8_t G,uint8_t B);
+
+void set_mouth(int col, int row, uint8_t R,uint8_t G,uint8_t B);
 
 void pixel_show(void);
 
-void smile(uint8_t R,uint8_t G,uint8_t B);
-#if 0
-void loadingFade();
-void loadingRoll2();
-#endif
+/**
+ * Fonction utiliser afin d'avoir la valeur numerique reel selon la position dans la matrice virtuel.
+ * @param col colomn atitre
+ * @param row row atitre
+ * @return Renvois la valeur numerique de la led en question, si impossible renvois -1.
+ */
+int get_led_number_col(int col, int row);
+
 #endif /* SARA_FACE_LED_DRIVER_H_ */

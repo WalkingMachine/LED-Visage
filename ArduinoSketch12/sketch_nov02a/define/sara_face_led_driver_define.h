@@ -16,39 +16,94 @@
 // How many NeoPixels are attached to the Arduino?
 #define NUMPIXELS   81
 #define EYEPIXELS   14
+//TODO: find better name
+#define EYEPIXELS_MINUS_ONE (EYEPIXELS-1)
+
+#define BASE_RIGHT_EYE EYEPIXELS
+#define BASE_LEFT_EYE 0
 #define BASE_BOUCHE EYEPIXELS*2
 
 #define DEFAULT_BRIGHTNESS 75
+#define DEFAULT_RED 0
+#define DEFAULT_GREEN_LED 0
+#define DEFAULT_BLUE_LED 50
 
+/* Disposition des LED
 
-#if defined(SOUND_WITH_AUDIO_IN)
+          [04] [05]
+       [03]        [06]
+    [02]              [07]
+ [01]                    [08]
+    [14]              [09]
+       [13]        [10]
+          [12] [11]
+*/
+#define DEFAULT_RED_EYE DEFAULT_RED
+#define DEFAULT_GREEN_LED_EYE DEFAULT_GREEN_LED
+#define DEFAULT_BLUE_LED_EYE DEFAULT_BLUE_LED
+
+#define BOARD_LED_RIGHT_EYE_001
+#define BOARD_LED_RIGHT_EYE_002
+#define BOARD_LED_RIGHT_EYE_003
+#define BOARD_LED_RIGHT_EYE_004
+#define BOARD_LED_RIGHT_EYE_005
+#define BOARD_LED_RIGHT_EYE_006
+#define BOARD_LED_RIGHT_EYE_007
+#define BOARD_LED_RIGHT_EYE_008
+#define BOARD_LED_RIGHT_EYE_009
+#define BOARD_LED_RIGHT_EYE_010
+#define BOARD_LED_RIGHT_EYE_011
+#define BOARD_LED_RIGHT_EYE_012
+#define BOARD_LED_RIGHT_EYE_013
+#define BOARD_LED_RIGHT_EYE_014
+
+#define BOARD_LED_LEFT_EYE_001
+#define BOARD_LED_LEFT_EYE_002
+#define BOARD_LED_LEFT_EYE_003
+#define BOARD_LED_LEFT_EYE_004
+#define BOARD_LED_LEFT_EYE_005
+#define BOARD_LED_LEFT_EYE_006
+#define BOARD_LED_LEFT_EYE_007
+#define BOARD_LED_LEFT_EYE_008
+#define BOARD_LED_LEFT_EYE_009
+#define BOARD_LED_LEFT_EYE_010
+#define BOARD_LED_LEFT_EYE_011
+#define BOARD_LED_LEFT_EYE_012
+#define BOARD_LED_LEFT_EYE_013
+#define BOARD_LED_LEFT_EYE_014
+
+#define MAX_MOUTH_COL 11
+#define MAX_MOUTH_ROW_1 3
+#define MAX_MOUTH_ROW_2 3
+#define MAX_MOUTH_ROW_3 5
+#define MAX_MOUTH_ROW_4 5
+#define MAX_MOUTH_ROW_5 8
+#define MAX_MOUTH_ROW_6 5
+#define MAX_MOUTH_ROW_7 8
+#define MAX_MOUTH_ROW_8 5
+#define MAX_MOUTH_ROW_9 5
+#define MAX_MOUTH_ROW_10 3
+#define MAX_MOUTH_ROW_11 3
+#define MOUTH_MAX_ROW { MAX_MOUTH_ROW_1,MAX_MOUTH_ROW_2,MAX_MOUTH_ROW_3,MAX_MOUTH_ROW_4,MAX_MOUTH_ROW_5,MAX_MOUTH_ROW_6,\
+MAX_MOUTH_ROW_7,MAX_MOUTH_ROW_8,MAX_MOUTH_ROW_9,MAX_MOUTH_ROW_10,MAX_MOUTH_ROW_11 }
+static const unsigned char mouthMaxRow[MAX_MOUTH_COL] = MOUTH_MAX_ROW;
   #define VOLT_MAX_MASK_BUFFER 2
   #define VOLT_CUR_MASK_BUFFER 2
   #define VOLT_MIN_MASK_BUFFER 2
-  
   #define MAX_FRAME 6
-  #define MAX_MOUTH_COL 11
-  #define MAX_MOUTH_ROW_1 3
-  #define MAX_MOUTH_ROW_2 3
-  #define MAX_MOUTH_ROW_3 5
-  #define MAX_MOUTH_ROW_4 5
-  #define MAX_MOUTH_ROW_5 8
-  #define MAX_MOUTH_ROW_6 5
-  #define MAX_MOUTH_ROW_7 8
-  #define MAX_MOUTH_ROW_8 5
-  #define MAX_MOUTH_ROW_9 5
-  #define MAX_MOUTH_ROW_10 3
-  #define MAX_MOUTH_ROW_11 3
-  #define MOUTH_MAX_ROW { MAX_MOUTH_ROW_1,MAX_MOUTH_ROW_2,MAX_MOUTH_ROW_3,MAX_MOUTH_ROW_4,MAX_MOUTH_ROW_5,MAX_MOUTH_ROW_6,\
-						  MAX_MOUTH_ROW_7,MAX_MOUTH_ROW_8,MAX_MOUTH_ROW_9,MAX_MOUTH_ROW_10,MAX_MOUTH_ROW_11 }
-  static const unsigned char mouthMaxRow[MAX_MOUTH_COL] = MOUTH_MAX_ROW;
+
+
+  
+  
+  
+
   
   #define MOUTH_MAX_COL_SIZE { (1<<2),(1<<2),(1<<4),(1<<4),(1<<7),(1<<4),(1<<7),(1<<4),(1<<4),(1<<2),(1<<2) }
   static const unsigned char mouthMaxColSize[] = MOUTH_MAX_COL_SIZE;
-  #define DEFAULT_RED_LED_MOUTH 0
-  #define DEFAULT_GREEN_LED_MOUTH 0
-  #define DEFAULT_BLUE_LED_MOUTH 50
-#endif
+  #define DEFAULT_RED_LED_MOUTH DEFAULT_RED
+  #define DEFAULT_GREEN_LED_MOUTH DEFAULT_GREEN_LED
+  #define DEFAULT_BLUE_LED_MOUTH DEFAULT_BLUE_LED
+
 
 /*
 
