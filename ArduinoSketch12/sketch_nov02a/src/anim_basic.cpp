@@ -8,6 +8,7 @@
 #include "anim_basic.h"
 
 #define MAX_EYE_LED_NBR(eye_chose) ((eye_chose==eye_t::left ? BASE_LEFT_EYE : BASE_RIGHT_EYE) + EYEPIXELS)
+#define MIN_EYE_LED_NBR(eye_chose) (eye_chose==eye_t::left ? BASE_LEFT_EYE : BASE_RIGHT_EYE)
 
 	void smile(uint8_t R,uint8_t G,uint8_t B)
 {
@@ -219,30 +220,39 @@ set_pixel_color(led_position,R, G,B);
 
 void eye_look_at(eye_t eye_chose, uint8_t eye_direction, uint8_t width, uint8_t R,uint8_t G,uint8_t B)
 {
-	width %= EYEPIXELS;
+	width %= EYEPIXELS; //limit the size
+	eye_direction %= (EYEPIXELS); //limit the size
+	
+	eye_direction+=MIN_EYE_LED_NBR(eye_chose);//adjust to the right eye
 
-	uint8_t led_position = (eye_chose==eye_t::left ? BASE_LEFT_EYE : BASE_RIGHT_EYE);
-	eye(eye_chose,R,G,B);
-
-	led_position = (led_position + (eye_direction % EYEPIXELS))%  MAX_EYE_LED_NBR(eye_chose);
-
-	uint8_t led_position_start_at = (led_position + (width/2))%  MAX_EYE_LED_NBR(eye_chose);
-
-	uint8_t led_position_stop_at = MAX_EYE_LED_NBR(eye_chose) - (led_position - (width/2));
-	led_position_stop_at =   MAX_EYE_LED_NBR(eye_chose) % led_position_stop_at;
-
-
-	for( uint8_t position = led_position_start_at;
-	position != led_position_stop_at; /*position %=  MAX_EYE_LED_NBR(eye_chose)*/)
+	 uint8_t finish = ( eye_direction==0? EYEPIXELS_MINUS_ONE : eye_direction-1); //-1 to ofset else it will re-toggle le first led
+	 
+	
+	uint8_t led_toggle_from =  eye_direction; // equivalent du i , i= start_at
+	uint8_t led_position = MIN_EYE_LED_NBR(eye_chose); // equivalent du j , j=counter_to_know_we_dont_pass_EYEPIXELS
+	
+	uint8_t width_high_limit = MIN_EYE_LED_NBR(eye_chose)+(width/2);
+	uint8_t width_low_limit  = MAX_EYE_LED_NBR(eye_chose)-(width/2);
+	do 
 	{
-
-		set_pixel_color(position,0, 0, 0);
-		position-=1;
-		if(position < MAX_EYE_LED_NBR(eye_chose))
-			position %=  MAX_EYE_LED_NBR(eye_chose);
+		if((led_position <= width_high_limit) || (led_position >= width_low_limit))
+			set_pixel_color(led_toggle_from,0, 0, 0);
 		else
-			position = MAX_EYE_LED_NBR(eye_chose) % position;
-	}
-	//patch last led (we need to find a better way )
-	set_pixel_color(led_position_stop_at, 0, 0, 0);
+			set_pixel_color(led_toggle_from,R, G, B);
+			
+		pixel_show();//only for debug purpose
+			
+		led_position++;
+		
+		if (led_toggle_from+1 < MAX_EYE_LED_NBR(eye_chose))
+		{
+			led_toggle_from++;
+		} 
+		else
+		{
+			led_toggle_from = MIN_EYE_LED_NBR(eye_chose);
+		}
+	} while (led_position != MAX_EYE_LED_NBR(eye_chose));//(led_toggle_from != finish eye_direction); 
+	
+	
 }

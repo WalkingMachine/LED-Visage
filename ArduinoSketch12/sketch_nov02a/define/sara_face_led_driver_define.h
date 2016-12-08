@@ -16,6 +16,8 @@
 // How many NeoPixels are attached to the Arduino?
 #define NUMPIXELS   81
 #define EYEPIXELS   14
+//TODO: find better name
+#define EYEPIXELS_MINUS_ONE (EYEPIXELS-1)
 
 #define BASE_RIGHT_EYE EYEPIXELS
 #define BASE_LEFT_EYE 0

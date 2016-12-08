@@ -35,6 +35,8 @@ for(uint8_t i=1; i<=3;i++){
 void emo_ciconspect()
 {
 	clearPixels();
+	eye( eye_t::left, 255,20,147);
+	eye( eye_t::right, 255,20,147);
 	mouth_surprise(50,50,50);
 	pixel_show();
 }

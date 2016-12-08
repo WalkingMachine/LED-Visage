@@ -27,7 +27,7 @@
 //test some emotion
 //#define TEST_FACE_01
 //#define TEST_FACE_02 test eye_roll_bar
-//#define TEST_FACE_03 test 0
+#define TEST_FACE_03 test 0
 #include "anim_basic.h"
 #include "anim_overreact.h"
 //#define TEST_ROS
@@ -148,11 +148,12 @@ void loop() {
 		for(uint8_t i=0; i != MAX_FRAME_eye_look_at; i++)
 		{
 			eye_look_at(eye_t::left,i,EYE_WIDTH, DEFAULT_RED_EYE, DEFAULT_GREEN_LED_EYE, DEFAULT_BLUE_LED_EYE);
-			//eye_look_at(eye_t::right,i,2,DEFAULT_RED_EYE, DEFAULT_GREEN_LED_EYE, DEFAULT_BLUE_LED_EYE);
 			pixel_show();
+			//eye_look_at(eye_t::right,i,EYE_WIDTH,DEFAULT_RED_EYE, DEFAULT_GREEN_LED_EYE, DEFAULT_BLUE_LED_EYE);
+			//pixel_show();
 			delay(500);
 		}
-		delay(1000);
+
 	}
 	while(1);
 	#endif
