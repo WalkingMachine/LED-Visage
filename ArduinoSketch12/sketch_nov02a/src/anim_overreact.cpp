@@ -136,6 +136,102 @@ void emo_party()
   delay(rand() % TIMEDELAY);
   #endif
 }
+
+void emo_party_red()
+{
+	#if 0
+	/*Émotion : Party*********************************************/
+	eye( eye_t::left, 255,20,147);
+	eye( eye_t::right, 255,20,147);
+	bouche_fermee(255,20,147);
+	delay(100);
+	bouche_vide();
+	eye( eye_t::left, 0,245,255);
+	eye( eye_t::right, 0,245,255);
+	petite_bouche(0,245,255);
+	delay(100);
+	bouche_vide();
+	eye( eye_t::left, 127,255,0);
+	eye( eye_t::right, 127,255,0);
+	grande_bouche(127,255,0);
+	delay(100);
+	bouche_vide();
+	theaterChase(pixels.Color(127, 127, 127), 100); // White
+	theaterChase(pixels.Color(127, 0, 0), 100); // Red
+	theaterChase(pixels.Color(0, 0, 127), 100); // Blue
+	#else
+	//uint8_t LEhasard = rand() % 10 +1;
+	uint8_t randomRed, randomGreen, randomBlue;
+	randomRed=rand() % 150 ;
+	randomGreen=rand() % 150 ;
+	randomBlue=rand() % 20 ;
+	#define ARRAY_LINEON 10
+	#define TIMEDELAY 50
+	#define CHANCE_CHOSE 3
+	for(uint8_t i=0; i < ARRAY_LINEON; i++)
+	{
+		set_pixel_color(rand() % NUMPIXELS,randomRed,0 ,/*randomBlue*/0 );
+	}
+	//set_pixel_color(rand() % NUMPIXELS,randomRed,randomGreen ,randomBlue );
+	//delay(200);
+	if(1 == rand()%4)
+	{
+		for(uint8_t i=0; i < ARRAY_LINEON*3; i++)
+		{
+			set_pixel_color(rand() % NUMPIXELS,0 ,0 ,0 );
+		}
+	}
+	
+	if(0 == rand()%4)
+	{
+		switch(rand()%4)
+		{
+			case 0:
+			/*Émotion : Triste*********************************************/
+			clearPixels();
+			//bouche_vide();
+			if(rand()%CHANCE_CHOSE==0)
+			set_eye(eye_t::left,50,0,0);
+			if(rand()%CHANCE_CHOSE==0)
+			set_eye(eye_t::right,50,0,0);
+			if(rand()%CHANCE_CHOSE==0)
+			smile(50,0,0);
+			pixel_show();
+			break;
+			case 1:
+			//break;
+			case 2:
+			clearPixels();
+			//bouche_vide();
+			if(rand()%CHANCE_CHOSE==0)
+			set_eye(eye_t::left,50,0,0);
+			if(rand()%CHANCE_CHOSE==0)
+			set_eye(eye_t::right,50,0,0);
+			if(rand()%CHANCE_CHOSE==0)
+			sad(50,0,0);
+			pixel_show();
+			break;
+			case 3:
+			clearPixels();
+			//bouche_vide();
+			if(rand()%CHANCE_CHOSE==0)
+			set_eye(eye_t::left,50,0,0);
+			if(rand()%CHANCE_CHOSE==0)
+			set_eye(eye_t::right,50,0,0);
+			if(rand()%CHANCE_CHOSE==0)
+			mouth_surprise(50,0,0);
+			pixel_show();
+			break;
+			default:
+			break;
+		}
+	}
+	
+	
+	pixel_show();
+	delay(rand() % TIMEDELAY);
+	#endif
+}
 #if 0
 void petite_bouche(uint8_t R,uint8_t G,uint8_t B){
    pixels.setPixelColor(BASE_BOUCHE + 12, pixels.Color(R,G,B));

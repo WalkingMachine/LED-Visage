@@ -215,7 +215,7 @@ void set_eye(eye_t eye_chose,uint8_t eye_direction, uint8_t R,uint8_t G,uint8_t 
 	{
 		if((eye_direction >= 0) && (eye_direction < (EYEPIXELS/2)))//haut de l'oeil
 		{
-			i= (EYEPIXELS/2)+eye_direction;//(EYEPIXELS/2)-eye_direction;
+			i= (EYEPIXELS/2) + eye_direction;//(EYEPIXELS/2)-eye_direction;
 		}
 		else //bas de l'oeil plus coin 
 		{
@@ -243,17 +243,17 @@ void set_eye(eye_t eye_chose,uint8_t eye_direction, uint8_t R,uint8_t G,uint8_t 
 
 void eye_roll_bar(eye_t eye_chose, uint8_t sequence_nbr, uint8_t R,uint8_t G,uint8_t B)
 {
- sequence_nbr %= MAX_FRAME_eye_roll_bar;
+	sequence_nbr %= MAX_FRAME_eye_roll_bar;
 
-uint8_t led_position = (eye_chose==eye_t::left ? BASE_LEFT_EYE : BASE_RIGHT_EYE);
+	uint8_t led_position = (eye_chose==eye_t::left ? BASE_LEFT_EYE : BASE_RIGHT_EYE);
 	set_eye(eye_chose,0,0,0);
 
-led_position = (led_position + sequence_nbr)% MAX_EYE_LED_NBR(eye_chose);
+	led_position = (led_position + sequence_nbr)% MAX_EYE_LED_NBR(eye_chose);
 
-set_pixel_color(led_position,R, G,B);
+	set_pixel_color(led_position,R, G,B);
 
-led_position = (led_position + (EYEPIXELS/2))% MAX_EYE_LED_NBR(eye_chose);
-set_pixel_color(led_position,R, G,B);
+	led_position = (led_position + (EYEPIXELS/2))% MAX_EYE_LED_NBR(eye_chose);
+	set_pixel_color(led_position,R, G,B);
 }
 
 void eye_look_at(eye_t eye_chose, uint8_t eye_direction, uint8_t width, uint8_t R,uint8_t G,uint8_t B)
@@ -265,28 +265,28 @@ void eye_look_at(eye_t eye_chose, uint8_t eye_direction, uint8_t width, uint8_t 
 	 
 	
 	uint8_t led_toggle_from =  eye_direction; // equivalent du i , i= start_at
-	uint8_t led_position = 0;//not needed//MIN_EYE_LED_NBR(eye_chose); // equivalent du j , j=counter_to_know_we_dont_pass_EYEPIXELS
+	uint8_t led_position = 0;// equivalent du j , j=counter_to_know_we_dont_pass_EYEPIXELS
 	
-	uint8_t width_high_limit = 0 +(width/2);//not needed//MIN_EYE_LED_NBR(eye_chose)+(width/2);
-	uint8_t width_low_limit  = EYEPIXELS_MINUS_ONE -(width/2);//not needed//MAX_EYE_LED_NBR(eye_chose)-(width/2);
+	uint8_t width_high_limit = 0 +(width/2);
+	uint8_t width_low_limit  = EYEPIXELS_MINUS_ONE -(width/2);
 	do 
 	{
 		if((led_position <= width_high_limit) || (led_position >= width_low_limit))
-			set_eye(eye_chose,led_toggle_from, 0, 0, 0 );//not needed//set_pixel_color(led_toggle_from,0, 0, 0);
+			set_eye(eye_chose,led_toggle_from, 0, 0, 0 );
 		else
-			set_eye(eye_chose,led_toggle_from, R, G, B );//not needed//set_pixel_color(led_toggle_from,R, G, B);
+			set_eye(eye_chose,led_toggle_from, R, G, B );
 			
 		led_position++;
 		
-		if (led_toggle_from+1 < EYEPIXELS)//not needed//MAX_EYE_LED_NBR(eye_chose))
+		if (led_toggle_from+1 < EYEPIXELS)
 		{
 			led_toggle_from++;
 		} 
 		else
 		{
-			led_toggle_from = 0;//not needed// MIN_EYE_LED_NBR(eye_chose);
+			led_toggle_from = 0;
 		}
-	} while (led_position != EYEPIXELS);//not needed//MAX_EYE_LED_NBR(eye_chose));//(led_toggle_from != finish eye_direction); 
+	} while (led_position != EYEPIXELS);
 	
 	
 }

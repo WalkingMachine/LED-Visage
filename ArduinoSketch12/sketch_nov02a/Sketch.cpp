@@ -27,7 +27,7 @@
 //test some emotion
 //#define TEST_FACE_01
 //#define TEST_FACE_02 test eye_roll_bar
-#define TEST_FACE_03 test 0
+//#define TEST_FACE_03 test 0
 #include "anim_basic.h"
 #include "anim_overreact.h"
 //#define TEST_ROS
@@ -45,7 +45,7 @@ int luminosite = 1;
 int mode = 1; // 0 = wait, 1 = start, 2 = loading, 3 = green, 4 = yellow, 5 = red, 6 = wait for answer
 bool talking = false;
 
-uint8_t m_mode=7;
+uint8_t m_mode=1;
 
  
 
@@ -85,6 +85,10 @@ void state_machine_face(void)
 {
 	switch (m_mode)
 	{
+		case 6:
+			emo_party_red();
+			delay(200);
+			break;
 		 case 7:
 			emo_party();
 			delay(200);
@@ -194,10 +198,10 @@ void control_emo(const std_msgs::UInt8& emo)
 		break;
 		case 5:
 		emo_surpris();
-		break;
-		case 6:
-		emo_coquin();
 		break;*/
+		case 6:
+		emo_party_red();//emo_coquin();
+		break;
 		case 7:
 		emo_party();
 		break;
